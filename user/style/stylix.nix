@@ -1,9 +1,16 @@
-{ config, lib, pkgs, inputs, userSettings, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  userSettings,
+  ...
+}:
 
 let
-  themePath = "../../../themes/"+userSettings.theme+"/"+userSettings.theme+".yaml";
+  themePath = "../../../themes/" + userSettings.theme + "/" + userSettings.theme + ".yaml";
   themePolarity = "dark";
-  wallpaperImage = ../../themes/wallpapers/qipao-city.jpg;
+  wallpaperImage = ~/Media/Pictures/wallpapers/latenight-urban.jpg;
 in
 {
 
@@ -74,7 +81,10 @@ in
   #
   # '';
   home.packages = with pkgs; [
-     libsForQt5.qt5ct pkgs.libsForQt5.breeze-qt5 libsForQt5.breeze-icons pkgs.noto-fonts-monochrome-emoji
+    libsForQt5.qt5ct
+    pkgs.libsForQt5.breeze-qt5
+    libsForQt5.breeze-icons
+    pkgs.noto-fonts-monochrome-emoji
   ];
   qt = {
     enable = true;

@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  imports = [ 
+  imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./nixvim-plugins/cmp.nix
     ./nixvim-plugins/lsp.nix
@@ -26,7 +26,7 @@
       mapleader = " ";
       maplocalleader = " ";
     };
-    
+
     # Opts
     opts = {
       number = true;
@@ -51,7 +51,11 @@
       splitbelow = true;
 
       list = true;
-      listchars = { tab = "» "; trail = "·"; nbsp = "␣"; };
+      listchars = {
+        tab = "» ";
+        trail = "·";
+        nbsp = "␣";
+      };
       inccommand = "split";
       cursorline = true;
       scrolloff = 10;
@@ -75,12 +79,17 @@
       {
         action = "<cmd>LazyGit<cr>";
         key = "<leader>lg";
-        options = { desc = "[L]azy[G]it"; };
+        options = {
+          desc = "[L]azy[G]it";
+        };
       }
       {
         action = "<cmd>nohlsearch<CR>";
         key = "<Esc>";
-        options = { desc = "Clear search highlight"; };
+        options = {
+          desc = "Clear search highlight";
+        };
+        mode = "n";
       }
     ];
   };
