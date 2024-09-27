@@ -10,7 +10,7 @@
 let
   themePath = "../../../themes/" + userSettings.theme + "/" + userSettings.theme + ".yaml";
   themePolarity = "dark";
-  wallpaperImage = ~/Media/Pictures/wallpapers/latenight-urban.jpg;
+  wallpaperImage = ../../themes/wallpapers/latenight-urban.jpg;
 in
 {
 
