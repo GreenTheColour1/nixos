@@ -1,28 +1,37 @@
-{ pkgs, lib, systemSettings, userSettings, inputs, ... }:
+{
+  pkgs,
+  lib,
+  systemSettings,
+  userSettings,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../../system/hardware-configuration.nix
-      ../../system/hardware/nvidia.nix
-      (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix") # My window manager
-      ../../system/style/stylix.nix
-      ../../system/hardware/bluetooth.nix
-      ../../system/app/nix-helper.nix # Nix commands wrapper for better commands
+  imports = [
+    # Include the results of the hardware scan.
+    ../../system/hardware-configuration.nix
+    ../../system/hardware/nvidia.nix
+    (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix") # My window manager
+    ../../system/style/stylix.nix
+    ../../system/hardware/bluetooth.nix
+    ../../system/app/nix-helper.nix # Nix commands wrapper for better commands
+    ../../system/app/flatpak.nix # Flatpak
 
-      # Gaming
-      ../../system/app/wine.nix
-      ../../system/app/steam.nix
-      ../../system/app/gamemode.nix
-      ../../system/app/prismlauncher.nix # Minecraft launcher
-      ../../system/app/aagl.nix
-    ];
+    # Gaming
+    ../../system/app/wine.nix
+    ../../system/app/steam.nix
+    ../../system/app/gamemode.nix
+    ../../system/app/prismlauncher.nix # Minecraft launcher
+    ../../system/app/aagl.nix
+  ];
 
   # Fix nix path
-  nix.nixPath = [ "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-                  "nixos-config=$HOME/dotfiles/system/configuration.nix"
-                  "/nix/var/nix/profiles/per-user/root/channels"
-                ];
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=$HOME/dotfiles/system/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
 
   # Ensure nix flakes are enabled
   nix.package = pkgs.nixFlakes;
@@ -68,8 +77,12 @@
   users.users.fishy = {
     isNormalUser = true;
     description = userSettings.username;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
+    packages = [ ];
     uid = 1000;
   };
 

@@ -1,42 +1,56 @@
-{ config, pkgs, pkgs-stable, userSettings, systemSettings, inputs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-stable,
+  userSettings,
+  systemSettings,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
+  home.homeDirectory = "/home/" + userSettings.username;
 
   imports = [
     ../../user/app/git/git.nix # Git config
     ../../user/shell/sh.nix # zsh and bash config
     ../../user/style/stylix.nix
-    (./. + "../../../user/wm"+("/"+userSettings.wm)+".nix") # window manager selected from flake
+    (./. + "../../../user/wm" + ("/" + userSettings.wm) + ".nix") # window manager selected from flake
     ../../user/app/apps/nixvim.nix
     ../../user/app/terminal/yazi.nix
     ../../user/app/media/spotify.nix
     ../../user/app/social/disord.nix
-];
+  ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = (with pkgs; [
-    # Core
-    zsh
-    kitty
-    firefox
-    inputs.zen-browser.packages."${systemSettings.system}".specific
-    brave
-    git
-    gh
-    stow
-    killall
+  home.packages = (
+    with pkgs;
+    [
+      # Core
+      zsh
+      kitty
+      firefox
+      inputs.zen-browser.packages."${systemSettings.system}".specific
+      brave
+      git
+      gh
+      stow
+      killall
 
-    # Dev
-    unzip
-    ripgrep
-  ]);
+      #games
+      runelite
+
+      # Dev
+      unzip
+      ripgrep
+    ]
+  );
 
   xdg.enable = true;
   xdg.userDirs = {
@@ -64,29 +78,29 @@
     enable = true;
 
     associations.added = {
-      "x-scheme-handler/http"="userapp-Zen Browser-ZU53T2.desktop";
-      "x-scheme-handler/https"="userapp-Zen Browser-ZU53T2.desktop";
-      "x-scheme-handler/chrome"="userapp-Zen Browser-ZU53T2.desktop";
-      "text/html"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-htm"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-html"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-shtml"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/xhtml+xml"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-xhtml"="userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-xht"="userapp-Zen Browser-ZU53T2.desktop";
+      "x-scheme-handler/http" = "userapp-Zen Browser-ZU53T2.desktop";
+      "x-scheme-handler/https" = "userapp-Zen Browser-ZU53T2.desktop";
+      "x-scheme-handler/chrome" = "userapp-Zen Browser-ZU53T2.desktop";
+      "text/html" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/x-extension-htm" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/x-extension-html" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/x-extension-shtml" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/xhtml+xml" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/x-extension-xhtml" = "userapp-Zen Browser-ZU53T2.desktop";
+      "application/x-extension-xht" = "userapp-Zen Browser-ZU53T2.desktop";
     };
 
     defaultApplications = {
-      "x-scheme-handler/http"="userapp-Zen Browser-7X8WU2.desktop";
-      "x-scheme-handler/https"="userapp-Zen Browser-7X8WU2.desktop";
-      "x-scheme-handler/chrome"="userapp-Zen Browser-7X8WU2.desktop";
-      "text/html"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/x-extension-htm"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/x-extension-html"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/x-extension-shtml"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/xhtml+xml"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/x-extension-xhtml"="userapp-Zen Browser-7X8WU2.desktop";
-      "application/x-extension-xht"="userapp-Zen Browser-7X8WU2.desktop";
+      "x-scheme-handler/http" = "userapp-Zen Browser-7X8WU2.desktop";
+      "x-scheme-handler/https" = "userapp-Zen Browser-7X8WU2.desktop";
+      "x-scheme-handler/chrome" = "userapp-Zen Browser-7X8WU2.desktop";
+      "text/html" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-htm" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-html" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-shtml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/xhtml+xml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-xhtml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-xht" = "userapp-Zen Browser-7X8WU2.desktop";
     };
   };
 
