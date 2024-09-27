@@ -78,16 +78,16 @@
     enable = true;
 
     associations.added = {
-      "x-scheme-handler/http" = "userapp-Zen Browser-ZU53T2.desktop";
-      "x-scheme-handler/https" = "userapp-Zen Browser-ZU53T2.desktop";
-      "x-scheme-handler/chrome" = "userapp-Zen Browser-ZU53T2.desktop";
-      "text/html" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-htm" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-html" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-shtml" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/xhtml+xml" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-xhtml" = "userapp-Zen Browser-ZU53T2.desktop";
-      "application/x-extension-xht" = "userapp-Zen Browser-ZU53T2.desktop";
+      "x-scheme-handler/http" = "userapp-Zen Browser-7X8WU2.desktop";
+      "x-scheme-handler/https" = "userapp-Zen Browser-7X8WU2.desktop";
+      "x-scheme-handler/chrome" = "userapp-Zen Browser-7X8WU2.desktop";
+      "text/html" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-htm" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-html" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-shtml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/xhtml+xml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-xhtml" = "userapp-Zen Browser-7X8WU2.desktop";
+      "application/x-extension-xht" = "userapp-Zen Browser-7X8WU2.desktop";
     };
 
     defaultApplications = {
