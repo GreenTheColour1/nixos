@@ -12,6 +12,7 @@
     ./nixvim-plugins/indent-blankline.nix
     ./nixvim-plugins/mini.nix
     ./nixvim-plugins/conform.nix
+    ./nixvim-plugins/nvim-colorizer.nix
   ];
 
   programs.nixvim = {
