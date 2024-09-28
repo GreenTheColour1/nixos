@@ -1,7 +1,7 @@
 {
   pkgs,
-  config,
   userSettings,
+  config,
   ...
 }:
 {
@@ -40,7 +40,7 @@
       }
 
       window {
-          color: #D3C6AA;
+          color: #${config.lib.stylix.colors.base07};
           background-color: rgba(45, 53, 59, 0.7);
           font-family: '${userSettings.font}', sans-serif;
           font-weight: bold;
@@ -49,21 +49,21 @@
 
       button {
           color: #FFFFFF;
-          background-color: @color1;
+          background-color: #${config.lib.stylix.colors.base01};
           background-position: center;
           background-repeat: no-repeat;
           background-size: 20%;
           border: none;
-      	border-radius: 10px;
-      	outline-style: none;
+          border-radius: 10px;
+          outline-style: none;
       }
       button:hover {
           background-size: 25%;
       }
 
       #logout {
-          background-color: @color3;
-          background-image: image(url("./icons/logout.png"));
+          background-image: image(url("${./icons/logout-svgrepo-com.svg}"));
+          background-color: #${config.lib.stylix.colors.base08};
           border-radius: 5px 0px 0px 0px;
           margin: 100px 0px 0px 550px;
       }
@@ -73,8 +73,8 @@
       }
 
       #windows {
-          background-image: image(url("./icons/windows.png"));
-          background-color: @color1;
+          background-image: image(url("${./icons/windows-svgrepo-com.svg}"));
+          background-color: #${config.lib.stylix.colors.base09};
           border-radius: 0px 0px 0px 5px;
           margin: 0px 0px 100px 550px;
       }
@@ -84,8 +84,8 @@
       }
 
       #shutdown {
-          background-image: image(url("./icons/shutdown.png"));
-          background-color: @color4;
+          background-image: image(url("${./icons/poweroff-svgrepo-com.svg}"));
+          background-color: #${config.lib.stylix.colors.base0A};
           border-radius: 0px 5px 0px 0px;
           margin: 100px 550px 0px 0px;
       }
@@ -95,8 +95,8 @@
       }
 
       #reboot {
-          background-color: @color2;
-          background-image: image(url("icons/reboot.png"));
+          background-image: image(url("${./icons/restart-svgrepo-com.svg}"));
+          background-color: #${config.lib.stylix.colors.base0B};
           border-radius: 0px 0px 5px 0px;
           margin: 0px 550px 100px 0px;
       }

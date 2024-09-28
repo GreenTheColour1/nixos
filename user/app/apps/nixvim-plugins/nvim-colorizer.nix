@@ -3,7 +3,7 @@
   programs.nixvim.plugins.nvim-colorizer = {
     enable = true;
     userDefaultOptions = {
-      RBG = true;
+      RGB = true;
       RRGGBB = true;
       names = true;
       RRGGBBAA = true;
