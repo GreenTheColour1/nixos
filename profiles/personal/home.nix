@@ -35,16 +35,12 @@
       # Core
       zsh
       kitty
-      firefox
       inputs.zen-browser.packages."${systemSettings.system}".specific
       brave
       git
       gh
       stow
       killall
-
-      #games
-      runelite
 
       # Dev
       unzip
