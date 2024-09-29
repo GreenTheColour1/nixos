@@ -228,6 +228,7 @@ in
       # polkit-gnome
       hypridle
       hyprlock
+      hyprshot
       qt6.qtwayland
       libsForQt5.qt5.qtwayland
       xdg-utils
