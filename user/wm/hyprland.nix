@@ -225,7 +225,6 @@ in
     with pkgs;
     [
       kitty
-      # polkit-gnome
       hypridle
       hyprlock
       hyprshot
@@ -235,94 +234,6 @@ in
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      pamixer
     ]
   );
-
-  home.file.".config/hypr/hypridle.conf".text = ''
-    general {
-      lock_cmd = pgrep hyprlock || hyprlock
-      before_sleep_cmd = loginctl lock-session
-      ignore_dbus_inhibit = false
-    }
-
-    # FIXME memory leak fries computer inbetween dpms off and suspend
-    #listener {
-    #  timeout = 150 # in seconds
-    #  on-timeout = hyprctl dispatch dpms off
-    #  on-resume = hyprctl dispatch dpms on
-    #}
-    listener {
-      timeout = 300 # in seconds
-      on-timeout = loginctl lock-session
-    }
-    listener {
-      timeout = 600 # in seconds
-      #timeout = 5400 # in seconds
-      on-timeout = systemctl suspend
-      on-resume = hyprctl dispatch dpms on
-    }
-  '';
-
-  home.file.".config/hypr/hyprlock.conf".text =
-    ''
-      general {
-        disable_loading_bar = false
-      }
-
-      background {
-        monitor =
-        path = screenshot
-        color = rgba(25, 20, 20, 1.0)
-
-          blur_passes = 1 # 0 disables blurring
-          blur_size = 7
-          noise = 0.0117
-          contrast = 0.8916
-          brightness = 0.8172
-          vibrancy = 0.1696
-          vibrancy_darkness = 0.0
-
-
-      }
-
-      input-field {
-        monitor = DP-1
-        size = 150, 30
-        outline_thickness = 3
-        outer_color = rgb(151515)
-        inner_color = rgb(200, 200, 200)
-        fade_on_empty = true
-      }
-
-      label {
-        monitor =
-        text = $TIME
-        color = rgba(220, 220, 220, 1.0)
-        position = 0, 200
-        font_size = 50
-        font_family = ''
-    + userSettings.font
-    + ''
-
-        halign = center
-        valign = center
-
-
-      }
-
-      label {
-          monitor = DP-1
-          text = $USER
-          color = rgba(220, 220, 220, 1.0)
-          position = 0, 20                    # position is added to the halign and valign props. For absolute, use "none" in either.
-          font_size = 15
-          font_family = ''
-    + userSettings.font
-    + ''
-
-          halign = center                     # left, center, right, none
-          valign = center                     # top, center, bottom, none
-      }
-    '';
 }
