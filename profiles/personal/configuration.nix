@@ -96,6 +96,7 @@
     ffmpeg
     grub2 # to allow use of the 'grub-reboot' program
     pavucontrol
+    pamixer
   ];
 
   # Zsh
