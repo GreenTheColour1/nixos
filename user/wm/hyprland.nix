@@ -74,8 +74,8 @@ in
         gaps_in = 5;
         gaps_out = 3;
         border_size = 2;
-        "col.active_border" = "rgba(D4BE98FF)";
-        "col.inactive_border" = "rgba(ebdbb211)";
+        "col.active_border" = lib.mkForce "rgba(D4BE98FF)";
+        "col.inactive_border" = lib.mkForce "rgba(ebdbb211)";
 
         layout = "dwindle";
       };
@@ -86,7 +86,7 @@ in
         drop_shadow = "yes";
         shadow_range = 5;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(000000BB)";
+        "col.shadow" = lib.mkForce "rgba(000000BB)";
 
         blur = {
           enabled = true;
