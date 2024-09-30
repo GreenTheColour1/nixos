@@ -1,16 +1,18 @@
-{ inputs, pkgs, lib, ... }: let
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+let
   pkgs-hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  imports = [ ./wayland.nix
-              ./pipewire.nix
-              ./dbus.nix
-            ];
-
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
+  imports = [
+    ./wayland.nix
+    ./pipewire.nix
+    ./dbus.nix
+  ];
 
   services.gnome.gnome-keyring.enable = true;
 
