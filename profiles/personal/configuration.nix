@@ -7,6 +7,17 @@
   ...
 }:
 {
+  nix.settings = {
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://ezkea.cachix.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+    ];
+  };
+
   imports = [
     # Include the results of the hardware scan.
     ../../system/hardware-configuration.nix
@@ -24,17 +35,6 @@
     ../../system/app/prismlauncher.nix # Minecraft launcher
     ../../system/app/aagl.nix
   ];
-
-  nix.settings = {
-    substituters = [
-      "https://hyprland.cachix.org"
-      "https://ezkea.cachix.org"
-    ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-    ];
-  };
 
   # Fix nix path
   nix.nixPath = [
