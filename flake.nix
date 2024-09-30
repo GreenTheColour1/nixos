@@ -134,8 +134,6 @@
 
     zen-browser.url = "github:ch4og/zen-browser-flake";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 

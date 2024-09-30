@@ -7,9 +7,6 @@
   systemSettings,
   ...
 }:
-let
-  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   imports = [
     ../app/terminal/kitty.nix
@@ -23,7 +20,6 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       monitor = [
         "DP-1, 1920x1080@144, 0x0, 1"

@@ -4,9 +4,6 @@
   lib,
   ...
 }:
-let
-  pkgs-hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   imports = [
     ./wayland.nix
@@ -18,11 +15,10 @@ in
 
   programs.hyprland = {
     enable = true;
-    package = pkgs-hyprland.hyprland;
     xwayland = {
       enable = true;
     };
-    portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   # xdg.portal = {
