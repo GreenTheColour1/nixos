@@ -132,7 +132,7 @@
       };
 
       windowrule = [
-        "opacity 0.8 override,^(kitty)$"
+        "opacity 0.7 override,^(kitty)$"
         "float,^(waypaper)$"
       ];
 
