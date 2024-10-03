@@ -9,6 +9,8 @@
 
     protontricks.enable = true;
     protontricks.package = pkgs.protontricks;
+
+    gamescopeSession.enable = true;
   };
   environment.systemPackages = [ pkgs.steam ];
 }
