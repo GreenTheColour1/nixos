@@ -19,8 +19,7 @@ in
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     shellAliases = myAliases;
-    initExtra = "pfetch";
-    shellInit = ''
+    initExtra = ''
       function ya() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
         yazi "$@" --cwd-file="$tmp"
@@ -29,6 +28,7 @@ in
         fi
         rm -f -- "$tmp"
       }
+      pfetch
     '';
   };
 
