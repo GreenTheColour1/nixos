@@ -27,11 +27,4 @@
     };
   };
 
-  programs.yazi = {
-    enable = true;
-    settings = {
-      show_hidden = true;
-      show_symlink = true;
-    };
-  };
 }
