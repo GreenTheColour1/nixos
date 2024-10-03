@@ -5,15 +5,34 @@
     # Command Line
     killall
     gnugrep
-    bat eza ripgrep
+    bat
+    eza
+    ripgrep
     unzip
     hwinfo
     pfetch-rs
-    btop htop
+    btop
+    htop
     fastfetch
   ];
 
   programs.htop = {
     enable = true;
+  };
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "Default";
+      theme_background = false;
+    };
+  };
+
+  programs.yazi = {
+    enable = true;
+    settings = {
+      show_hidden = true;
+      show_symlink = true;
+    };
   };
 }

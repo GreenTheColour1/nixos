@@ -8,7 +8,10 @@ let
   };
 in
 {
-  imports = [ ./cli-utilities.nix ./starship.nix ];
+  imports = [
+    ./cli-utilities.nix
+    ./starship.nix
+  ];
 
   programs.zsh = {
     enable = true;
@@ -17,6 +20,16 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
     initExtra = "pfetch";
+    shellInit = ''
+      function ya() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+      }
+    '';
   };
 
   programs.bash = {
@@ -26,8 +39,10 @@ in
   };
 
   home.packages = with pkgs; [
-    gnugrep eza
-    direnv nix-direnv
+    gnugrep
+    eza
+    direnv
+    nix-direnv
   ];
 
   programs.direnv = {
@@ -36,4 +51,3 @@ in
     nix-direnv.enable = true;
   };
 }
-
