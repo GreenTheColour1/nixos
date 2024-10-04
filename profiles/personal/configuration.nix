@@ -89,6 +89,7 @@
       "networkmanager"
       "wheel"
       "input"
+      "uinput"
     ];
     packages = [ ];
     uid = 1000;

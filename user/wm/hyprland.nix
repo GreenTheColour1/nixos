@@ -16,6 +16,7 @@
 
     #Hyprland spesific
     ./wayland/hyprland/scripts.nix
+    ../services/xremap.nix
   ];
 
   wayland.windowManager.hyprland = {
