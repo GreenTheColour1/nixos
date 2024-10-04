@@ -143,7 +143,7 @@
         "1, default:true, monitor:DP-1, persistant:true"
         "2, default:true, monitor:HDMI-A-1, persistant:true"
         "3, default:true, monitor:DP-3. persistant:true"
-        "4, monitor:DP-3"
+        "4, monitor:HDMI-A-1"
       ];
 
       "$mainMod" = "SUPER";
