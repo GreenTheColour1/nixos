@@ -136,6 +136,14 @@
       windowrule = [
         "opacity 0.7 override,^(kitty)$"
         "float,^(waypaper)$"
+        "workspace 4, ^(WebCord)$"
+      ];
+
+      workspace = [
+        "1, default:true, monitor:DP-1, persistant:true"
+        "2, default:true, monitor:HDMI-A-1, persistant:true"
+        "3, default:true, monitor:DP-3. persistant:true"
+        "4, monitor:DP-3"
       ];
 
       "$mainMod" = "SUPER";
