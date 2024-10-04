@@ -16,7 +16,7 @@
             };
           };
           application = {
-            only = "RuneLite";
+            only = "/RuneLite/";
           };
         }
       ];
