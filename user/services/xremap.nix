@@ -15,6 +15,9 @@
               alone = "BTN_EXTRA";
             };
           };
+          application = {
+            only = "RuneLite";
+          };
         }
       ];
     };
