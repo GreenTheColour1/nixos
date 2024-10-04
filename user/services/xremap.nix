@@ -4,7 +4,6 @@
 
   services.xremap = {
     withWlroots = true;
-    userName = "${userSettings.username}";
     mouse = true;
     config = {
       modmap = [
