@@ -45,6 +45,8 @@
       # Dev
       unzip
       ripgrep
+
+      dolphin-emu
     ]
   );
 
