@@ -25,6 +25,7 @@
     ../../system/hardware/bluetooth.nix
     ../../system/app/nix-helper.nix # Nix commands wrapper for better commands
     ../../system/app/flatpak.nix # Flatpak
+    ../../system/app/virt-manager.nix # VM Manager
 
     # Gaming
     ../../system/app/wine.nix
@@ -93,6 +94,7 @@
       "wheel"
       "input"
       "uinput"
+      "libvirtd"
     ];
     packages = [ ];
     uid = 1000;
