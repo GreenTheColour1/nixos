@@ -81,6 +81,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fishy = {
     isNormalUser = true;
