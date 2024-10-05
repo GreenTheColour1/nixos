@@ -140,9 +140,9 @@
       ];
 
       workspace = [
-        "1, default:true, monitor:DP-1, persistant:true"
-        "2, default:true, monitor:HDMI-A-1, persistant:true"
-        "3, default:true, monitor:DP-3, persistant:true"
+        "1, default:true, monitor:DP-1, persistent:true"
+        "2, default:true, monitor:HDMI-A-1, persistent:true"
+        "3, default:true, monitor:DP-3, persistent:true"
         "4, monitor:HDMI-A-1"
       ];
 
