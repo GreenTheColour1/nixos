@@ -41,6 +41,7 @@
       gh
       stow
       killall
+      nemo
 
       # Dev
       unzip
