@@ -19,10 +19,11 @@
     ../../user/shell/sh.nix # zsh and bash config
     ../../user/style/stylix.nix
     (./. + "../../../user/wm" + ("/" + userSettings.wm) + ".nix") # window manager selected from flake
-    ../../user/app/apps/nixvim.nix
+    ../../user/app/apps/nixvim/nixvim.nix
     ../../user/app/terminal/yazi.nix
     ../../user/app/media/spotify.nix
     ../../user/app/social/disord.nix
+    ../../user/app/apps/obs.nix
   ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
