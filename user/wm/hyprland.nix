@@ -234,6 +234,7 @@
       hypridle
       hyprlock
       hyprshot
+      waypaper
       qt6.qtwayland
       libsForQt5.qt5.qtwayland
       xdg-utils
