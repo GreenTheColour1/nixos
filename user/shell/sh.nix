@@ -28,7 +28,7 @@ in
         fi
         rm -f -- "$tmp"
       }
-      pfetch
+      microfetch
     '';
   };
 

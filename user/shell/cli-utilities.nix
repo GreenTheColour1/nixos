@@ -11,6 +11,7 @@
     unzip
     hwinfo
     pfetch-rs
+    microfetch
     btop
     htop
     fastfetch
