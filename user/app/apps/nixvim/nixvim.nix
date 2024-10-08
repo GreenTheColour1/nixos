@@ -2,17 +2,17 @@
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./nixvim-plugins/cmp.nix
-    ./nixvim-plugins/lsp.nix
-    ./nixvim-plugins/treesitter.nix
-    ./nixvim-plugins/telescope.nix
-    ./nixvim-plugins/lualine.nix
-    ./nixvim-plugins/oil.nix
-    ./nixvim-plugins/which-key.nix
-    ./nixvim-plugins/indent-blankline.nix
-    ./nixvim-plugins/mini.nix
-    ./nixvim-plugins/conform.nix
-    ./nixvim-plugins/nvim-colorizer.nix
+    ./cmp.nix
+    ./lsp.nix
+    ./treesitter.nix
+    ./telescope.nix
+    ./lualine.nix
+    ./oil.nix
+    ./which-key.nix
+    ./indent-blankline.nix
+    ./mini.nix
+    ./conform.nix
+    ./nvim-colorizer.nix
   ];
 
   programs.nixvim = {
