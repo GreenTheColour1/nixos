@@ -6,7 +6,7 @@
     enable = true;
 
     servers = {
-      nil-ls = {
+      nil_ls = {
         enable = true;
         settings = {
           formatting = {
@@ -14,7 +14,7 @@
           };
         };
       };
-      lua-ls = {
+      lua_ls = {
         enable = true;
       };
     };
