@@ -134,7 +134,7 @@
     allowedTCPPorts = [
       2626
     ];
-    allowedUDPPort = [
+    allowedUDPPorts = [
       2626
     ];
   };
