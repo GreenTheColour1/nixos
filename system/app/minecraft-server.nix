@@ -3,14 +3,15 @@
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-  services.minecraft = {
+  services.minecraft-servers = {
     enable = true;
     eula = true;
-    dataDir = "~/Documents/minecraft-server";
 
-    server = {
+    # server should be in /var/lib/minecraft
+    servers = {
       test-server = {
         enable = true;
+        autoStart = false;
       };
     };
   };
