@@ -1,4 +1,9 @@
-{pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     starship
@@ -7,145 +12,102 @@
   programs.starship = {
     enable = true;
     package = pkgs.starship;
+
     settings = {
-      format = lib.concatStrings [
-        "[](color_orange)"
-        "$os"
-        "$username"
-        "[](bg:color_yellow fg:color_orange)"
-        "$directory"
-        "[](fg:color_yellow bg:color_aqua)"
-        "$git_branch"
-        "$git_status"
-        "[](fg:color_aqua bg:color_blue)"
-        "$c"
-        "$rust"
-        "$golang"
-        "$nodejs"
-        "$php"
-        "$java"
-        "$kotlin"
-        "$haskell"
-        "$python"
-        "[](fg:color_blue bg:color_bg3)"
-        "$docker_context"
-        "$conda"
-        "[](fg:color_bg3 bg:color_bg1)"
-        "$time"
-        "[ ](fg:color_bg1)"
-        "$line_break$charact"
-      ];
-      os = {
+      add_newline = true;
+      scan_timeout = 30;
+      command_timeout = 5000;
+      # https://starship.rs/config/#prompt
+      format = ''
+        [](#${config.lib.stylix.colors.base01})$nix_shell$username$hostname[](bg:#${config.lib.stylix.colors.base08} fg:#${config.lib.stylix.colors.base01})$kubernetes[](bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base08})$directory[](fg:#${config.lib.stylix.colors.base02} bg:#${config.lib.stylix.colors.base03})$git_branch$git_metrics[](fg:#${config.lib.stylix.colors.base03} bg:#${config.lib.stylix.colors.base04})$time[ ](fg:#${config.lib.stylix.colors.base04})
+      '';
+      nix_shell = {
         disabled = false;
-        symbols = { NixOS = "󱄅"; };
-        style = "bg:color_orange fg:color_fg0";
+        format = "[$symbol ]($style)";
+        impure_msg = "[impure](bold red)";
+        pure_msg = "[pure](bold green)";
+        symbol = "";
+        style = "bg:#${config.lib.stylix.colors.base01}";
       };
-      username = {
-        show_always = true;
-        style_user = "bg:color_orange fg:color_fg0";
-        style_root = "bg:color_orange fg:color_fg0";
-        format = "[ $user ]($style)";
+
+      # https://starship.rs/config/#kubernetes
+      kubernetes = {
+        disabled = false;
+        symbol = "☸";
+        format = "[ ☸ ]($style)[$context ]($style)";
+        style = "bg:#${config.lib.stylix.colors.base08}";
       };
-      directory = {
-        style = "fg:color_fg0 bg:color_yellow";
-        format = "[ $path ]($style)";
-        truncation_length = 3;
-        truncation_symbol = "../";
-      };
+
+      # https://starship.rs/config/#git-branch
       git_branch = {
-        symbol = "";
-        style = "bg:color_aqua";
-        format = "[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)";
+        disabled = false;
+        symbol = "";
+        format = "[ $symbol $branch ]($style)";
+        style = "bg:#${config.lib.stylix.colors.base03}";
+        ignore_branches = [ "remotes/origin/renovate/*" ];
       };
       git_status = {
-        format = "[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)";
-        style = "[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)";
+        disabled = false;
+        format = "[$all_status$ahead_behind ]($style)";
+        style = "bg:#${config.lib.stylix.colors.base03}";
+      };
 
+      # https://starship.rs/config/#git-metrics
+      git_metrics = {
+        added_style = "bg:#${config.lib.stylix.colors.base03}";
+        deleted_style = "bg:#${config.lib.stylix.colors.base03}";
+        disabled = false;
+        format = "[+$added]($added_style)[ / ](bg:#${config.lib.stylix.colors.base03})[-$deleted ]($deleted_style)";
       };
-      nodejs = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+
+      # https://starship.rs/config/#character
+      character = {
+        success_symbol = "[λ](bold blue)";
+        error_symbol = "[λ](bold red)";
+        format = "[$symbol]($style)";
       };
-      c = {
-        symbol = " ";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+
+      # https://starship.rs/config/#directory
+      directory = {
+        disabled = false;
+        style = "bg:#${config.lib.stylix.colors.base02}";
+        format = "[ $path ]($style)";
+        truncation_length = 3;
+        truncation_symbol = "…/";
       };
-      rust = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      golang = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      php = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      java = {
-        symbol = " ";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      kotlin = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      haskell = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      python = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
-      };
-      docker_context = {
-        symbol = "";
-        style = "";
-        format = "[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)";
-      };
-      conda = {
-        style = "";
-        format = "[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)";
-      };
+
+      # https://starship.rs/config/#time
       time = {
         disabled = false;
-        time_format = "%R";
-        style = "bg:color_bg1";
-        format = "[[  $time ](fg:color_fg0 bg:color_bg1)]($style)";
+        format = "[ ♥ $time ]($style)";
+        style = "bg:#${config.lib.stylix.colors.base04}";
+        time_format = "%H:%M";
       };
-      line_break = {
+
+      # https://starship.rs/config/#package-version
+      package.disabled = true;
+
+      # https://starship.rs/config/#python
+      python = {
+        disabled = true;
+      };
+
+      # https://starship.rs/config/#username
+      username = {
         disabled = false;
+        show_always = true;
+        style_user = "bg:#${config.lib.stylix.colors.base01}";
+        style_root = "bg:#${config.lib.stylix.colors.base01}";
+        format = "[$user]($style)";
       };
-      character = {
+
+      # https://starship.rs/config/#hostname
+      hostname = {
         disabled = false;
-        success_symbol = "[](bold fg:color_green)";
-        error_symbol = "[](bold fg:color_red)";
-        vimcmd_symbol = "[](bold fg:color_green)";
-        vimcmd_replace_one_symbol = "[](bold fg:color_purple)";
-        vimcmd_replace_symbol = "[](bold fg:color_purple)";
-        vimcmd_visual_symbol = "[](bold fg:color_yellow)";
-      };
-      palette = "custom";
-      palettes.custom = {
-        color_fg0 = "#${config.lib.stylix.colors.base07}";
-        color_bg1 = "#${config.lib.stylix.colors.base01}";
-        color_bg3 = "#${config.lib.stylix.colors.base03}";
-        color_blue = "#${config.lib.stylix.colors.base0D}";
-        color_aqua = "#${config.lib.stylix.colors.base0C}";
-        color_green = "#${config.lib.stylix.colors.base0B}";
-        color_orange = "#${config.lib.stylix.colors.base09}";
-        color_purple = "#${config.lib.stylix.colors.base0E}";
-        color_red = "#${config.lib.stylix.colors.base08}";
-        color_yellow = "#${config.lib.stylix.colors.base0A}";
+        ssh_only = false;
+        format = "[@$hostname ]($style)";
+        trim_at = "-";
+        style = "bg:#${config.lib.stylix.colors.base01}";
       };
     };
   };
