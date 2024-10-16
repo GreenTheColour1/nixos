@@ -1,7 +1,13 @@
-{ lib, pkgs, inputs, userSettings, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  userSettings,
+  ...
+}:
 
 let
-  themePath = "../../../themes/"+userSettings.theme+"/"+userSettings.theme+".yaml";
+  themePath = "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
   themePolarity = "dark";
   wallpaperImage = ../../themes/wallpapers/qipao-city.jpg;
 in
@@ -12,7 +18,7 @@ in
   stylix.autoEnable = true;
   stylix.polarity = themePolarity;
   stylix.image = wallpaperImage;
-  stylix.base16Scheme = ./. + themePath;
+  stylix.base16Scheme = themePath;
   stylix.fonts = {
     monospace = {
       name = userSettings.font;

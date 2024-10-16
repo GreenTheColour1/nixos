@@ -8,7 +8,7 @@
 }:
 
 let
-  themePath = "../../../themes/" + userSettings.theme + "/" + userSettings.theme + ".yaml";
+  themePath = "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
   themePolarity = "dark";
   wallpaperImage = ../../themes/wallpapers/latenight-urban.jpg;
 in
@@ -18,10 +18,10 @@ in
 
   home.file.".currenttheme".text = userSettings.theme;
   stylix.enable = true;
-  stylix.autoEnable = true;
+  stylix.autoEnable = false;
   stylix.polarity = themePolarity;
   stylix.image = wallpaperImage;
-  stylix.base16Scheme = ./. + themePath;
+  stylix.base16Scheme = themePath;
 
   stylix.fonts = {
     monospace = {
@@ -48,8 +48,17 @@ in
     };
   };
 
-  stylix.targets.gtk.enable = true;
-  stylix.targets.nixvim.enable = false;
+  stylix.targets = {
+    gtk.enable = true;
+    nixvim.enable = false;
+    bat.enable = true;
+    btop.enable = true;
+    hyprland.enable = true;
+    kitty.enable = true;
+    lazygit.enable = true;
+    rofi.enable = true;
+    yazi.enable = true;
+  };
   home.packages = with pkgs; [
     libsForQt5.qt5ct
     pkgs.libsForQt5.breeze-qt5
