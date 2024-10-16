@@ -48,6 +48,10 @@ in
     };
   };
 
+  stylix.cursor.package = pkgs.quintom-cursor-theme;
+  stylix.cursor.name = "Quintom_Ink";
+  stylix.cursor.size = 24;
+
   stylix.targets = {
     gtk.enable = true;
     nixvim.enable = false;
@@ -64,13 +68,14 @@ in
     pkgs.libsForQt5.breeze-qt5
     libsForQt5.breeze-icons
     pkgs.noto-fonts-monochrome-emoji
+    quintom-cursor-theme
   ];
-  qt = {
-    enable = true;
-    style.package = pkgs.libsForQt5.breeze-qt5;
-    style.name = "breeze-dark";
-    platformTheme.name = "kde";
-  };
+  # qt = {
+  #   enable = true;
+  #   style.package = pkgs.libsForQt5.breeze-qt5;
+  #   style.name = "breeze-dark";
+  #   platformTheme.name = "kde";
+  # };
   fonts.fontconfig.defaultFonts = {
     monospace = [ userSettings.font ];
     sansSerif = [ userSettings.font ];
