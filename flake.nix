@@ -140,5 +140,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
 
     xremap-flake.url = "github:xremap/nix-flake";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 }

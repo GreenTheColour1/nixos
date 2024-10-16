@@ -32,6 +32,7 @@
     ../../system/app/steam.nix
     ../../system/app/gamemode.nix
     ../../system/app/prismlauncher.nix # Minecraft launcher
+    ../../system/app/minecraft-server.nix
     ../../system/app/aagl.nix
   ];
 
