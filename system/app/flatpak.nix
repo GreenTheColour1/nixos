@@ -6,5 +6,6 @@
 
   services.flatpak.packages = [
     "com.adamcake.Bolt"
+    "org.DolphinEmu.dolphin-emu"
   ];
 }

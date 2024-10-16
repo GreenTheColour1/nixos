@@ -48,7 +48,7 @@
       unzip
       ripgrep
 
-      dolphin-emu
+      # dolphin-emu
     ]
   );
 
