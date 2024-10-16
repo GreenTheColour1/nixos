@@ -129,15 +129,15 @@
     ];
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      2626
-    ];
-    allowedUDPPorts = [
-      2626
-    ];
-  };
+  # networking.firewall = {
+  #   enable = true;
+  #   allowedTCPPorts = [
+  #     2626
+  #   ];
+  #   allowedUDPPorts = [
+  #     2626
+  #   ];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
