@@ -15,6 +15,7 @@
     btop
     htop
     fastfetch
+    comma
   ];
 
   programs.htop = {
