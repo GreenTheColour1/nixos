@@ -19,7 +19,7 @@
       command_timeout = 5000;
       # https://starship.rs/config/#prompt
       format = ''
-        [](#${config.lib.stylix.colors.base01})$nix_shell$username$hostname[](bg:#${config.lib.stylix.colors.base08} fg:#${config.lib.stylix.colors.base01})$kubernetes[](bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base08})$directory[](fg:#${config.lib.stylix.colors.base02} bg:#${config.lib.stylix.colors.base03})$git_branch$git_metrics[](fg:#${config.lib.stylix.colors.base03} bg:#${config.lib.stylix.colors.base04})$time[ ](fg:#${config.lib.stylix.colors.base04})
+        [](#${config.lib.stylix.colors.base01})$nix_shell$username$hostname[](bg:#${config.lib.stylix.colors.base08} fg:#${config.lib.stylix.colors.base01})$kubernetes[](bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base08})$directory[](fg:#${config.lib.stylix.colors.base02} bg:#${config.lib.stylix.colors.base03})$git_branch$git_metrics[](fg:#${config.lib.stylix.colors.base03} bg:#${config.lib.stylix.colors.base09})$time[ ](fg:#${config.lib.stylix.colors.base09})
       '';
       nix_shell = {
         disabled = false;
@@ -80,7 +80,7 @@
       time = {
         disabled = false;
         format = "[ $time ]($style)";
-        style = "bg:#${config.lib.stylix.colors.base04}";
+        style = "bg:#${config.lib.stylix.colors.base09}";
         time_format = "%H:%M";
       };
 
