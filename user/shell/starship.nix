@@ -79,7 +79,7 @@
       # https://starship.rs/config/#time
       time = {
         disabled = false;
-        format = "[ ♥ $time ]($style)";
+        format = "[ $time ]($style)";
         style = "bg:#${config.lib.stylix.colors.base04}";
         time_format = "%H:%M";
       };
