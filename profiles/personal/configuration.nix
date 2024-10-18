@@ -34,6 +34,7 @@
     ../../system/app/prismlauncher.nix # Minecraft launcher
     ../../system/app/minecraft-server.nix
     ../../system/app/aagl.nix
+    ../../system/app/mangohud.nix
   ];
 
   # Fix nix path
@@ -63,6 +64,10 @@
     useOSProber = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelParams = [
+    "amd_pstate=active"
+  ];
 
   security.sudo = {
     enable = true;
