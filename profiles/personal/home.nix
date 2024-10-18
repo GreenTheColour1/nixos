@@ -49,6 +49,9 @@
       ripgrep
 
       # dolphin-emu
+
+      # Work
+      hubstaff
     ]
   );
 
