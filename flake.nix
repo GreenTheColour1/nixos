@@ -38,6 +38,9 @@
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
+        overlays = [
+          inputs.hyprpanel.overlay
+        ];
       };
 
       pkgs-stable = import inputs.nixpkgs-stable {
@@ -142,5 +145,8 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
