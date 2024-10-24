@@ -30,8 +30,9 @@
 
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "waybar"
+        # "waybar"
         "webcord -m" # start discord minimized
+        "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
 
       env = [
