@@ -4,15 +4,10 @@
   # OpenGL
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
-      # Video Acceleration
-      # nvidia-vaapi-driver
-      # libvdpau-va-gl
-    ];
   };
 
   environment.systemPackages = with pkgs; [ nvtopPackages.nvidia ];
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = 1;
