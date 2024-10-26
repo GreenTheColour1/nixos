@@ -29,10 +29,8 @@
       ];
 
       exec-once = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        # "waybar"
-        "webcord -m" # start discord minimized
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+        "waybar"
+        "webcord"
       ];
 
       env = [
@@ -46,10 +44,10 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
         "NVD_BACKEND,direct"
-        # "QT_QPA_PLATFORM,wayland;xcb"
-        # "QT_QPA_PLATFORMTHEME,qt6ct"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
         # "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         # "QT_STYLE_OVERRIDE=kvantum"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "_JAVA_AWT_WM_NONREPARENTING=1"
@@ -236,12 +234,13 @@
       hyprshot
       hyprpaper
       waypaper
-      qt6.qtwayland
-      libsForQt5.qt5.qtwayland
+      # qt6.qtwayland
+      # libsForQt5.qt5.qtwayland
       xdg-utils
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
+      hyprpanel
     ]
   );
 }

@@ -64,18 +64,9 @@ in
     yazi.enable = true;
   };
   home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    pkgs.libsForQt5.breeze-qt5
-    libsForQt5.breeze-icons
     pkgs.noto-fonts-monochrome-emoji
     quintom-cursor-theme
   ];
-  # qt = {
-  #   enable = true;
-  #   style.package = pkgs.libsForQt5.breeze-qt5;
-  #   style.name = "breeze-dark";
-  #   platformTheme.name = "kde";
-  # };
   fonts.fontconfig.defaultFonts = {
     monospace = [ userSettings.font ];
     sansSerif = [ userSettings.font ];
