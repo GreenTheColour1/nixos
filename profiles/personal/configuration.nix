@@ -45,11 +45,10 @@
   ];
 
   # Ensure nix flakes are enabled
-  nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # wheel group gets trusted access to nix daemon
   nix.settings.trusted-users = [ "@wheel" ];
 
@@ -135,15 +134,7 @@
     ];
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      2626
-    ];
-    allowedUDPPorts = [
-      2626
-    ];
-  };
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
