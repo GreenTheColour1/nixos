@@ -100,27 +100,6 @@
           };
         };
       };
-
-      # packages = forAllSystems (system:
-      #   let pkgs = nixpkgsFor.${system};
-      #   in {
-      #     default = self.packages.${system}.install;
-      #
-      #     install = pkgs.writeShellApplication {
-      #       name = "install";
-      #       runtimeInputs = with pkgs; [ git ]; # I could make this fancier by adding other deps
-      #       text = ''${./install.sh} "$@"'';
-      #     };
-      #   });
-      #
-      # apps = forAllSystems (system: {
-      #   default = self.apps.${system}.install;
-      #
-      #   install = {
-      #     type = "app";
-      #     program = "${self.packages.${system}.install}/bin/install";
-      #   };
-      # });
     };
 
   inputs = {
@@ -135,7 +114,8 @@
 
     stylix.url = "github:danth/stylix";
 
-    zen-browser.url = "github:ch4og/zen-browser-flake";
+    zen-browser.url = "github:GreenTheColour1/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
@@ -145,8 +125,5 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
