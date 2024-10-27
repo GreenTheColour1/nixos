@@ -27,5 +27,10 @@
 
   environment.systemPackages = with pkgs; [
     virtio-win
+    remmina
+
+    (writeShellScriptBin "makevirtiowiniso" ''
+      mkisofs -o ~/Machines/ISOs/virtio-win.iso -J -R ${pkgs.virtio-win}
+    '')
   ];
 }
