@@ -5,12 +5,16 @@
   programs.steam = {
     enable = true;
 
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    # extraCompatPackages = with pkgs; [ proton-ge-bin ];
 
     protontricks.enable = true;
     protontricks.package = pkgs.protontricks;
 
     gamescopeSession.enable = true;
   };
-  environment.systemPackages = [ pkgs.steam ];
+  environment.systemPackages = [
+    pkgs.steam
+    pkgs.protonup-qt
+    pkgs.desmume
+  ];
 }
