@@ -38,9 +38,6 @@
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
-        overlays = [
-          inputs.hyprpanel.overlay
-        ];
       };
 
       pkgs-stable = import inputs.nixpkgs-stable {
