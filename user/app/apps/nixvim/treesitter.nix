@@ -21,6 +21,7 @@
       regex
       xml
       yaml
+      python
     ];
   };
 }

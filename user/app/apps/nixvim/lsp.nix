@@ -1,19 +1,14 @@
 { pkgs, userSettings, ... }:
 {
   home.packages = [ pkgs.nixfmt-rfc-style ];
+  home.sessionVariables = {
+    NIXD_FLAGS = "--semantic-tokens=false";
+  };
 
   programs.nixvim.plugins.lsp = {
     enable = true;
 
     servers = {
-      # nil_ls = {
-      #   enable = true;
-      #   settings = {
-      #     formatting = {
-      #       command = [ "nixfmt" ];
-      #     };
-      #   };
-      # };
       nixd = {
         enable = true;
         settings = {
@@ -36,6 +31,9 @@
         };
       };
       lua_ls = {
+        enable = true;
+      };
+      pylsp = {
         enable = true;
       };
     };
