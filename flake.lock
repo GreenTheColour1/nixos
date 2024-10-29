@@ -1238,11 +1238,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730062199,
-        "narHash": "sha256-wrG4cjHSGGLpyonWs4UTeE5F/T6q8dB3zg0oW4dE4Kk=",
+        "lastModified": 1730152962,
+        "narHash": "sha256-GKc77cfnvyiQ7C0kXtY34JoVyOn5W6o6phxmS4qT0wk=",
         "owner": "GreenTheColour1",
         "repo": "zen-browser-flake",
-        "rev": "7e5a710609c08c0bb0dbdc31f8b18868d3d1921f",
+        "rev": "1017e9a7777f1f4c9f4e5b1d77cefe0ff5e1214a",
         "type": "github"
       },
       "original": {
