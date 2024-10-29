@@ -11,6 +11,7 @@ in
   imports = [
     ./cli-utilities.nix
     ./starship.nix
+    ./tmux.nix
   ];
 
   programs.zsh = {
