@@ -6,6 +6,7 @@
     prefix = "C-Space";
     baseIndex = 1;
 
+    shell = "${pkgs.zsh}/bin/sh";
     extraConfig = ''
       unbind %
       bind \\ split-window -h
@@ -26,5 +27,7 @@
         extraConfig = "set -g @tmux-gruvbox 'dark'";
       }
     ];
+
+    sensibleOnTop = false;
   };
 }
