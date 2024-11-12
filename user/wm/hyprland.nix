@@ -31,6 +31,8 @@
       exec-once = [
         "waybar"
         "webcord"
+        # "swww-daemon"
+        "killall hyprpaper"
       ];
 
       env = [
@@ -82,7 +84,7 @@
         drop_shadow = "yes";
         shadow_range = 5;
         shadow_render_power = 3;
-        "col.shadow" = lib.mkForce "rgba(000000BB)";
+        # "col.shadow" = lib.mkForce "rgba(000000BB)";
 
         blur = {
           enabled = true;
@@ -233,6 +235,7 @@
       hyprlock
       hyprshot
       hyprpaper
+      swww
       waypaper
       # qt6.qtwayland
       # libsForQt5.qt5.qtwayland
