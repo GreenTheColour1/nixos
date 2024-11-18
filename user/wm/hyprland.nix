@@ -81,11 +81,6 @@
       decoration = {
         rounding = 5;
 
-        drop_shadow = "yes";
-        shadow_range = 5;
-        shadow_render_power = 3;
-        # "col.shadow" = lib.mkForce "rgba(000000BB)";
-
         blur = {
           enabled = true;
           size = 10;
@@ -237,8 +232,9 @@
       hyprpaper
       swww
       waypaper
-      # qt6.qtwayland
-      # libsForQt5.qt5.qtwayland
+      qt6.qtwayland
+      libsForQt5.qt5.qtwayland
+      qt6ct
       xdg-utils
       xdg-desktop-portal
       xdg-desktop-portal-gtk
