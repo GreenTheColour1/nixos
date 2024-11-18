@@ -9,15 +9,13 @@
 let
   themePath = "${pkgs.base16-schemes}/share/themes/${userSettings.theme}.yaml";
   themePolarity = "dark";
-  wallpaperImage = ../../themes/wallpapers/qipao-city.jpg;
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
   stylix.enable = true;
-  stylix.autoEnable = true;
+  stylix.autoEnable = false;
   stylix.polarity = themePolarity;
-  stylix.image = wallpaperImage;
   stylix.base16Scheme = themePath;
   stylix.fonts = {
     monospace = {
@@ -38,5 +36,11 @@ in
     };
   };
 
-  stylix.targets.console.enable = true;
+  stylix.targets = {
+    chromium.enable = true;
+    console.enable = true;
+    grub.enable = true;
+    gtk.enable = true;
+    nixos-icons.enable = true;
+  };
 }
