@@ -10,18 +10,17 @@
         modules-left = [
           "custom/icon"
           "hyprland/workspaces"
-          # "custom/cava-internal"
+          "hyprland/window"
         ];
         modules-center = [
-          "mpd"
+          # "mpd"
         ];
         modules-right = [
-          "pulseaudio"
-          "backlight"
-          "memory"
-          "cpu"
-          "network"
           "tray"
+          "cpu"
+          "temperature"
+          "memory"
+          "pulseaudio"
           "clock"
         ];
         "custom/icon" = {
@@ -30,39 +29,70 @@
           "on-click-right" = "changewall";
           "tooltip" = false;
         };
-        # "custom/cava-internal" = {
-        #   "exec" = "sleep 1s && cava-internal";
-        #   "tooltip" = false;
-        # };
-        "pulseaudio" = {
-          "scroll-step" = 1;
-          "format" = "{icon} {volume}%";
-          "format-muted" = "󰖁 Muted";
+        "hyprland/workspaces" = {
+          "disable-scroll" = true;
+          "active-only" = false;
+          "all-outputs" = false;
+          "warp-on-scroll" = false;
+          "format" = "{icon}";
           "format-icons" = {
-            "default" = [
-              ""
-              ""
-              ""
-            ];
+            "1" = "󰎤";
+            "2" = "󰎧";
+            "3" = "󰎪";
+            "4" = "󰎭";
+            "5" = "󰎱";
+            "6" = "󰎳";
+            "7" = "󰎶";
+            "8" = "󰎹";
           };
-          "on-click" = "pamixer -t";
-          "on-click-middle" = "pavucontrol";
-          "tooltip" = false;
         };
-        "clock" = {
+        "hyprland/window" = {
+          "format" = "<span color='#222222' bgcolor='#d3869b' > WIN </span> {class}";
+          "separate-outputs" = true;
+        };
+        "tray" = {
+          "icon-size" = 15;
+          "spacing" = 5;
+        };
+        # "disk" = {
+        #   "format" = "<span color='#222222' bgcolor='#ea6962' > DSK </span> {free}";
+        #   "interval" = 20;
+        # };
+        "cpu" = {
+          "format" = "<span color='#222222' bgcolor='#e78a4e'> CPU </span> {usage}%";
+          "tooltip" = false;
           "interval" = 1;
-          "format" = "{:%A %b %d %I:%M %p}";
+        };
+        "temperature" = {
+          "tooltip" = false;
+          "thermal-zone" = 2;
+          "hwmon-path" = "/sys/class/hwmon/hwmon1/temp1_input";
+          "critical-threshold" = 70;
+          "format-critical" = "<span color='#222222' bgcolor='#cc241d' > TEM </span> {temperatureC}°C";
+          "format" = "<span color='#222222' bgcolor='#d8a657' > TMP </span> {temperatureC}°C ";
         };
         "memory" = {
+          "format" = "<span color='#222222' bgcolor='#458588'> MEM </span> {used}GiB";
           "interval" = 1;
-          "format" = "󰻠 {percentage}%";
-          "states" = {
-            "warning" = 85;
-          };
+          "tooltip" = false;
         };
-        "cpu" = {
+        "pulseaudio" = {
+          # "scroll-step": 1, # %, can be a float
+          "format" = "<span color='#222222' bgcolor='#83a598'> VOL </span> {volume}%";
+          "format-muted" = "<span color='#222222' bgcolor='#ea6962'> MUTE </span> {volume}%";
+          "format-bluetooth" = "<span color='#222222' bgcolor='#83a598'> BLU </span> {volume}%";
+          "format-bluetooth-muted" = "<span color='#222222' bgcolor='#ea6962'> MUTE </span> {volume}%";
+          "format-source" = "{volume}% ";
+          "on-click" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          "tooltip" = false;
+          "max-volume" = 130;
+        };
+        "clock" = {
+          # "timezone" = "America/New_York";
+          "format" = "<span color='#222222' bgcolor='#8ec07c'> TIME </span> {:%I:%M}";
+          "format-alt" = "<span color='#222222' bgcolor='#8ec07c'> DATE </span> {:%b %d %Y}";
+          "tooltip" = false;
           "interval" = 1;
-          "format" = "󰍛 {usage}%";
         };
         "mpd" = {
           "max-length" = 25;
@@ -78,131 +108,250 @@
           "smooth-scrolling-threshold" = 5;
           "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
         };
-        "network" = {
-          "format-disconnected" = "󰯡 ";
-          "format-ethernet" = "󰒢 ";
-          "format-linked" = "󰖪 ";
-          "format-wifi" = "󰖩 ";
-          "interval" = 1;
-          "tooltip" = false;
-        };
-        "tray" = {
-          "icon-size" = 15;
-          "spacing" = 5;
-        };
       }
     ];
     style = ''
-          * {
-              font-family: "JetBrainsMono Nerd Font";
-              font-size: 11pt;
-              font-weight: bold;
-              border-radius: 8px;
-              transition-property: background-color;
-              transition-duration: 0.5s;
-            }
-            @keyframes blink_red {
-              to {
-                background-color: rgb(242, 143, 173);
-                color: rgb(26, 24, 38);
-              }
-            }
-            .warning, .critical, .urgent {
-              animation-name: blink_red;
-              animation-duration: 1s;
-              animation-timing-function: linear;
-              animation-iteration-count: infinite;
-              animation-direction: alternate;
-            }
-            window#waybar {
-              background-color: transparent;
-            }
-            window > box {
-              margin-left: 5px;
-              margin-right: 5px;
-              margin-top: 5px;
-              background-color: #${config.lib.stylix.colors.base00};
-              padding: 3px;
-              padding-left:5px;
-              border: 2px none #33ccff;
-            }
-      #workspaces {
-              padding-left: 0px;
-              padding-right: 4px;
-            }
-      #workspaces button {
-              padding-top: 3px;
-              padding-bottom: 3px;
-              padding-left: 6px;
-              padding-right: 6px;
-            }
-      #workspaces button.active {
-              background-color: #${config.lib.stylix.colors.base04};
-              color: rgb(26, 24, 38);
-            }
-      #workspaces button.urgent {
-              color: rgb(26, 24, 38);
-            }
-      #workspaces button:hover {
-              background-color: rgb(248, 189, 150);
-              color: rgb(26, 24, 38);
-            }
-            tooltip {
-              background: rgb(48, 45, 65);
-            }
-            tooltip label {
-              color: rgb(217, 224, 238);
-            }
+      /* ================================ */
+      /*            Common CSS            */
+      /* ================================ */
+      * {
+        /* `otf-font-awesome` is required to be installed for icons */
+        padding: 0;
+        border-radius: 0;
+        min-height: 0;
+        margin: 0;
+        border: none;
+        text-shadow: none;
+        transition: none;
+        box-shadow: none;
+      }
+
+      /* the whole window */
+      window#waybar {
+        background: #1d1d1d;
+        color: #fff4d2;
+        padding: 0;
+        margin: 0;
+      }
+
+      window#waybar.hidden {
+        opacity: 1;
+      }
+
+      /* Custom Icon */
+
       #custom-icon {
-              font-size: 20px;
-              padding-left: 8px;
-              padding-right: 6px;
-              color: #${config.lib.stylix.colors.base09};
-            }
-      #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
-              padding-left: 10px;
-              padding-right: 10px;
-            }
-            /* #mode { */
-            /* 	margin-left: 10px; */
-            /* 	background-color: rgb(248, 189, 150); */
-            /*     color: rgb(26, 24, 38); */
-            /* } */
-      #memory {
-              color: #${config.lib.stylix.colors.base08};
-            }
-      #cpu {
-              color: #${config.lib.stylix.colors.base0A};
-            }
-      #clock {
-              color: #${config.lib.stylix.colors.base07};
-            }
-      #custom-wall {
-              color: #33ccff;
-         }
-      #pulseaudio {
-              color: rgb(245, 224, 220);
-            }
-      #network {
-              color: #${config.lib.stylix.colors.base0B};
-            }
-      #network.disconnected {
-              color: #${config.lib.stylix.colors.base0B};
-            }
+        padding-left: 8px;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      /* ================================ */
+      /*       workspaces module          */
+      /* ================================ */
+      #workspaces {
+        margin: 0px;
+      }
+
+      #workspaces button {
+        color: #fff4d2;
+        padding: 0 4px;
+        margin-bottom: 4px;
+        font-family: IosevkaTerm Nerd Font Propo;
+        font-size: 22px;
+        font-weight: 800;
+        border-bottom: 2px solid transparent;
+      }
+
+      #workspaces button:hover {
+        color: #d3869b;
+        background: none;
+      }
+
+      /* #workspaces button.visible {
+        color: #8ec07c;
+        font-family: IosevkaTerm Nerd Font Propo;
+        font-size: 22px;
+        font-weight: 800;
+        border-radius: 0;
+        padding: 0 4px;
+        border-bottom: 2px solid #8ec07c;
+      }
+
+      #workspaces button.visible:hover {
+        color: #8ec07c;
+        font-family: IosevkaTerm Nerd Font Propo;
+        font-size: 22px;
+        font-weight: 800;
+        border-radius: 0;
+        padding: 0 4px;
+      } */
+
+      #workspaces button.active {
+        color: #8ec07c;
+        font-family: IosevkaTerm Nerd Font Propo;
+        font-size: 22px;
+        font-weight: 800;
+        border-radius: 0;
+        padding: 0 4px;
+        border-bottom: 2px solid #8ec07c;
+      }
+
+      #workspaces button.active:hover {
+        color: #8ec07c;
+        font-family: IosevkaTerm Nerd Font Propo;
+        font-size: 22px;
+        font-weight: 800;
+        border-radius: 0;
+        padding: 0 4px;
+      }
+
+      #workspaces button.urgent {
+        color: #ea6962;
+        border-bottom: 2px solid #ea6962;
+      }
+
+      /* ================================ */
+      /*            window                 */
+      /* ================================ */
+
+      #window {
+        color: #d3869b;
+        background: none;
+        margin: 4px 8px;
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        border-bottom: 2px solid #d3869b;
+      }
+
+      /* ================================ */
+      /*            tray                 */
+      /* ================================ */
+
       #tray {
-              padding-right: 8px;
-              padding-left: 8px;
-            }
-      #mpd.paused {
-              color: #414868;
-              font-style: italic;
-            }
-      #mpd.stopped {
-              background: transparent;
-            }
-      #mpd {
-              color: #c0caf5;
-            }
-    '';
+        margin: 0 3px;
+        padding: 0 8px;
+      }
+
+      /* ================================ */
+      /*            disk                 */
+      /* ================================ */
+
+      #disk {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #ea6962;
+        margin: 5px 2px;
+        border-bottom: 2px solid #ea6962;
+      }
+
+      /* ================================ */
+      /*            cpu                  */
+      /* ================================ */
+      #cpu {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #e78a4e;
+        margin: 5px 2px;
+        border-bottom: 2px solid #e78a4e;
+      }
+
+      /* ================================ */
+      /*            temp                  */
+      /* ================================ */
+      #temperature {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #d8a657;
+        margin: 5px 3px;
+        border-bottom: 2px solid #d8a657;
+      }
+
+      #temperature.critical {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #cc241d;
+        margin: 5px 3px;
+        border-bottom: 2px solid #cc241d;
+      }
+
+      /* ================================ */
+      /*            memory                */
+      /* ================================ */
+      #memory {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #458588;
+        margin: 5px 3px;
+        border-bottom: 2px solid #458588;
+      }
+
+      /* ================================ */
+      /*         pulseaudio               */
+      /* ================================ */
+      #pulseaudio {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #83a598;
+        margin: 5px 3px;
+        border-bottom: 2px solid #83a598;
+      }
+
+      #pulseaudio.muted {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #ea6962;
+        margin: 5px 3px;
+        border-bottom: 2px solid #ea6962;
+      }
+
+      /* ================================ */
+      /*            battery               */
+      /* ================================ */
+      #battery {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #689d6a;
+        margin: 5px 3px;
+        border-bottom: 2px solid #689d6a;
+      }
+
+      #battery.critical {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #cc241d;
+        margin: 5px 3px;
+        border-bottom: 2px solid #cc241d;
+      }
+
+      #battery.warning {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #e78a4e;
+        margin: 5px 3px;
+        border-bottom: 2px solid #e78a4e;
+      }
+      /* ================================ */
+      /*            clock                 */
+      /* ================================ */
+      #clock {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #8ec07c;
+        margin: 5px 3px;
+        border-bottom: 2px solid #8ec07c;
+      }    '';
   };
 }
