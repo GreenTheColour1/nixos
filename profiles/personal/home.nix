@@ -91,6 +91,8 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
+
   # For Virt-manager
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
@@ -98,6 +100,9 @@
       uris = [ "qemu:///system" ];
     };
   };
+
+  # Let bluetooth devices controll media
+  services.mpris-proxy.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
