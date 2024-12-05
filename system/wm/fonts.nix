@@ -1,11 +1,11 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   # Fonts are nice to have
-  fonts.packages = with pkgs-stable; [
+  fonts.packages = with pkgs; [
     # Fonts
-    fira-code
-    fira-code-symbols
+    nerd-fonts.fira-code
+    nerd-fonts.iosevka
     powerline
   ];
 
