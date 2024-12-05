@@ -30,9 +30,8 @@
 
       exec-once = [
         "waybar"
-        "webcord"
+        "discord"
         # "swww-daemon"
-        "killall hyprpaper"
       ];
 
       env = [
@@ -72,8 +71,8 @@
         gaps_in = 5;
         gaps_out = 3;
         border_size = 2;
-        "col.active_border" = lib.mkForce "rgba(D4BE98FF)";
-        "col.inactive_border" = lib.mkForce "rgba(ebdbb211)";
+        # "col.active_border" = lib.mkForce "rgba(D4BE98FF)";
+        # "col.inactive_border" = lib.mkForce "rgba(ebdbb211)";
 
         layout = "dwindle";
       };
@@ -131,7 +130,7 @@
       windowrule = [
         "opacity 0.7 override,^(kitty)$"
         "float,^(waypaper)$"
-        "workspace 4, ^(WebCord)$"
+        "workspace 4, ^(discord)$"
       ];
 
       workspace = [
