@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, addOpenGLRunpath, ... }:
 {
   # Collection of useful CLI apps
   home.packages = with pkgs; [
@@ -12,7 +12,6 @@
     hwinfo
     pfetch-rs
     microfetch
-    btop
     htop
     fastfetch
     comma
@@ -26,7 +25,8 @@
     enable = true;
     settings = {
       theme_background = false;
+      vim_keys = true;
     };
+    package = pkgs.btop.override { cudaSupport = true; };
   };
-
 }
