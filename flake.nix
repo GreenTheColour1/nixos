@@ -27,7 +27,7 @@
         browser = "firefox"; # Default browser; must select one from ./user/app/browser/
         term = "kitty"; # Default terminal command;
         font = "FiraCode Nerd Font Mono"; # Selected font
-        fontPkg = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; }); # Font package
+        fontPkg = (pkgs.nerd-fonts.fira-code); # Font package
         editor = "nvim"; # Default editor;
       };
 
@@ -125,5 +125,7 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixcord.url = "github:kaylorben/nixcord";
   };
 }
