@@ -5,7 +5,7 @@
   services.flatpak.enable = true;
 
   services.flatpak.packages = [
-    "com.adamcake.Bolt"
+    # "com.adamcake.Bolt"
     "org.DolphinEmu.dolphin-emu"
     "com.github.tchx84.Flatseal"
   ];

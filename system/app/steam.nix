@@ -12,9 +12,11 @@
 
     gamescopeSession.enable = true;
   };
+  programs.gamemode.enable = true;
   environment.systemPackages = [
     pkgs.steam
     pkgs.protonup-qt
     pkgs.desmume
+    pkgs.bolt-launcher
   ];
 }
