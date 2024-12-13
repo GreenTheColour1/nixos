@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 {
+
+  home.packages = with pkgs; [
+    playerctl
+  ];
+
+  services.playerctld = {
+    enable = true;
+  };
+
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -13,7 +22,7 @@
           "hyprland/window"
         ];
         modules-center = [
-          # "mpd"
+          "mpris"
         ];
         modules-right = [
           "tray"
@@ -94,19 +103,20 @@
           "tooltip" = false;
           "interval" = 1;
         };
-        "mpd" = {
-          "max-length" = 25;
-          "format" = "<span foreground='#bb9af7'></span> {title}";
-          "format-paused" = " {title}";
-          "format-stopped" = "<span foreground='#bb9af7'></span>";
-          "format-disconnected" = "";
-          "on-click" = "mpc --quiet toggle";
-          "on-click-right" = "mpc update; mpc ls | mpc add";
-          "on-click-middle" = "kitty --class='ncmpcpp' ncmpcpp ";
-          "on-scroll-up" = "mpc --quiet prev";
-          "on-scroll-down" = "mpc --quiet next";
-          "smooth-scrolling-threshold" = 5;
-          "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+        "mpris" = {
+          "max-length" = 100;
+          "format" = "<span color='#222222' bgcolor='#ea6962'> MEDIA </span> {dynamic}";
+          # "format-paused" = "{status_icon} {title}";
+          # "format-stopped" = "<span foreground='#bb9af7'></span>";
+          "dynamic-order" = [
+            "title"
+            "artist"
+          ];
+          "dynamic-seperator" = "-";
+          "status_icons" = {
+            "playing" = "▶";
+            "paused" = "⏸";
+          };
         };
       }
     ];
@@ -223,6 +233,20 @@
         font-size: 15px;
         font-weight: 800;
         border-bottom: 2px solid #d3869b;
+      }
+
+      /* ================================ */
+      /*            MPRIS                 */
+      /* ================================ */
+
+      #mpris {
+        color: #ea6962;
+        background: none;
+        margin: 4px 8px;
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        border-bottom: 2px solid #ea6962;
       }
 
       /* ================================ */
