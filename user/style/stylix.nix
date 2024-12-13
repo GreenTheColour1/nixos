@@ -58,6 +58,7 @@ in
     bat.enable = true;
     btop.enable = true;
     hyprland.enable = true;
+    hyprland.hyprpaper.enable = true;
     kitty.enable = true;
     lazygit.enable = true;
     rofi.enable = true;
