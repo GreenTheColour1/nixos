@@ -30,7 +30,7 @@
 
       exec-once = [
         "waybar"
-        "discord"
+        "sleep 5; discord" # Sometimes fails to open when opened too fast
         # "swww-daemon"
       ];
 
