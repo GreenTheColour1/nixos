@@ -1,8 +1,8 @@
 { ... }:
 {
-  programs.nixvim.plugins.nvim-colorizer = {
+  programs.nixvim.plugins.colorizer = {
     enable = true;
-    userDefaultOptions = {
+    settings.user_default_options = {
       RGB = true;
       RRGGBB = true;
       RRGGBBAA = true;
