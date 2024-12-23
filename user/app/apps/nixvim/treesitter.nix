@@ -22,6 +22,7 @@
       xml
       yaml
       python
+      hyprlang
     ];
   };
 }

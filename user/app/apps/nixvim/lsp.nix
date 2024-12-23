@@ -36,6 +36,9 @@
       pylsp = {
         enable = true;
       };
+      hyprls = {
+        enable = true;
+      };
     };
   };
 }
