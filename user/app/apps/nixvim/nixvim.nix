@@ -13,6 +13,7 @@
     ./mini.nix
     ./conform.nix
     ./nvim-colorizer.nix
+    ./autopair.nix
   ];
 
   programs.nixvim = {
