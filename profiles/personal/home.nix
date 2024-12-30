@@ -36,7 +36,7 @@
       # Core
       zsh
       kitty
-      inputs.zen-browser.packages."${systemSettings.system}".specific
+      inputs.zen-browser.packages."${systemSettings.system}".default
       brave
       git
       gh
