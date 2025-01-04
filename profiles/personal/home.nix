@@ -22,8 +22,10 @@
     ../../user/app/apps/nixvim/nixvim.nix
     ../../user/app/terminal/yazi.nix
     ../../user/app/media/spotify.nix
-    ../../user/app/social/disord.nix
+    ../../user/app/social/discord.nix
     ../../user/app/apps/obs.nix
+
+    ../../user/services/flatpak.nix
   ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.

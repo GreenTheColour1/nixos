@@ -24,7 +24,7 @@
     ../../system/style/stylix.nix
     ../../system/hardware/bluetooth.nix
     ../../system/app/nix-helper.nix # Nix commands wrapper for better commands
-    ../../system/app/flatpak.nix # Flatpak
+    # ../../system/app/flatpak.nix # Flatpak
     ../../system/app/virt-manager.nix # VM Manager
     ../../system/dev/devenv.nix
 
@@ -78,6 +78,17 @@
   networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  fileSystems."/home/fishy/Data" = {
+    device = "/dev/disk/by-uuid/e5da78c3-c09e-4d49-a67f-f331fb2979c5";
+    fsType = "ext4";
+    options = [
+      "users"
+      "rw"
+      "auto"
+      "exec"
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;

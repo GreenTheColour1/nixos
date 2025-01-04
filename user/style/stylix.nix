@@ -54,6 +54,7 @@ in
 
   stylix.targets = {
     gtk.enable = true;
+    gtk.flatpakSupport.enable = true;
     nixvim.enable = false;
     bat.enable = true;
     btop.enable = true;
