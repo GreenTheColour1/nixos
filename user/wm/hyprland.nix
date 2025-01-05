@@ -30,8 +30,7 @@
 
       exec-once = [
         "waybar"
-        "sleep 5; discord" # Sometimes fails to open when opened too fast
-        # "swww-daemon"
+        "sleep 5; vesktop" # Sometimes fails to open when opened too fast
       ];
 
       env = [
@@ -130,7 +129,7 @@
       windowrule = [
         "opacity 0.7 override,^(kitty)$"
         "float,^(waypaper)$"
-        "workspace 4, ^(discord)$"
+        "workspace 4, ^(vesktop)$"
       ];
 
       workspace = [

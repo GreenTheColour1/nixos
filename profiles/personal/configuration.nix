@@ -24,7 +24,7 @@
     ../../system/style/stylix.nix
     ../../system/hardware/bluetooth.nix
     ../../system/app/nix-helper.nix # Nix commands wrapper for better commands
-    # ../../system/app/flatpak.nix # Flatpak
+    ../../system/app/flatpak.nix # Flatpak
     ../../system/app/virt-manager.nix # VM Manager
     ../../system/dev/devenv.nix
 
@@ -129,6 +129,9 @@
     pavucontrol
     pamixer
     cdrtools
+    qbittorrent-enhanced
+    protonvpn-gui
+    libnatpmp
   ];
 
   # Zsh

@@ -9,16 +9,9 @@
       ovmf = {
         enable = true;
         packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd
+          pkgs.OVMFFull.fd
         ];
       };
-      vhostUserPackages = with pkgs; [
-        virtio-win
-        virtiofsd
-      ];
     };
   };
 

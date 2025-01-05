@@ -6,7 +6,10 @@
     enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ nvtopPackages.nvidia ];
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+    nvidia-vaapi-driver
+  ];
   environment.sessionVariables = {
     NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";

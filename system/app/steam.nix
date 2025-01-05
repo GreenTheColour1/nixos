@@ -16,7 +16,7 @@
   environment.systemPackages = [
     pkgs.steam
     pkgs.protonup-qt
-    pkgs.desmume
+    # pkgs.desmume
     pkgs.bolt-launcher
   ];
 }

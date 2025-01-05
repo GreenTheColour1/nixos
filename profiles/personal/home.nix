@@ -26,6 +26,7 @@
     ../../user/app/apps/obs.nix
 
     ../../user/services/flatpak.nix
+    ../../user/app/apps/comfyui.nix
   ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
