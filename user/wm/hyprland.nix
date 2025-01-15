@@ -31,6 +31,7 @@
       exec-once = [
         "waybar"
         "sleep 5; vesktop" # Sometimes fails to open when opened too fast
+        "clipse -listen"
       ];
 
       env = [
@@ -130,6 +131,12 @@
         "opacity 0.7 override,^(kitty)$"
         "float,^(waypaper)$"
         "workspace 4, ^(vesktop)$"
+
+      ];
+
+      windowrulev2 = [
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
       ];
 
       workspace = [
@@ -146,7 +153,7 @@
         "$mainMod, W, exec, zen"
         "$mainMod SHIFT, W, exec, zen --private-window"
         "$mainMod, D, exec, rofi -show drun"
-        "$mainMod, B, exec, waypaper"
+        "$mainMod, C, exec, kitty --class clipse -e clipse"
         "$mainMod, ESCAPE, exec, wlogout -b 2"
         # "$mainMod, P, execr, .config/rofi/scripts/projects.sh"
 
@@ -237,6 +244,7 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
+      clipse
     ]
   );
 }
