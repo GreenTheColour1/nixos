@@ -127,5 +127,7 @@
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     nixcord.url = "github:kaylorben/nixcord";
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 }
