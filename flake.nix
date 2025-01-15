@@ -38,6 +38,9 @@
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
+        overlays = [
+          inputs.nix-vscode-extensions.overlays.default
+        ];
       };
 
       pkgs-stable = import inputs.nixpkgs-stable {
@@ -56,15 +59,6 @@
       home-manager = inputs.home-manager-unstable;
 
     in
-    # # Systems that can run tests:
-    # supportedSystems = [ "x86_64-linux" ];
-    #
-    # # Function to generate a set based on supported systems:
-    # forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
-    #
-    # # Attribute set of nixpkgs for each system:
-    # nixpkgsFor =
-    #   forAllSystems (system: import inputs.nixpkgs { inherit system; });
     {
       homeConfigurations = {
         user = home-manager.lib.homeManagerConfiguration {

@@ -1,19 +1,21 @@
 {
   pkgs,
-  inputs,
-  systemSettings,
   ...
 }:
-let
-  vscode-exts = inputs.nix-vscode-extensions.extensions.vscode-marketplace;
-in
 {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    extentions = with vscode-exts; [
+    extensions = with pkgs.vscode-marketplace; [
+      # Python
       ms-python.python
       ms-python.vscode-pylance
+
+      # Nix
+      jnoortheen.nix-ide
+      mkhl.direnv
+      arrterian.nix-env-selector
+
     ];
   };
 }
