@@ -21,7 +21,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    withUWSM = true;
     settings = {
       monitor = [
         "DP-1, 1920x1080@144, 0x0, 1, vrr, 1"
