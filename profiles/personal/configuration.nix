@@ -131,7 +131,6 @@
     cdrtools
     qbittorrent-enhanced
     protonvpn-gui
-    libnatpmp
   ];
 
   # Zsh
