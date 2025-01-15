@@ -18,5 +18,6 @@
     pkgs.protonup-qt
     # pkgs.desmume
     pkgs.bolt-launcher
+    pkgs.r2modman
   ];
 }
