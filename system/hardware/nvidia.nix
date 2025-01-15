@@ -4,16 +4,20 @@
   # OpenGL
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      libvdpau-va-gl
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
-    nvidia-vaapi-driver
   ];
   environment.sessionVariables = {
     NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = 1;
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   # Load nvidia driver for Xorg and Wayland
