@@ -24,6 +24,7 @@
     ../../user/app/media/spotify.nix
     ../../user/app/social/discord.nix
     ../../user/app/apps/obs.nix
+    ../../user/app/apps/vscode.nix
 
     ../../user/services/flatpak.nix
   ];
