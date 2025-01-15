@@ -36,6 +36,9 @@
     ../../system/app/minecraft-server.nix
     ../../system/app/aagl.nix
     ../../system/app/mangohud.nix
+
+    # Apps
+    ../../system/app/vscode.nix
   ];
 
   # Fix nix path

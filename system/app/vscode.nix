@@ -8,7 +8,7 @@ let
   extentions = inputs.nix-vscode-extentions.extentions.${systemSettings.system};
 in
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     vscode-with-extensions.override
     {
       vscodeExtentions = [
