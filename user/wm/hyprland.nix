@@ -244,6 +244,7 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
+      wl-clipboard
       clipse
     ]
   );
