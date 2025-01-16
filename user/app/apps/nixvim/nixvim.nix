@@ -14,6 +14,7 @@
     ./conform.nix
     ./nvim-colorizer.nix
     ./autopair.nix
+    ./floaterm.nix
   ];
 
   programs.nixvim = {
