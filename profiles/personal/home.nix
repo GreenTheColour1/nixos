@@ -27,6 +27,7 @@
     ../../user/app/apps/vscode.nix
 
     ../../user/services/flatpak.nix
+    ../../user/services/dunst.nix
   ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
