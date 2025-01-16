@@ -4,6 +4,7 @@
   systemSettings,
   userSettings,
   inputs,
+  config,
   ...
 }:
 {
@@ -64,6 +65,8 @@
     useOSProber = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
 
   boot.kernelParams = [
     "amd_pstate=active"
