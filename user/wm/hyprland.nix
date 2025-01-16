@@ -29,7 +29,7 @@
       ];
 
       exec-once = [
-        "waybar"
+        # "waybar"
         "sleep 5; vesktop" # Sometimes fails to open when opened too fast
         "clipse -listen"
       ];
