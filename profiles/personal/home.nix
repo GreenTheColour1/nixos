@@ -56,6 +56,8 @@
 
       # Work
       hubstaff
+
+      obsidian
     ]
   );
 
