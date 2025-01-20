@@ -1,4 +1,4 @@
-{ pkgs, addOpenGLRunpath, ... }:
+{ pkgs, inputs, ... }:
 {
   # Collection of useful CLI apps
   home.packages = with pkgs; [
@@ -14,7 +14,6 @@
     microfetch
     htop
     fastfetch
-    comma
   ];
 
   programs.htop = {
@@ -29,4 +28,8 @@
     };
     package = pkgs.btop.override { cudaSupport = true; };
   };
+
+  # nix-index-database for comma
+  imports = [ inputs.nix-index-database.hmModules.nix-index ];
+  programs.nix-index-database.comma.enable = true;
 }

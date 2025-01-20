@@ -123,5 +123,8 @@
     nixcord.url = "github:kaylorben/nixcord";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
