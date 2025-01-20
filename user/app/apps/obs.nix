@@ -8,4 +8,10 @@
       obs-tuna
     ];
   };
+
+  home.packages = with pkgs; [
+    streamlink
+    mpv
+    chatterino7
+  ];
 }
