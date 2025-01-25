@@ -30,7 +30,7 @@
 
       exec-once = [
         # "waybar"
-        "sleep 5; vesktop" # Sometimes fails to open when opened too fast
+        "[silent] sleep 5; vesktop" # Sometimes fails to open when opened too fast
         "clipse -listen"
       ];
 
@@ -137,6 +137,7 @@
       windowrulev2 = [
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
+        "maxsize 400 1000, class:(com.chatterino.)"
       ];
 
       workspace = [
