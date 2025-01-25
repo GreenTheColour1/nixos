@@ -2,16 +2,15 @@
   description = "Flakeing";
 
   outputs =
-    inputs@{ self, ... }:
+    {
+      denix,
+      nixpkgs,
+      ...
+    }@inputs:
     let
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
         system = "x86_64-linux";
-        hostname = "nixos-fishy";
-        profile = "personal";
-        timezone = "America/Toronto";
-        local = "en_US.UTF-8";
-        gpuType = "nvidia";
       };
 
       # ----- USER SETTINGS ----- #
@@ -19,16 +18,6 @@
         username = "fishy";
         name = "GreenTheColour1";
         email = "contact@camerongreen.ca"; # email (used for certain configurations)
-        dotfilesDir = "~/.dotfiles"; # absolute path of the local repo
-        theme = "gruvbox-dark-medium"; # selcted theme from my themes directory (./themes/)
-        wm = "hyprland"; # Selected window manager or desktop environment; must select one in both ./user/wm/ and ./system/wm/
-        # window manager type (hyprland or x11) translator
-        wmType = if ((wm == "hyprland") || (wm == "plasma")) then "wayland" else "x11";
-        browser = "firefox"; # Default browser; must select one from ./user/app/browser/
-        term = "kitty"; # Default terminal command;
-        font = "FiraCode Nerd Font Mono"; # Selected font
-        fontPkg = (pkgs.nerd-fonts.fira-code); # Font package
-        editor = "nvim"; # Default editor;
       };
 
       # configure pkgs
@@ -43,62 +32,42 @@
         ];
       };
 
-      pkgs-stable = import inputs.nixpkgs-stable {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-        };
-      };
-
       pkgs = pkgs-unstable;
 
-      # configure lib
-      lib = inputs.nixpkgs.lib;
+      mkConfigurations =
+        isHomeManager:
+        denix.lib.configurations {
+          homeManagerNixpkgs = pkgs;
+          homeManagerUser = "fishy";
+          inherit isHomeManager;
+          paths = [
+            ./hosts
+            ./modules
+            ./rices
+          ];
 
-      home-manager = inputs.home-manager-unstable;
+          specialArgs = {
+            inherit inputs;
+          };
+        };
 
     in
     {
-      homeConfigurations = {
-        user = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-            # inputs.stylix.homeManagerModules.stylix
-          ];
-          extraSpecialArgs = {
-            inherit pkgs-unstable;
-            inherit systemSettings;
-            inherit userSettings;
-            inherit inputs;
-          };
-        };
-      };
-      nixosConfigurations = {
-        system = lib.nixosSystem {
-          system = systemSettings.system;
-          modules = [
-            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-            # inputs.stylix.nixosModules.stylix
-          ];
-          specialArgs = {
-            inherit pkgs-unstable;
-            inherit pkgs-stable;
-            inherit systemSettings;
-            inherit userSettings;
-            inherit inputs;
-          };
-        };
-      };
+      nixosConfigurations = mkConfigurations false;
+      homeConfigurations = mkConfigurations true;
     };
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
 
-    home-manager-unstable.url = "github:nix-community/home-manager/master";
-    home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    denix = {
+      url = "github:yunfachi/denix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
