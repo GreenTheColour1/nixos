@@ -6,7 +6,7 @@ delib.host {
   type = "desktop";
 
   displays = [
-  {
+    {
       name = "DP-1";
       primary = true;
       refreshRate = 144;
@@ -15,7 +15,7 @@ delib.host {
       x = 0;
       y = 0;
     }
-  {
+    {
       name = "HDMI-A-1";
       refreshRate = 60;
       width = 1920;
@@ -23,7 +23,7 @@ delib.host {
       x = 1920;
       y = 0;
     }
-  {
+    {
       name = "DP-3";
       refreshRate = 75;
       width = 1920;
@@ -31,5 +31,5 @@ delib.host {
       x = -1920;
       y = 0;
     }
-  ]
+  ];
 }
