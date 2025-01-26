@@ -9,7 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.isEnabled.virtualisation = {
+  nixos.ifEnabled.virtualisation = {
     libvirtd = {
       enable = true;
       qemu = {

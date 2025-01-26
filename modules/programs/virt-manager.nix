@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.isEnabled = {
+  nixos.ifEnabled = {
     programs.virt-manager.enable = true;
 
     environment.systemPackages = with pkgs; [

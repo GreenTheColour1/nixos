@@ -2,7 +2,7 @@
 delib.module {
   name = "programs.vscode";
 
-  options = delib.singelEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.isDesktop;
 
   home.ifEnabled = {
     programs.vscode = {

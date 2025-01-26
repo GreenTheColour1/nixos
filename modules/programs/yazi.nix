@@ -1,4 +1,5 @@
-{ delib, host, pkgs, ... }: {
+{ delib, host, pkgs, ... }:
+delib.module {
   name = "programs.yazi";
 
   options = delib.singleEnableOption host.isDesktop;
