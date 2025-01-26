@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.always.imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  home.always.imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   home.ifEnabled.programs.spicetify = 
     let

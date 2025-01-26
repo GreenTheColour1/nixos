@@ -9,19 +9,21 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.ifEnabled.virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu;
-        # TPM emulation
-        swtpm.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+  nixos.ifEnabled = {myconfig, ...}: {
+    virtualisation = {
+      libvirtd = {
+        enable = true;
+        qemu = {
+          package = pkgs.qemu;
+          # TPM emulation
+          swtpm.enable = true;
+          ovmf.packages = [ pkgs.OVMFFull.fd ];
+        };
       };
+
+      spiceUSBRedirection.enable = true;
     };
 
-    spiceUSBRedirection.enable = true;
-
-    user.extraGroups = [ "libvertd" ];
+    users.users.${myconfig.constants.username}.extraGroups = [ "libvertd" ];
   };
 }

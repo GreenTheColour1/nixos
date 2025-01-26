@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.always.imports = [ inputs.xremap-flake.homeManagerModules.default ];
+  home.always.imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
   home.ifEnabled.services.xremap = {
     withWlroots = true;

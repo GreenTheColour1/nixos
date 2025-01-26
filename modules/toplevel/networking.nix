@@ -7,9 +7,9 @@ delib.module {
     hosts = attrsOfOption (listOf str) {};
   };
 
-  nixos.always = { cfg, ... }: {
+  nixos.always = { cfg, myconfig, ... }: {
     networking = {
-      hostName = host.username;
+      hostName = host.name;
 
       firewall.enable = true;
       networkmanager.enable = true;
@@ -17,6 +17,6 @@ delib.module {
       inherit (cfg) hosts nameservers;
     };
 
-    user.extraGroups = [ "networkmanager" ];
+    users.users.${myconfig.constants.username}.extraGroups = [ "networkmanager" ];
   };
 }

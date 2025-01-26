@@ -8,22 +8,22 @@ delib.module {
     timeZone = strOption "America/Toronto";
     force24Hour = boolOption false;
 
-    local = strOption "en_US.UTF-8";
+    locale = strOption "en_US.UTF-8";
     installAllLocales = boolOption host.isDesktop;
   };
 
   nixos.ifEnabled = { cfg, ... }: {
-    time.timeZone = cfg.local;
+    time.timeZone = cfg.timeZone;
     environment.variables.TZ = cfg.timeZone;
 
     i18n = {
-      defaultLocal = cfg.local;
+      defaultLocale = cfg.locale;
 
       supportedLocales = 
         if cfg.installAllLocales
         then [ "all" ]
         else [
-          "${cfg.local}/UTF-8"
+          "${cfg.locale}/UTF-8"
         ];
     };
   };

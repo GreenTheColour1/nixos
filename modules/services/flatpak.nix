@@ -3,8 +3,10 @@ delib.module {
   name = "services.flatpak";
 
   options = with delib; {
-    enable = boolOption host.isDesktop;
-    packages = listOfOption str [];
+    services.flatpak = {
+      enable = boolOption host.isDesktop;
+      packages = listOfOption str [];
+    };
   };
 
   nixos.always.imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
@@ -13,7 +15,7 @@ delib.module {
   nixos.ifEnabled.services.flatpak.enable = true;
   home.ifEnabled = { cfg, ... }: {
     services.flatpak = {
-      enabled = true;
+      enable = true;
       packages = cfg.packages;
     };
   };
