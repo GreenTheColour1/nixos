@@ -24,7 +24,7 @@ delib.module {
 
         general = {
           gaps_in = cfg.gaps.inner;
-          gaps_out = cfg.outer;
+          gaps_out = cfg.gaps.outer;
           border_size = cfg.border.size;
 
           layout = "dwindle";
