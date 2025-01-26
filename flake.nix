@@ -36,7 +36,7 @@
 
       mkConfigurations =
         isHomeManager:
-        denix.lib.configurations {
+        denix.lib.configurations rec {
           homeManagerNixpkgs = pkgs;
           homeManagerUser = "fishy";
           inherit isHomeManager;
@@ -47,7 +47,7 @@
           ];
 
           specialArgs = {
-            inherit inputs;
+            inherit inputs isHomeManager homeManagerUser;
           };
         };
 

@@ -3,7 +3,7 @@ delib.module {
   name = "args";
 
   options.args = with delib; {
-    # shared = attrsLegacyOption { };
+    shared = attrsLegacyOption { };
     nixos = attrsLegacyOption { };
     home = attrsLegacyOption { };
   };
