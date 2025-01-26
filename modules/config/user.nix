@@ -12,7 +12,6 @@ delib.module {
         isNormalUser = true;
         description = username;
         extraGroups = [
-          "networkmanager"
           "wheel"
           "input"
           "uinput"

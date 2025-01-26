@@ -18,5 +18,5 @@ delib.module {
       };
     };
 
-  nixos.ifEnabled.environment.systemPackages = [ pkgs.git ];
+  nixos.ifEnabled.environment.systemPackages = [ pkgs.git pkgs.lazygit ];
 }
