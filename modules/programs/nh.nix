@@ -1,14 +1,17 @@
-{ delib, pkgs, homeconfig, ... }:
+{ delib, pkgs, ... }:
 delib.module {
   name = "programs.nh";
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.home.packages = [pkgs.nh];
-  home.ifEnabled.programs.nh = {
+  home.ifEnabled = { myconfig, ... }: {
+    home.packages = [ pkgs.nh ];
+    programs.nh = {
+
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "${homeconfig.home.homeDirectory}/.dotfiles";
+    flake = "/home/${myconfig.constants.username}/.dotfiles";
+    };
   };
 }
