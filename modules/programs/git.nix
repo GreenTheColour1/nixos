@@ -1,17 +1,22 @@
-{delib, ...}:
+{ delib, pkgs, ... }:
 delib.module {
   name = "programs.git";
 
   options.programs.git = with delib; {
     enable = boolOption true;
-    enableLFS = boolOption true;
   };
 
-  home.ifEnabled.programs.git = {myconfig, cfg, ...}: {
-    enable = cfg.enable;
-    lfs.enable = cfg.enableLFS;
+  home.ifEnabled =
+    { myconfig, cfg, ... }:
+    {
+      programs.git = {
+        enable = true;
+        lfs.enable = true;
 
-    userName = myconfig.constants.username;
-    userEmail = myconfig.constants.useremail;
-  };
+        userName = myconfig.constants.username;
+        userEmail = myconfig.constants.useremail;
+      };
+    };
+
+  nixos.ifEnabled.environment.systemPackages = [ pkgs.git ];
 }

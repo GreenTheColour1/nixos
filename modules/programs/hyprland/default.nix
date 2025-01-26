@@ -1,4 +1,4 @@
-{ delib, ... }:
+{ delib, host, ... }:
 delib.module {
   name = "programs.hyprland";
 

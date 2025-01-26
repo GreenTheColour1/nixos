@@ -4,9 +4,9 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.home.packages = [pkgs.steam];
+  nixos.ifEnabled.environment.systemPackages = [pkgs.steam];
 
-  home.ifEnabled.programs.steam = {
+  nixos.ifEnabled.programs.steam = {
     enable = true;
     protontricks.enable = true;
   };

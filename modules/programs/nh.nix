@@ -6,7 +6,7 @@ delib.module {
 
   home.ifEnabled.home.packages = [pkgs.nh];
   home.ifEnabled.programs.nh = {
-    enabled = true;
+    enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "${homeconfig.home.homeDirectory}/.dotfiles";
