@@ -2,7 +2,7 @@
 delib.host {
   name = "nixos-fishy";
 
-  rice = "gruvboxDM";
+  rice = "gruvbox-dark-medium";
   type = "desktop";
 
   displays = [

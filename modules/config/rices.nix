@@ -11,7 +11,7 @@ delib.module {
     in
     {
       rice = riceOption rice;
-      rices = riceOption rice;
+      rices = ricesOption rice;
     };
 
   home.always =
