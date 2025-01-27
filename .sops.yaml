@@ -1,0 +1,11 @@
+keys:
+  - &fishy age13dwmhr27a3uwa0amxq0p67zv676k4dnjl3rtjs3uz690c3xrjfms0peucj
+creation_rules:
+  - path_regex: ^secrets.yaml$
+    key_groups:
+    - age:
+      - *fishy
+  - path_regex: ^hosts/fishy/secrets.yaml$
+    key_groups:
+    - age:
+      - *fishy

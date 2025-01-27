@@ -2,7 +2,7 @@
 delib.module {
   name = "programs.waybar";
 
-  home.isEnabled.programs.waybar = {
+  home.ifEnabled.programs.waybar = {
     style = ''
       /* ================================ */
       /*            Common CSS            */

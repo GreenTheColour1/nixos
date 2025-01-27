@@ -69,6 +69,13 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # wallpapers.url = "git+ssh://git@github.com/GreenTheColour1/wallpapers";
+
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 

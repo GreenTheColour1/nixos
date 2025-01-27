@@ -9,7 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.isEnabled = {
+  home.ifEnabled = {
     programs.waybar = {
       enable = true;
       systemd.enable = true;
