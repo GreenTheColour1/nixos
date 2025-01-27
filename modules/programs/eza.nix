@@ -21,7 +21,7 @@ delib.module {
         enable = true;
 
         git = true;
-        icons = cfg.icons;
+        icons = if cfg.icons then "auto" else "never";
 
         extraOptions = [
           "--hyperlink"
