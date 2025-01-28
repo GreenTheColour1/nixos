@@ -18,9 +18,19 @@ delib.module {
     };
   };
 
-  nixos.ifEnabled.programs.hyprland = {
-    enable = true;
-    withUWSM = true;
+  nixos.ifEnabled = {
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+
+    environment.variables = {
+      GDK_BACKEND = "wayland,x11,*";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+    };
+
   };
   home.ifEnabled.wayland.windowManager.hyprland.enable = true;
 }

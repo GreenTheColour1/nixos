@@ -1,4 +1,10 @@
-{ delib, pkgs, host, config, ... }:
+{
+  delib,
+  pkgs,
+  host,
+  config,
+  ...
+}:
 delib.module {
   name = "nvidia";
 
@@ -14,6 +20,14 @@ delib.module {
       modesetting.enable = true;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
+    environment.variables = {
+      LIBVA_DRIVER_NAME = "nvidia";
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      NVD_BACKEND = "direct";
+      __GL_GSYNC_ALLOWED = 1;
     };
   };
 }
