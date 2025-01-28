@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.programs.nixvim.plugins.slueth = {
+  home.ifEnabled.programs.nixvim.plugins.sleuth = {
     enable = true;
   };
 }
