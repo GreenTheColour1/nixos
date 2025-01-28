@@ -11,7 +11,7 @@ delib.module {
     {
       wayland.windowManager.hyprland.settings = {
 
-        "$mod" = cfg.mod;
+        "$mainMod" = cfg.mod;
 
         monitor = map (
           display:

@@ -8,36 +8,10 @@
       ...
     }@inputs:
     let
-      # ---- SYSTEM SETTINGS ---- #
-      systemSettings = {
-        system = "x86_64-linux";
-      };
-
-      # ----- USER SETTINGS ----- #
-      userSettings = rec {
-        username = "fishy";
-        name = "GreenTheColour1";
-        email = "contact@camerongreen.ca"; # email (used for certain configurations)
-      };
-
-      # configure pkgs
-      pkgs-unstable = import inputs.nixpkgs {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = (_: true);
-        };
-        overlays = [
-          inputs.nix-vscode-extensions.overlays.default
-        ];
-      };
-
-      pkgs = pkgs-unstable;
-
       mkConfigurations =
         isHomeManager:
         denix.lib.configurations rec {
-          homeManagerNixpkgs = pkgs;
+          homeManagerNixpkgs = nixpkgs;
           homeManagerUser = "fishy";
           inherit isHomeManager;
           paths = [

@@ -44,7 +44,7 @@ delib.module {
 
           timeoutlen = 300;
 
-          incommand = "split";
+          inccommand = "split";
           cursorline = true;
           scrolloff = 10;
           cmdheight = 0;
