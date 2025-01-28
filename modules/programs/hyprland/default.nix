@@ -24,11 +24,11 @@ delib.module {
       withUWSM = true;
     };
 
-    environment.variables = {
+    environment.sessionVariables = {
       GDK_BACKEND = "wayland,x11,*";
       QT_QPA_PLATFORM = "wayland;xcb";
       SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
+      # CLUTTER_BACKEND = "wayland";
     };
 
   };
