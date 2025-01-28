@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.programs.nixvim.plugins.lsp.lua_ls = {
+  home.ifEnabled.programs.nixvim.plugins.lsp.servers.lua_ls = {
     enable = true;
   };
 }
