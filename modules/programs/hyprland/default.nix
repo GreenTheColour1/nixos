@@ -21,14 +21,16 @@ delib.module {
   nixos.ifEnabled = {
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
+      # withUWSM = true;
     };
 
     environment.sessionVariables = {
       GDK_BACKEND = "wayland,x11,*";
       QT_QPA_PLATFORM = "wayland;xcb";
       SDL_VIDEODRIVER = "wayland";
-      # CLUTTER_BACKEND = "wayland";
+      CLUTTER_BACKEND = "wayland";
+
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
 
   };

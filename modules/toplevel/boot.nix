@@ -18,6 +18,7 @@ delib.module {
   nixos.ifEnabled =
     { cfg, ... }:
     {
+      environment.systemPackages = with pkgs; [ grub2 ];
       boot.kernelPackages = pkgs.linuxPackages_latest;
 
       boot.loader = {

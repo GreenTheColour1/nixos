@@ -13,14 +13,11 @@ delib.module {
 
         "$mainMod" = cfg.mod;
 
-        monitor = map (
-          display:
-          let
-            resolution = "${toString display.width}x${toString display.height}@${toString display.refreshRate}";
-            position = "${toString display.x}x${toString display.y}";
-          in
-          "${display.name},${if display.enable then "${resolution},${position},1" else "disable"}"
-        ) host.displays;
+        monitor = [
+          "DP-1, 1920x1080@144, 0x0, 1, vrr, 1"
+          "DP-3, 1920x1080@75, -1920x0, 1"
+          "HDMI-A-1, 1920x1080, 1920x0, 1"
+        ];
 
         general = {
           gaps_in = cfg.gaps.inner;
@@ -28,6 +25,18 @@ delib.module {
           border_size = cfg.border.size;
 
           layout = "dwindle";
+        };
+
+        input = {
+          kb_layout = "us";
+          follow_mouse = 1;
+
+          touchpad = {
+            natural_scroll = "no";
+          };
+
+          sensitivity = 0;
+          accel_profile = "flat";
         };
 
         decoration = {
