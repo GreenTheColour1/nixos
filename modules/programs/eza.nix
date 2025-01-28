@@ -29,4 +29,8 @@ delib.module {
         ];
       };
     };
+
+  myconfig.programs.zsh.aliases = {
+    ls = "eza";
+  };
 }

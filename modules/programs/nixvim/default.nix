@@ -14,39 +14,56 @@ delib.module {
 
   home.always.imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
-  home.ifEnabled = { cfg, ... }: {
-    programs.nixvim = {
-      enable = true;
-      inherit (cfg) defaultEditor;
+  home.ifEnabled =
+    { cfg, ... }:
+    {
+      programs.nixvim = {
+        enable = true;
+        inherit (cfg) defaultEditor;
 
-      clipboard.register = "unnamedplus";
+        clipboard.register = "unnamedplus";
 
-      globals = {
-        mapleader = " ";
-        maplocalleader = " ";
-      };
+        globals = {
+          mapleader = " ";
+          maplocalleader = " ";
+        };
 
-      opts = {
-        number = true;
-        relativenumber = true;
+        opts = {
+          number = true;
+          relativenumber = true;
 
-        list = true;
+          list = true;
 
-        expandtab = true;
-        tabstop = 2;
-        softtabstop = 2;
-        shiftwidth = 2;
+          expandtab = true;
+          tabstop = 2;
+          softtabstop = 2;
+          shiftwidth = 2;
 
-        ignorecase = true;
-        smartcase = true;
+          ignorecase = true;
+          smartcase = true;
 
-        timeoutlen = 300;
+          timeoutlen = 300;
 
-        incommand = "split";
-        cursorline = true;
-        scrolloff = 10;
-        cmdheight = 0;
+          incommand = "split";
+          cursorline = true;
+          scrolloff = 10;
+          cmdheight = 0;
+        };
+
+        keymaps = [
+          {
+            action = "<cmd>nohlsearch<CR>";
+            key = "<Esc>";
+            options = {
+              desc = "Clear search highlight";
+            };
+            mode = "n";
+          }
+        ];
       };
     };
+
+  myconfig.programs.zsh.aliases = {
+    v = "nvim";
   };
 }
