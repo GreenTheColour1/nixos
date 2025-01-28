@@ -12,6 +12,6 @@ delib.module {
 
   home.ifEnabled.home.packages = [
     pkgs.brave
-    inputs.zen-browser.packages.x86-64-linux.default
+    inputs.zen-browser.packages.x86_64-linux.default
   ];
 }

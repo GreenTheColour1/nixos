@@ -16,9 +16,9 @@ delib.module {
 
     sops.age.keyFile = "/${homeconfig.home.homeDirectory}/.config/sops/age/keys.txt";
 
-    secrets = {
+    sops.secrets = {
       "gh_private_key" = {
-        path = "/${homeconfig.home.homeDirectory}/.ssh/id_ed25519";
+        path = "/${homeconfig.home.homeDirectory}/.ssh/id_git";
       };
     };
   };
