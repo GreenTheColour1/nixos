@@ -30,7 +30,7 @@ delib.module {
       };
     };
 
-  myconfig.programs.zsh.aliases = {
-    ls = "eza";
-  };
+  # myconfig.programs.zsh.aliases = {
+  #   ls = "eza";
+  # };
 }

@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  myconfig.ifEnabled.programs.flatpak.packages = [
+  myconfig.ifEnabled.services.flatpak.packages = [
     "com.usebottles.bottles"
   ];
 }
