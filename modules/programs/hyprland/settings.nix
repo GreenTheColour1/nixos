@@ -19,6 +19,27 @@ delib.module {
           "HDMI-A-1, 1920x1080, 1920x0, 1"
         ];
 
+        env = [
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+          "GDK_BACKEND,wayland,x11"
+          "SDL_VIDEODRIVER,wayland"
+          "LIBVA_DRIVER_NAME,nvidia"
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "WLR_NO_HARDWARE_CURSORS,1"
+          "NVD_BACKEND,direct"
+          "QT_QPA_PLATFORM,wayland;xcb"
+          "QT_QPA_PLATFORMTHEME,qt6ct"
+          # "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+          # "QT_STYLE_OVERRIDE=kvantum"
+          "ELECTRON_OZONE_PLATFORM_HINT,auto"
+          "_JAVA_AWT_WM_NONREPARENTING=1"
+          "MOZ_DISABLE_RDD_SANDBOX,1"
+        ];
+
         general = {
           gaps_in = cfg.gaps.inner;
           gaps_out = cfg.gaps.outer;
