@@ -1,8 +1,22 @@
-{ delib, host, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "dconf";
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.ifEnabled.programs.dconf.enable = true;
+  nixos.ifEnabled = {
+    services.dbus = {
+      enable = true;
+      packages = [ pkgs.dconf ];
+    };
+
+    programs.dconf = {
+      enable = true;
+    };
+  };
 }
