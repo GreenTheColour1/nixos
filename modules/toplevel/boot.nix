@@ -38,6 +38,7 @@ delib.module {
 
       boot.kernelParams = [
         "amd_pstate=active"
+        "initcall_blacklist=simpledrm_platform_driver_init" # Fix ghost monitor
       ];
     };
 }
