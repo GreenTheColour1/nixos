@@ -1,4 +1,9 @@
-{ delib, host, pkgs, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "programs.yazi";
 
@@ -17,5 +22,9 @@ delib.module {
         };
       };
     };
+
+    # myconfig.programs.zsh.aliases = {
+    #   ya = "yazi";
+    # };
   };
 }

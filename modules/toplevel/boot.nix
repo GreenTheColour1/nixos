@@ -18,7 +18,10 @@ delib.module {
   nixos.ifEnabled =
     { cfg, ... }:
     {
-      environment.systemPackages = with pkgs; [ grub2 ];
+      environment.systemPackages = with pkgs; [
+        grub2
+        os-prober
+      ];
       boot.kernelPackages = pkgs.linuxPackages_latest;
 
       boot.loader = {
@@ -28,7 +31,8 @@ delib.module {
 
         grub = {
           enable = true;
-          efiSupport = cfg.mode == "uefi";
+          # efiSupport = cfg.mode == "uefi"; # This ends up not being true on uefi systems FIXME
+          efiSupport = true;
           device = "nodev";
           useOSProber = true;
         };
