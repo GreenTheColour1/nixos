@@ -48,6 +48,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # wallpapers.url = "git+ssh://git@github.com/GreenTheColour1/wallpapers";
 
     nixvim.url = "github:nix-community/nixvim";

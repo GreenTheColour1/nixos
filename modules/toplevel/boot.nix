@@ -2,6 +2,8 @@
   delib,
   pkgs,
   config,
+  lib,
+  inputs,
   ...
 }:
 delib.module {
@@ -15,12 +17,13 @@ delib.module {
     );
   };
 
+  nixos.always.imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
+
   nixos.ifEnabled =
     { cfg, ... }:
     {
       environment.systemPackages = with pkgs; [
-        grub2
-        os-prober
+        sbctl
       ];
       boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -28,14 +31,14 @@ delib.module {
         efi = {
           canTouchEfiVariables = true;
         };
-
         systemd-boot = {
-          enable = true;
-          # efiSupport = cfg.mode == "uefi"; # This ends up not being true on uefi systems FIXME
-          # efiSupport = true;
-          # device = "nodev";
-          # useOSProber = true;
+          enable = lib.mkForce false;
         };
+      };
+
+      boot.lanzaboote = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
       };
 
       # boot.extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
