@@ -23,7 +23,7 @@ delib.module {
         }
         {
           "label" = "windows";
-          "action" = "sudo grub-reboot 2 && systemctl reboot"; # this should reboot into windows assuming windows the second entry
+          "action" = "systemctl reboot --boot-loader-entry=auto-windows"; # this should reboot into windows assuming windows the second entry
           "keybind" = "w";
         }
         {

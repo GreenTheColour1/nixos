@@ -29,12 +29,12 @@ delib.module {
           canTouchEfiVariables = true;
         };
 
-        grub = {
+        systemd-boot = {
           enable = true;
           # efiSupport = cfg.mode == "uefi"; # This ends up not being true on uefi systems FIXME
-          efiSupport = true;
-          device = "nodev";
-          useOSProber = true;
+          # efiSupport = true;
+          # device = "nodev";
+          # useOSProber = true;
         };
       };
 
