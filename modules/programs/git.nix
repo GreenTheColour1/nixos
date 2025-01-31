@@ -13,10 +13,13 @@ delib.module {
         enable = true;
         lfs.enable = true;
 
-        userName = myconfig.constants.username;
+        userName = myconfig.constants.gituser;
         userEmail = myconfig.constants.useremail;
       };
     };
 
-  nixos.ifEnabled.environment.systemPackages = [ pkgs.git pkgs.lazygit ];
+  nixos.ifEnabled.environment.systemPackages = [
+    pkgs.git
+    pkgs.lazygit
+  ];
 }
