@@ -5,7 +5,7 @@ delib.module {
   home.ifEnabled = {
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "[workspace 4 silent] vesktop"
+        "sleep 5; vesktop" # Doesn't launch correctly if launched too fast
         "clipse -listen"
       ];
     };
