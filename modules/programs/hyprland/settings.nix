@@ -46,6 +46,8 @@ delib.module {
           border_size = cfg.border.size;
 
           layout = "dwindle";
+
+          allow_tearing = true;
         };
 
         input = {
