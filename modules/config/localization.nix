@@ -12,19 +12,23 @@ delib.module {
     installAllLocales = boolOption host.isDesktop;
   };
 
-  nixos.ifEnabled = { cfg, ... }: {
-    time.timeZone = cfg.timeZone;
-    environment.variables.TZ = cfg.timeZone;
+  nixos.ifEnabled =
+    { cfg, ... }:
+    {
+      time.timeZone = cfg.timeZone;
+      time.hardwareClockInLocalTime = true;
+      environment.variables.TZ = cfg.timeZone;
 
-    i18n = {
-      defaultLocale = cfg.locale;
+      i18n = {
+        defaultLocale = cfg.locale;
 
-      supportedLocales = 
-        if cfg.installAllLocales
-        then [ "all" ]
-        else [
-          "${cfg.locale}/UTF-8"
-        ];
+        supportedLocales =
+          if cfg.installAllLocales then
+            [ "all" ]
+          else
+            [
+              "${cfg.locale}/UTF-8"
+            ];
+      };
     };
-  };
 }
