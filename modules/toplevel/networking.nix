@@ -1,22 +1,24 @@
-{ delib, host, ... }: 
+{ delib, host, ... }:
 delib.module {
   name = "networking";
 
   options.networking = with delib; {
-    nameservers = listOfOption str [];
-    hosts = attrsOfOption (listOf str) {};
+    nameservers = listOfOption str [ ];
+    hosts = attrsOfOption (listOf str) { };
   };
 
-  nixos.always = { cfg, myconfig, ... }: {
-    networking = {
-      hostName = host.name;
+  nixos.always =
+    { cfg, myconfig, ... }:
+    {
+      networking = {
+        hostName = host.name;
 
-      firewall.enable = true;
-      networkmanager.enable = true;
+        firewall.enable = false;
+        networkmanager.enable = true;
 
-      inherit (cfg) hosts nameservers;
+        inherit (cfg) hosts nameservers;
+      };
+
+      users.users.${myconfig.constants.username}.extraGroups = [ "networkmanager" ];
     };
-
-    users.users.${myconfig.constants.username}.extraGroups = [ "networkmanager" ];
-  };
 }

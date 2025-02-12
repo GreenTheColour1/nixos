@@ -8,5 +8,8 @@ delib.module {
   name = "programs.proton-vpn";
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.ifEnabled.environment.systemPacakges = with pkgs; [ protonvpn-gui ];
+  nixos.ifEnabled.environment.systemPackages = with pkgs; [
+    protonvpn-gui
+    libnatpmp
+  ];
 }
