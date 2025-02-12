@@ -9,5 +9,5 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  nixos.ifEnabled.environmnet.systemPackages = with pkgs; [ qbittorrent ];
+  nixos.ifEnabled.environment.systemPackages = with pkgs; [ qbittorrent ];
 }
