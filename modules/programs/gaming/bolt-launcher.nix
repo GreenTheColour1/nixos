@@ -9,5 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.home.packages = [ pkgs.bolt-launcher ];
+  # home.ifEnabled.home.packages = [ pkgs.bolt-launcher ];
+
+  myconfig.ifEnabled.services.flatpak.packages = [ "com.adamcake.Bolt" ];
 }
