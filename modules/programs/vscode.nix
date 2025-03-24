@@ -16,7 +16,7 @@ delib.module {
     programs.vscode = {
       enable = true;
       mutableExtensionsDir = true;
-      extensions = with pkgs.vscode-marketplace; [
+      profiles.default.extensions = with pkgs.vscode-marketplace; [
         # Python
         ms-python.python
         ms-python.vscode-pylance
