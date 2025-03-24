@@ -5,7 +5,7 @@
   ...
 }:
 let
-  flake = ''(builtins.getFlake "github:GreenTheColour1/nixos)"'';
+  flake = ''(builtins.getFlake "github:GreenTheColour1/nixos")'';
 in
 delib.module {
   name = "programs.nixvim.lsp.nixd";
@@ -24,11 +24,11 @@ delib.module {
             nixos = {
               expr = "${flake}.nixosConfigurations.nixos-fishy.options"; # FIXME
             };
-            home_manager = {
-              expr = "${flake}.homeConfigurations.${myconfig.constants.username}@nixos-fishy.options"; # FIXME
-            };
+            # home_manager = {
+            #   expr = "${flake}.homeConfigurations.${myconfig.constants.username}@nixos-fishy.options"; # FIXME
+            # };
             denix = {
-              expr = "(builtins.getFlake \"github:yunfachi/denix\").lib.options";
+              expr = "${flake}.inputs.denix.lib.options";
             };
           };
         };
