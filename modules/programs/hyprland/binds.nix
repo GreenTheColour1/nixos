@@ -18,6 +18,8 @@ delib.module {
           "$mainMod, C, exec, kitty --class clipse -e clipse"
           "$mainMod, ESCAPE, exec, wlogout -b 2"
 
+          ", F5, exec, hyprctl activewindow | grep -q \"class: steam_app_238960\" && hypr-exiled --hideout"
+
           "$mainMod, F, fullscreen"
           "$mainMod, Q, killactive,"
           "$mainMod SHIFT, E, exit,"
