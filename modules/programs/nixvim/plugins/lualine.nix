@@ -31,7 +31,7 @@ delib.module {
                      { extra_mode_status }
                     }'';
         };
-        options.theme = "auto";
+        options.theme = "gruvbox_dark";
       };
       luaConfig.pre = ''
         ---Indicators for special modes,

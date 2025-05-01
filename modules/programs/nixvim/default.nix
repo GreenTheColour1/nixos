@@ -48,6 +48,8 @@ delib.module {
           cursorline = true;
           scrolloff = 10;
           cmdheight = 0;
+
+          termguicolors = true;
         };
 
         keymaps = [
