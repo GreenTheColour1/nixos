@@ -21,7 +21,7 @@ delib.module {
   nixos.ifEnabled = {
     programs.hyprland = {
       enable = true;
-      # withUWSM = true;
+      withUWSM = true;
     };
 
     environment.sessionVariables = {

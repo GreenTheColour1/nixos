@@ -22,7 +22,7 @@ delib.module {
 
           "$mainMod, F, fullscreen"
           "$mainMod, Q, killactive,"
-          "$mainMod SHIFT, E, exit,"
+          "$mainMod SHIFT, E, exec, uwsm stop,"
           "$mainMod, V, togglefloating,"
           "$mainMod, Space, togglesplit, # dwindle"
 
