@@ -14,6 +14,7 @@ delib.module {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
 
     services.xserver.videoDrivers = [
@@ -31,6 +32,8 @@ delib.module {
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       NVD_BACKEND = "direct";
+      VDPAU_DRIVER = "nvidia";
+      EGL_PLATFORM = "wayland";
       # __GL_GSYNC_ALLOWED = 1;
     };
   };
