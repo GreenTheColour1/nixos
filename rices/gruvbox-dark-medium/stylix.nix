@@ -21,8 +21,8 @@ delib.rice {
       base16Scheme = themePath;
       fonts = {
         monospace = {
-          name = "Fira Nerd Font Mono";
-          package = pkgs.nerd-fonts.fira-mono;
+          name = "Fira Code Nerd Font";
+          package = pkgs.nerd-fonts.fira-code;
         };
         serif = {
           name = "FiraCode Nerd Font";
@@ -40,6 +40,7 @@ delib.rice {
         grub.enable = true;
         gtk.enable = true;
         nixos-icons.enable = true;
+        qt.enable = true;
       };
 
       homeManagerIntegration.autoImport = false;
@@ -60,7 +61,7 @@ delib.rice {
       fonts = {
         monospace = {
           name = "Fira Nerd Font Mono";
-          package = pkgs.nerd-fonts.fira-mono;
+          package = pkgs.nerd-fonts.fira-code;
         };
         serif = {
           name = "FiraCode Nerd Font";
@@ -81,14 +82,15 @@ delib.rice {
       targets = {
         gtk.enable = true;
         gtk.flatpakSupport.enable = true;
-        # nixvim.enable = false;
         bat.enable = true;
         btop.enable = true;
         hyprland.enable = true;
         hyprland.hyprpaper.enable = true;
         kitty.enable = true;
+        nixcord.enable = true;
         lazygit.enable = true;
         rofi.enable = true;
+        qt.enable = true;
         yazi.enable = true;
       };
 
