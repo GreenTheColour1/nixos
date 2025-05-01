@@ -30,7 +30,7 @@ delib.module {
         syntaxHighlighting.enable = true;
         enableCompletion = true;
         shellAliases = cfg.aliases;
-        initExtra = "microfetch";
+        initContent = "microfetch";
       };
     };
 }
