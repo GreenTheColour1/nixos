@@ -2,6 +2,7 @@
   delib,
   pkgs,
   host,
+  lib,
   ...
 }:
 delib.module {
@@ -9,12 +10,17 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.programs.obs-studio = {
+  nixos.ifEnabled.programs.obs-studio = {
     enable = true;
+
+    package = pkgs.obs-studio.override {
+      cudaSupport = true;
+    };
 
     plugins = with pkgs.obs-studio-plugins; [
       obs-tuna
       obs-pipewire-audio-capture
+      obs-vkcapture
     ];
   };
 }
