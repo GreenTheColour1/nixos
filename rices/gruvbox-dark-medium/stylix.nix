@@ -37,6 +37,7 @@ delib.rice {
       targets = {
         chromium.enable = true;
         console.enable = true;
+        fzf.enable = true;
         grub.enable = true;
         gtk.enable = true;
         nixos-icons.enable = true;
