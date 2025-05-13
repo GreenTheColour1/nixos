@@ -65,7 +65,7 @@ delib.module {
       };
     };
 
-  # myconfig.programs.zsh.aliases = {
-  #   v = "nvim";
-  # };
+  myconfig.ifEnabled.programs.zsh.aliases = [
+    { v = "nvim"; }
+  ];
 }

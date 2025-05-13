@@ -2,6 +2,7 @@
   delib,
   host,
   pkgs,
+  lib,
   ...
 }:
 delib.module {
@@ -10,7 +11,10 @@ delib.module {
   options = {
     programs.zsh = {
       enable = delib.boolOption host.isDesktop;
-      aliases = delib.attrsOfOption delib.str { };
+      aliases = lib.mkOption {
+        type = lib.types.listOf (lib.types.attrsOf lib.types.str);
+        default = [ ];
+      };
     };
   };
 
@@ -29,7 +33,7 @@ delib.module {
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         enableCompletion = true;
-        shellAliases = cfg.aliases;
+        shellAliases = lib.mkMerge cfg.aliases;
         initContent = "microfetch";
       };
     };

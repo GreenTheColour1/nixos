@@ -22,9 +22,8 @@ delib.module {
         };
       };
     };
-
-    # myconfig.programs.zsh.aliases = {
-    #   ya = "yazi";
-    # };
   };
+  myconfig.ifEnabled.programs.zsh.aliases = [
+    { y = "yazi"; }
+  ];
 }
