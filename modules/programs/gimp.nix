@@ -9,7 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.packages = with pkgs; [
-    gimp-with-plugins
+  home.ifEnabled.home.packages = with pkgs; [
+    gimp3-with-plugins
   ];
 }
