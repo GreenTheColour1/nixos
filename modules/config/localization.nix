@@ -22,13 +22,13 @@ delib.module {
       i18n = {
         defaultLocale = cfg.locale;
 
-        supportedLocales =
-          if cfg.installAllLocales then
-            [ "all" ]
-          else
-            [
-              "${cfg.locale}/UTF-8"
-            ];
+        # extraLocales =
+        #   if cfg.installAllLocales then
+        #     [ "all" ]
+        #   else
+        #     [
+        #       "${cfg.locale}/UTF-8"
+        #     ];
       };
     };
 }
