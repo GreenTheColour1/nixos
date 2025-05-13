@@ -37,7 +37,6 @@ delib.rice {
       targets = {
         chromium.enable = true;
         console.enable = true;
-        fzf.enable = true;
         grub.enable = true;
         gtk.enable = true;
         nixos-icons.enable = true;
@@ -85,6 +84,7 @@ delib.rice {
         gtk.flatpakSupport.enable = true;
         bat.enable = true;
         btop.enable = true;
+        fzf.enable = true;
         hyprland.enable = true;
         hyprland.hyprpaper.enable = true;
         kitty.enable = true;
