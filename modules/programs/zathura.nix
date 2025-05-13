@@ -4,7 +4,7 @@
   pkgs,
   ...
 }:
-delib.modules {
+delib.module {
   name = "programs.zathura";
 
   options = delib.singleEnableOption host.isDesktop;
