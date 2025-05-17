@@ -92,6 +92,7 @@ delib.rice {
         lazygit.enable = true;
         rofi.enable = true;
         qt.enable = true;
+        tmux.enable = true;
         yazi.enable = true;
       };
 
