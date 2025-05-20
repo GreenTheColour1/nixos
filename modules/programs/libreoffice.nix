@@ -11,7 +11,7 @@ delib.module {
 
   home.ifEnabled = {
     home.packages = with pkgs; [
-      onlyoffice-bin
+      libreoffice
       hunspell
       hunspellDicts.en_US
       hunspellDicts.en_CA
