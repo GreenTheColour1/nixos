@@ -49,7 +49,7 @@ delib.rice {
   };
 
   home = {
-    imports = [ inputs.stylix.homeManagerModules.stylix ];
+    imports = [ inputs.stylix.homeModules.stylix ];
 
     stylix = {
       enable = true;
@@ -92,7 +92,6 @@ delib.rice {
         lazygit.enable = true;
         rofi.enable = true;
         qt.enable = true;
-        tmux.enable = true;
         yazi.enable = true;
       };
 
