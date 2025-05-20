@@ -7,10 +7,8 @@ delib.module {
   home.ifEnabled.programs.nixvim.plugins.floaterm = {
     enable = true;
     settings = {
-      shell = "zsh";
-      keymaps = {
-        toggle = "<C-t>";
-      };
+      # shell = "zsh";
+      keymap_toggle = "<C-t>";
     };
   };
 }
