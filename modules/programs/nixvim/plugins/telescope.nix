@@ -32,6 +32,30 @@ delib.module {
             desc = "[S]earch recent files";
           };
         };
+        "<leader>sd" = {
+          action = "diagnostics";
+          options = {
+            desc = "[S]earch [D]iagnostics";
+          };
+        };
+        "<leader>fr" = {
+          action = "lsp_references";
+          options = {
+            desc = "[F]ind [R]eferences";
+          };
+        };
+        "<leader>fi" = {
+          action = "lsp_implementations";
+          options = {
+            desc = "[F]ind [I]mplementation";
+          };
+        };
+        "<leader>fd" = {
+          action = "lsp_definitions";
+          options = {
+            desc = "[F]ind [D]efinitions";
+          };
+        };
       };
       settings = {
         defaults = {
