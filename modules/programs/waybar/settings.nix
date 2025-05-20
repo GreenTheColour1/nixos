@@ -65,9 +65,9 @@ delib.module {
         };
         "temperature" = {
           "tooltip" = false;
-          "thermal-zone" = 2;
-          "hwmon-path" = "/sys/class/hwmon/hwmon1/temp1_input";
-          "critical-threshold" = 70;
+          # "thermal-zone" = 2;
+          "hwmon-path" = "/sys/class/hwmon/hwmon2/temp3_input";
+          "critical-threshold" = 75;
           "format-critical" = "<span color='#222222' bgcolor='#cc241d' > TEM </span> {temperatureC}°C";
           "format" = "<span color='#222222' bgcolor='#d8a657' > TMP </span> {temperatureC}°C ";
         };
