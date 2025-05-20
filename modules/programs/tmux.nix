@@ -29,10 +29,10 @@ delib.module {
         set-option -sa terminal-overrides ",xterm*:Tc"
 
         unbind %
-        bind v split-window -h
+        bind \\ split-window -h
 
         unbind \"
-        bind h split-window -v
+        bind - split-window -v
 
         bind K kill-session
 
@@ -42,6 +42,12 @@ delib.module {
         bind-key k select-pane -U
         bind-key l select-pane -R
       '';
+
+      plugins = with pkgs; [
+        {
+          plugin = tmuxPlugins.gruvbox;
+        }
+      ];
     };
   };
 }
