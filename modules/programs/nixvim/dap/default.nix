@@ -33,10 +33,17 @@ delib.module {
           numhl = "DiagnosticSignWarn";
         };
       };
+      luaConfig.post = ''
+        local dap = require("dap")
+        -- Automatically open/close DAP UI
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+          dapui.open()
+        end
+      '';
     };
     keymaps = [
       {
-        action.__raw = "require('dap').toggle_breakpoint()";
+        action.__raw = "function() require('dap').toggle_breakpoint() end";
         key = "<leader>db";
         mode = "n";
         options = {
@@ -45,7 +52,7 @@ delib.module {
         };
       }
       {
-        action.__raw = "require('dap').continue()";
+        action.__raw = "function() require('dap').continue() end";
         key = "<leader>dc";
         mode = "n";
         options = {
@@ -54,7 +61,7 @@ delib.module {
         };
       }
       {
-        action.__raw = "require('dap').step_over()";
+        action.__raw = "function() require('dap').step_over() end";
         key = "<leader>do";
         mode = "n";
         options = {
@@ -63,7 +70,7 @@ delib.module {
         };
       }
       {
-        action.__raw = "require('dap').step_into()";
+        action.__raw = "function() require('dap').step_into() end";
         key = "<leader>di";
         mode = "n";
         options = {
@@ -72,7 +79,7 @@ delib.module {
         };
       }
       {
-        action.__raw = "require('dap').step_out()";
+        action.__raw = "function() require('dap').step_out() end";
         key = "<leader>dO";
         mode = "n";
         options = {
@@ -81,7 +88,7 @@ delib.module {
         };
       }
       {
-        action.__raw = "require('dap').terminate()";
+        action.__raw = "function() require('dap').terminate() end";
         key = "<leader>dq";
         mode = "n";
         options = {

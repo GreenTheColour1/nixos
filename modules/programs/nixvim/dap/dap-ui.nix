@@ -4,14 +4,14 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.nixvim = {
+  home.ifEnabled.programs.nixvim = {
     plugins.dap-ui = {
-      enabled = true;
+      enable = true;
     };
 
-    keybinds = [
+    keymaps = [
       {
-        action.__raw = "require('dapui').toggle()";
+        action.__raw = "function() require('dapui').toggle() end";
         key = "<leader>du";
         mode = "n";
         options = {
