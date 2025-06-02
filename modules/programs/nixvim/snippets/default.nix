@@ -2,11 +2,11 @@
 delib.module {
   name = "programs.nixvim.snippits";
 
-  option = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.isDesktop;
 
   home.ifEnabled.programs.nixvim = {
     plugins.luasnip = {
-      enabled = true;
+      enable = true;
     };
 
     keymaps = [

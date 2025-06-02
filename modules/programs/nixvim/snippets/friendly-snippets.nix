@@ -2,11 +2,11 @@
 delib.module {
   name = "programs.nixvim.snippits.friendly";
 
-  option = delib.singleEnableOption true;
+  options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim = {
-    plugins.friendly-snippits = {
-      enabled = true;
+    plugins.friendly-snippets = {
+      enable = true;
     };
   };
 }
