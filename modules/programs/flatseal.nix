@@ -5,6 +5,6 @@ delib.module {
   options = delib.singleEnableOption host.isDesktop;
 
   myconfig.ifEnabled.services.flatpak.packages = [
-    "com.github.tchx84.Flatseal"
+    { appId = "com.github.tchx84.Flatseal"; }
   ];
 }

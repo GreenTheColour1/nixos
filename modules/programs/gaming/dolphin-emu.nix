@@ -5,6 +5,9 @@ delib.module {
   options = delib.singleEnableOption host.isDesktop;
 
   myconfig.ifEnabled.services.flatpak.packages = [
-    "org.DolphinEmu.dolphin-emu"
+    {
+      appId = "org.DolphinEmu.dolphin-emu";
+      origin = "dolphin-emu";
+    }
   ];
 }

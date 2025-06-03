@@ -10,7 +10,7 @@ delib.module {
   options = with delib; {
     services.flatpak = {
       enable = boolOption host.isDesktop;
-      packages = listOfOption str [ ];
+      packages = listOfOption (attrsOf str) [ ];
     };
   };
 
@@ -30,6 +30,11 @@ delib.module {
             name = "flathub-beta";
             location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
           }
+          {
+            name = "dolphin-emu";
+            location = "https://flatpak.dolphin-emu.org/releases.flatpakrepo";
+          }
+
         ];
       };
     };

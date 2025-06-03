@@ -5,6 +5,6 @@ delib.module {
   options = delib.singleEnableOption host.isDesktop;
 
   myconfig.ifEnabled.services.flatpak.packages = [
-    "com.usebottles.bottles"
+    { appId = "com.usebottles.bottles"; }
   ];
 }

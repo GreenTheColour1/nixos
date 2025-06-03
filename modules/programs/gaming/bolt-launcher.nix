@@ -11,5 +11,5 @@ delib.module {
 
   # home.ifEnabled.home.packages = [ pkgs.bolt-launcher ];
 
-  myconfig.ifEnabled.services.flatpak.packages = [ "com.adamcake.Bolt" ];
+  myconfig.ifEnabled.services.flatpak.packages = [ { appId = "com.adamcake.Bolt"; } ];
 }
