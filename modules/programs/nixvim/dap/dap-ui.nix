@@ -7,6 +7,12 @@ delib.module {
   home.ifEnabled.programs.nixvim = {
     plugins.dap-ui = {
       enable = true;
+
+      luaConfig.post = ''
+        require('dap').listeners.after.event_initialized["dapui_config"] = function()
+          require('dapui').open()
+        end
+      '';
     };
 
     keymaps = [
