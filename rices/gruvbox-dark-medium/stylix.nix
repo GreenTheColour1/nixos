@@ -92,6 +92,7 @@ delib.rice {
         lazygit.enable = true;
         rofi.enable = true;
         qt.enable = true;
+        vscode.enable = true;
         yazi.enable = true;
       };
 
