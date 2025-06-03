@@ -19,6 +19,7 @@ delib.module {
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
       nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
 
       font-awesome
       material-design-icons
