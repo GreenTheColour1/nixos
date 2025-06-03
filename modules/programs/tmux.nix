@@ -24,6 +24,8 @@ delib.module {
 
       keyMode = "vi";
 
+      tmuxp.enable = true;
+
       extraConfig = ''
         set -g renumber-windows on
         set-option -sa terminal-overrides ",xterm*:Tc"
