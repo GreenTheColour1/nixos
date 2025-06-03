@@ -1,4 +1,8 @@
-{ delib, ... }:
+{
+  delib,
+  inputs,
+  ...
+}:
 let
   shared.nixpkgs.config = {
     allowUnfree = true;
