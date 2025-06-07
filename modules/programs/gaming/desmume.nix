@@ -5,11 +5,11 @@
   ...
 }:
 delib.module {
-  name = "programs.melonds";
+  name = "programs.desmume";
 
   options = delib.singleEnableOption host.isDesktop;
 
   home.ifEnabled.home.packages = with pkgs; [
-    melonDS
+    desmume
   ];
 }
