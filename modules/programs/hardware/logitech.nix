@@ -10,7 +10,7 @@ delib.module {
   options = delib.singleEnableOption host.isDesktop;
 
   nixos.ifEnabled = {
-    services.ratbag.enable = true;
-    environemnt.systemPackages = with pkgs; [ piper ];
+    services.ratbagd.enable = true;
+    environment.systemPackages = with pkgs; [ piper ];
   };
 }
