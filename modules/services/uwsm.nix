@@ -8,7 +8,7 @@
 delib.module {
   name = "services.uwsm";
 
-  options = delib.simpleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.isDesktop;
 
   nixos.ifEnabled =
     { myconfig, ... }:
