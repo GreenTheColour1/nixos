@@ -21,14 +21,6 @@ delib.rice {
       base16Scheme = themePath;
       fonts = {
         monospace = {
-          name = "Fira Code Nerd Font";
-          package = pkgs.nerd-fonts.fira-code;
-        };
-        serif = {
-          name = "FiraCode Nerd Font";
-          package = pkgs.nerd-fonts.fira-code;
-        };
-        sansSerif = {
           name = "FiraCode Nerd Font";
           package = pkgs.nerd-fonts.fira-code;
         };
@@ -60,14 +52,6 @@ delib.rice {
 
       fonts = {
         monospace = {
-          name = "Fira Nerd Font Mono";
-          package = pkgs.nerd-fonts.fira-code;
-        };
-        serif = {
-          name = "FiraCode Nerd Font";
-          package = pkgs.nerd-fonts.fira-code;
-        };
-        sansSerif = {
           name = "FiraCode Nerd Font";
           package = pkgs.nerd-fonts.fira-code;
         };
