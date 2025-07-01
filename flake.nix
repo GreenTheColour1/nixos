@@ -60,7 +60,7 @@
 
     stylix.url = "github:danth/stylix";
 
-    zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -83,5 +83,11 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     hypr-exiled.url = "github:GreenTheColour1/hypr-exiled";
+
+    greenpkgs.url = "git+ssh://git@github.com/GreenTheColour1/greenpkgs";
+    greenpkgs.inputs.nixpkgs.follows = "nixpkgs";
+
+    silentSDDM.url = "github:uiriansan/SilentSDDM";
+    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
