@@ -14,7 +14,7 @@ delib.module {
         lfs.enable = true;
 
         userName = myconfig.constants.gituser;
-        userEmail = myconfig.constants.useremail;
+        userEmail = "dev@camerongreen.ca";
       };
     };
 
