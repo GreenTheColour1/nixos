@@ -10,10 +10,17 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.home.packages = [
-    pkgs.brave
-    inputs.zen-browser.packages.x86_64-linux.default
-  ];
+  home.always.imports = [ inputs.zen-browser.homeModules.twilight ];
+
+  home.ifEnabled = {
+    programs.zen-browser = {
+      enable = true;
+    };
+
+    home.packages = [
+      pkgs.brave
+    ];
+  };
 
   nixos.ifEnabled.environment.sessionVariables = {
     MOZ_DISABLE_RDD_SANDBOX = 1;
