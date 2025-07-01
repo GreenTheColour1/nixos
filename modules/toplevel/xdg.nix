@@ -46,14 +46,14 @@ delib.module {
         mimeApps = {
           enable = true;
           defaultApplications = {
-            "application/json" = "zen.desktop";
-            "application/pdf" = "zen.desktop";
-            "application/x-xpinstall" = "zen.desktop";
-            "application/xhtml+xml" = "zen.desktop";
-            "text/html" = "zen.desktop";
-            "text/xml" = "zen.desktop";
-            "x-scheme-handler/http" = "zen.desktop";
-            "x-scheme-handler/https" = "zen.desktop";
+            "application/json" = "zen-twilight.desktop";
+            "application/pdf" = "zen-twilight.desktop";
+            "application/x-xpinstall" = "zen-twilight.desktop";
+            "application/xhtml+xml" = "zen-twilight.desktop";
+            "text/html" = "zen-twilight.desktop";
+            "text/xml" = "zen-twilight.desktop";
+            "x-scheme-handler/http" = "zen-twilight.desktop";
+            "x-scheme-handler/https" = "zen-twilight.desktop";
           };
         };
 
