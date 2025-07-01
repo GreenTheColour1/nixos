@@ -9,7 +9,7 @@ delib.module {
         windowrule = [
           "opacity 0.7 override,class:^(kitty)$"
           "float,class:^(waypaper)$"
-          "workspace 4, class:^(discord)$"
+          "workspace 4, class:^(vesktop)$"
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
         ];
