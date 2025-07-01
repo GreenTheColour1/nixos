@@ -1,4 +1,4 @@
-{ delib, ... }:
+{ delib, pkgs, ... }:
 delib.module {
   name = "programs.waybar";
 
@@ -20,6 +20,7 @@ delib.module {
           "cpu"
           "temperature"
           "memory"
+          "network"
           "pulseaudio"
           "clock"
         ];
@@ -44,6 +45,7 @@ delib.module {
             "6" = "󰎳";
             "7" = "󰎶";
             "8" = "󰎹";
+            "9" = "󰎼";
           };
         };
         "hyprland/window" = {
@@ -54,14 +56,16 @@ delib.module {
           "icon-size" = 15;
           "spacing" = 5;
         };
-        # "disk" = {
-        #   "format" = "<span color='#222222' bgcolor='#ea6962' > DSK </span> {free}";
-        #   "interval" = 20;
-        # };
         "cpu" = {
           "format" = "<span color='#222222' bgcolor='#e78a4e'> CPU </span> {usage}%";
+          "interval" = 20;
+        };
+        "network" = {
+          "format" = "<span color='#222222' bgcolor='#b8bb26'> NET </span> {ifname}";
+          "format-wifi" = "<span color='#222222' bgcolor='#b8bb26'> NET </span>  {ifname}";
+          "format-ethernet" = "<span color='#222222' bgcolor='#b8bb26'> NET </span>  {ifname}";
+          "on-click" = "${pkgs.lib.getExe pkgs.networkmanager_dmenu}";
           "tooltip" = false;
-          "interval" = 1;
         };
         "temperature" = {
           "tooltip" = false;

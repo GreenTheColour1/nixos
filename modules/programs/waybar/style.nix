@@ -259,6 +259,17 @@ delib.module {
         color: #8ec07c;
         margin: 5px 3px;
         border-bottom: 2px solid #8ec07c;
+      }
+      /* ================================ */
+      /*            Network               */
+      /* ================================ */
+      #network {
+        font-family: IosevkaTerm Nerd Font Mono;
+        font-size: 15px;
+        font-weight: 800;
+        color: #b8bb26;
+        margin: 5px 3px;
+        border-bottom: 2px solid #b8bb26;
       }    '';
   };
 }
