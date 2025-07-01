@@ -29,17 +29,17 @@ delib.module {
       };
       home.packages = lib.mkIf myconfig.programs.tmux.enable [
         (pkgs.writeShellScriptBin "startdevshell" ''
-          # Step 1: Find all directories in ~/Projects
+          #Find all directories in ~/Projects
           PROJECT_DIR=~/Projects
           DIRS=$(find "$PROJECT_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
 
-          # Step 2: Send the list of directories to rofi
+          #Send the list of directories to rofi
           SELECTED=$(echo "$DIRS" | rofi -dmenu -p "Select project")
 
           # If no selection is made, exit
           [ -z "$SELECTED" ] && exit 1
 
-          # Step 3: Check for devenv.nix or flake.nix
+          #Check for devenv.nix or flake.nix
           TARGET="$PROJECT_DIR/$SELECTED"
           cd "$TARGET" || exit 1
 
