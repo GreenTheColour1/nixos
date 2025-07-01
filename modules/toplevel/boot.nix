@@ -19,7 +19,7 @@ delib.module {
     environment.systemPackages = with pkgs; [
       sbctl
     ];
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     boot.loader = {
       efi = {
@@ -35,7 +35,7 @@ delib.module {
       pkiBundle = "/var/lib/sbctl";
     };
 
-    # boot.extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
+    boot.extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
 
     boot.kernelParams = [
       "amd_pstate=active"
