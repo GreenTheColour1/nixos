@@ -68,6 +68,7 @@ delib.rice {
         gtk.flatpakSupport.enable = true;
         bat.enable = true;
         btop.enable = true;
+        fuzzel.enable = true;
         fzf.enable = true;
         hyprland.enable = true;
         hyprland.hyprpaper.enable = true;
