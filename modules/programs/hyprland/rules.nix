@@ -12,6 +12,27 @@ delib.module {
           "workspace 4, class:^(vesktop)$"
           "float, class:(clipse)"
           "size 622 652, class:(clipse)"
+
+          # Hearthstone
+          # "float, title:(HearthstoneOverlay)"
+          # "center, title:(HearthstoneOverlay)"
+          # "nofocus, title:(HearthstoneOverlay)"
+          # "noinitialfocus, title:(HearthstoneOverlay)"
+          # "noborder, title:(HearthstoneOverlay)"
+          # "opacity 0.2, title:(HearthstoneOverlay)"
+          # "stayfocused, title:^(Hearthstone)$"
+        ];
+        windowrulev2 = [
+          "float, title:(HearthstoneOverlay)"
+          "center, title:(HearthstoneOverlay)"
+          "noblur, title:(HearthstoneOverlay)"
+          "noshadow, title:(HearthstoneOverlay)"
+          "noanim, title:(HearthstoneOverlay)"
+          "nodim, title:(HearthstoneOverlay)"
+          "nofocus, title:(HearthstoneOverlay)"
+          "noinitialfocus, title:(HearthstoneOverlay)"
+          "opacity 0.5, title:(HearthstoneOverlay)"
+          "tile, title:(Hearthstone)"
         ];
       };
     };

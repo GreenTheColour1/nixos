@@ -12,8 +12,8 @@ delib.module {
         ];
         bind = [
           "$mainMod, Return, exec, kitty"
-          "$mainMod, W, exec, zen-twilight"
-          "$mainMod SHIFT, W, exec, zen --private-window"
+          "$mainMod, W, exec, zen-beta"
+          "$mainMod SHIFT, W, exec, zen-beta --private-window"
           "$mainMod, D, exec, rofi -show drun"
           "$mainMod, C, exec, kitty --class clipse -e clipse"
           "$mainMod, ESCAPE, exec, wlogout -b 2"
