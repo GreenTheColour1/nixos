@@ -40,22 +40,22 @@ delib.module {
           silent = true;
         };
       }
-      {
-        action.__raw = ''
-          function()
-            if require('luasnip').choice_active() then
-              require('luasnip').change_choice(1)
-          end
-        '';
-        key = "<C-E>";
-        mode = [
-          "i"
-          "s"
-        ];
-        options = {
-          silent = true;
-        };
-      }
+      # {
+      #   action.__raw = ''
+      #     function()
+      #         if require('luasnip').choice_active() then
+      #           require('luasnip').change_choice(1)
+      #       end
+      #   '';
+      #   key = "<C-E>";
+      #   mode = [
+      #     "i"
+      #     "s"
+      #   ];
+      #   options = {
+      #     silent = true;
+      #   };
+      # }
     ];
   };
 }
