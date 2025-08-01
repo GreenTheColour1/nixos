@@ -10,10 +10,10 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabed = {
+  home.ifEnabled = {
     programs.lutris = {
       enable = true;
-      steamPackage = osConfig.programs.steam.package;
+      steamPackage = pkgs.steam;
     };
   };
 }
