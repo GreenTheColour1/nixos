@@ -4,12 +4,12 @@
   host,
   ...
 }:
-delib.modue {
+delib.module {
   name = "programs.ryujinx";
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.home.packages = with pkgs; [
+  nixos.ifEnabled.environment.systemPackages = with pkgs; [
     ryubing
   ];
 }
