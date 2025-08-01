@@ -10,7 +10,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.always.imports = [ inputs.zen-browser.homeModules.twilight ];
+  home.always.imports = [ inputs.zen-browser.homeModules.beta ];
 
   home.ifEnabled = {
     programs.zen-browser = {
