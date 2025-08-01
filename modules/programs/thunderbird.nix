@@ -9,7 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption host.isDesktop;
 
-  home.ifEnabled.programs.thunderbird = {
+  nixos.ifEnabled.programs.thunderbird = {
     enable = true;
   };
 }
