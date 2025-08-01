@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.fuzzel";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled = {
     programs.fuzzel = {

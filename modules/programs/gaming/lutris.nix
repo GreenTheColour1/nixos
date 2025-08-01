@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.lutris";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.gamingFeatured;
 
   home.ifEnabled = {
     programs.lutris = {

@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.tmux";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.cliFeatured;
 
   home.ifEnabled = {
     programs.tmux = {

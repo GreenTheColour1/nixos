@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.vscode";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.always.nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 

@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.comma";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.cliFeatured;
 
   home.ifEnabled = {
     imports = [ inputs.nix-index-database.hmModules.nix-index ];

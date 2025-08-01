@@ -10,7 +10,7 @@ delib.module {
 
   options = {
     programs.zsh = {
-      enable = delib.boolOption host.isDesktop;
+      enable = delib.boolOption host.cliFeatured;
       aliases = lib.mkOption {
         type = lib.types.listOf (lib.types.attrsOf lib.types.str);
         default = [ ];

@@ -2,7 +2,7 @@
 delib.module {
   name = "programs.dolphin-emu";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.gamingFeatured;
 
   myconfig.ifEnabled.services.flatpak.packages = [
     {

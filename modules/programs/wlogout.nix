@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.wlogout";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled = {
     home.packages = [ pkgs.wlogout ];

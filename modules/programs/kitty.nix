@@ -1,8 +1,13 @@
-{ delib, host, pkgs, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "programs.kitty";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled.programs.kitty = {
     enable = true;

@@ -1,8 +1,13 @@
-{ delib, host, pkgs, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "services.dunst";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled.services.dunst = {
     enable = true;

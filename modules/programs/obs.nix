@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.obs";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled.programs.obs-studio = {
     enable = true;

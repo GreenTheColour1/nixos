@@ -1,8 +1,13 @@
-{ delib, host, pkgs, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "programs.devenv";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.cliFeatured;
 
   nixos.ifEnabled = {
     environment.systemPackages = [

@@ -22,29 +22,29 @@
 
           extensions = with denix.lib.extensions; [
             args
-            # (base.withConfig {
-            #   args.enable = true;
-            #
-            #   hosts.features = {
-            #     features = [
-            #       "cli"
-            #       "gui"
-            #       "gaming"
-            #       "powersave"
-            #       "wireless"
-            #     ];
-            #     defaultByHostType = {
-            #       desktop = [
-            #         "cli"
-            #         "gui"
-            #         "gaming"
-            #       ];
-            #       server = [
-            #         "cli"
-            #       ];
-            #     };
-            #   };
-            # })
+            (base.withConfig {
+              args.enable = true;
+
+              hosts.features = {
+                features = [
+                  "cli"
+                  "gui"
+                  "gaming"
+                  "powersave"
+                  "wireless"
+                ];
+                defaultByHostType = {
+                  desktop = [
+                    "cli"
+                    "gui"
+                    "gaming"
+                  ];
+                  server = [
+                    "cli"
+                  ];
+                };
+              };
+            })
           ];
 
           specialArgs = {

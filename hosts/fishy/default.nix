@@ -5,6 +5,10 @@ delib.host {
   rice = "gruvbox-dark-medium";
   type = "desktop";
 
+  features = [
+    "wireless"
+  ];
+
   displays = [
     {
       name = "DP-1";
@@ -32,4 +36,6 @@ delib.host {
       y = 0;
     }
   ];
+
+  myconfig.programs.hardware.logitech.enable = true;
 }

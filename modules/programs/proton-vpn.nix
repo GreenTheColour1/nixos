@@ -6,7 +6,7 @@
 }:
 delib.module {
   name = "programs.proton-vpn";
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled.environment.systemPackages = with pkgs; [
     protonvpn-gui

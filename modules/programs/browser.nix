@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.browser";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.always.imports = [ inputs.zen-browser.homeModules.beta ];
 

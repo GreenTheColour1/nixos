@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.hardware.logitech";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {
     services.ratbagd.enable = true;

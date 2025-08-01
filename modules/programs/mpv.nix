@@ -6,7 +6,7 @@
 delib.module {
   name = "programs.mpv";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled.programs.mpv = {
     enable = true;

@@ -7,7 +7,7 @@
 delib.module {
   name = "services.xremap";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.gamingFeatured;
 
   home.always.imports = [ inputs.xremap-flake.homeManagerModules.default ];
 

@@ -1,5 +1,6 @@
 {
   delib,
+  host,
   ...
 }:
 delib.module {
@@ -9,7 +10,7 @@ delib.module {
     { myconfig, ... }:
     {
       programs.eza = with delib; {
-        enable = boolOption true;
+        enable = boolOption host.cliFeatured;
         icons = boolOption myconfig.fonts.enable;
       };
     };

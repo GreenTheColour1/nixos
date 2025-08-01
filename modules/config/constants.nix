@@ -8,4 +8,10 @@ delib.module {
     userfullname = readOnly (strOption "Cameron Green");
     useremail = readOnly (strOption "contact@camerongreen.ca");
   };
+
+  myconfig.always =
+    { cfg, ... }:
+    {
+      args.shared.constants = cfg;
+    };
 }

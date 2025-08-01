@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.steam";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.gamingFeatured;
 
   nixos.ifEnabled.environment.systemPackages = [ pkgs.steam ];
 

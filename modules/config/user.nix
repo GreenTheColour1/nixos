@@ -1,24 +1,27 @@
-{delib, ...}:
+{ delib, ... }:
 delib.module {
   name = "user";
 
-  nixos.always = {myconfig, ...}: let
-    inherit (myconfig.constants) username;
-  in {
-    users = {
-      groups.${username} = {};
+  nixos.always =
+    { myconfig, ... }:
+    let
+      inherit (myconfig.constants) username;
+    in
+    {
+      users = {
+        groups.${username} = { };
 
-      users.${username} = {
-        isNormalUser = true;
-        description = username;
-        extraGroups = [
-          "wheel"
-          "input"
-          "uinput"
-          "libvirtd"
-        ];
-        uid = 1000;
+        users.${username} = {
+          isNormalUser = true;
+          description = username;
+          extraGroups = [
+            "wheel"
+            "input"
+            "uinput"
+            "libvirtd"
+          ];
+          uid = 1000;
+        };
       };
     };
-  };
 }

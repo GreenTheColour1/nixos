@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.clipese";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled.home.packages = [
     pkgs.clipse

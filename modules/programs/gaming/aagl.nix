@@ -9,7 +9,7 @@ delib.module {
   name = "programs.aagl";
 
   options.programs.aagl = with delib; {
-    enable = boolOption host.isDesktop;
+    enable = boolOption host.gamingFeatured;
     enableAnimeGameLauncher = boolOption true;
     enableSleepyLauncher = boolOption true;
   };

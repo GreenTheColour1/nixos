@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.spotify";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.always.imports = [ inputs.spicetify-nix.homeManagerModules.spicetify ];
 

@@ -8,7 +8,7 @@
 delib.module {
   name = "services.sddm";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled =
     { myconfig, ... }:

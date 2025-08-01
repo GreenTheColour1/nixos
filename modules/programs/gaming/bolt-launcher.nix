@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.bolt-launcher";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.gamingFeatured;
 
   # home.ifEnabled.home.packages = [ pkgs.bolt-launcher ];
 

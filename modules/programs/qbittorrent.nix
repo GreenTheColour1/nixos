@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.qbittorrent";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled.environment.systemPackages = with pkgs; [ qbittorrent ];
 }

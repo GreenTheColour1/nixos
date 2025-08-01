@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.waybar";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled = {
     programs.waybar = {

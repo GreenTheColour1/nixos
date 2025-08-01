@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.thunderbird";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled.programs.thunderbird = {
     enable = true;

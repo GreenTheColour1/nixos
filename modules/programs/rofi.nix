@@ -8,7 +8,7 @@
 delib.module {
   name = "programs.rofi";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled =
     { myconfig, ... }:

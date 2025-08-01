@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.yazi";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.cliFeatured;
 
   home.ifEnabled = {
     home.packages = with pkgs; [ yazi ];

@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.libreoffice";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   home.ifEnabled = {
     home.packages = with pkgs; [

@@ -9,7 +9,7 @@ delib.module {
 
   options = with delib; {
     services.flatpak = {
-      enable = boolOption host.isDesktop;
+      enable = boolOption host.guiFeatured;
       packages = listOfOption (attrsOf str) [ ];
     };
   };

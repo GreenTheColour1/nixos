@@ -3,7 +3,7 @@ delib.module {
   name = "programs.hyprland";
 
   options.programs.hyprland = with delib; {
-    enable = boolOption host.isDesktop; # FIXME
+    enable = boolOption host.guiFeatured;
 
     mod = strOption "SUPER";
 

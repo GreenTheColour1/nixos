@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.virt-manager";
 
-  options = delib.singleEnableOption host.isDesktop;
+  options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled = {
     programs.virt-manager.enable = true;
