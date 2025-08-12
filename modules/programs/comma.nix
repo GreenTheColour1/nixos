@@ -11,7 +11,7 @@ delib.module {
   options = delib.singleEnableOption host.cliFeatured;
 
   home.ifEnabled = {
-    imports = [ inputs.nix-index-database.hmModules.nix-index ];
+    imports = [ inputs.nix-index-database.homeModules.nix-index ];
     programs.nix-index-database.comma.enable = true;
   };
 }
