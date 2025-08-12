@@ -8,7 +8,10 @@
 delib.module {
   name = "programs.browser";
 
-  options = delib.singleEnableOption host.guiFeatured;
+  options.programs.browser = with delib; {
+    enable = boolOption host.guiFeatured;
+    defaultBrowserBin = strOption "zen-beta";
+  };
 
   home.always.imports = [ inputs.zen-browser.homeModules.beta ];
 

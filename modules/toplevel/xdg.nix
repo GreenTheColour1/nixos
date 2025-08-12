@@ -18,7 +18,7 @@ delib.module {
   };
 
   home.ifEnabled =
-    { cfg, ... }:
+    { myconfig, ... }:
     {
       xdg = {
         enable = true;
@@ -45,16 +45,20 @@ delib.module {
         mime.enable = true;
         mimeApps = {
           enable = true;
-          defaultApplications = {
-            "application/json" = "zen-beta.desktop";
-            "application/pdf" = "zen-beta.desktop";
-            "application/x-xpinstall" = "zen-beta.desktop";
-            "application/xhtml+xml" = "zen-beta.desktop";
-            "text/html" = "zen-beta.desktop";
-            "text/xml" = "zen-beta.desktop";
-            "x-scheme-handler/http" = "zen-beta.desktop";
-            "x-scheme-handler/https" = "zen-beta.desktop";
-          };
+          defaultApplications =
+            let
+              browserBin = myconfig.programs.browser.defaultBrowserBin;
+            in
+            {
+              "application/json" = "${browserBin}.desktop";
+              "application/pdf" = "${browserBin}.desktop";
+              "application/x-xpinstall" = "${browserBin}.desktop";
+              "application/xhtml+xml" = "${browserBin}.desktop";
+              "text/html" = "${browserBin}.desktop";
+              "text/xml" = "${browserBin}.desktop";
+              "x-scheme-handler/http" = "${browserBin}.desktop";
+              "x-scheme-handler/https" = "${browserBin}.desktop";
+            };
         };
 
         portal = {
