@@ -12,7 +12,7 @@ delib.module {
     defaultEditor = boolOption true;
   };
 
-  home.always.imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  home.always.imports = [ inputs.nixvim.homeModules.nixvim ];
 
   home.ifEnabled =
     { cfg, ... }:
