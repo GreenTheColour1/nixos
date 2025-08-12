@@ -9,5 +9,8 @@ delib.module {
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  home.ifEnabled.home.packages = [ pkgs.waypaper ];
+  home.ifEnabled.home.packages = [
+    pkgs.waypaper
+    pkgs.hyprpaper
+  ];
 }
