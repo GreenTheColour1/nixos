@@ -34,7 +34,7 @@ delib.module {
       };
 
       boot.lanzaboote = {
-        enable = myconfig.options.boot.enableSecureBoot;
+        enable = myconfig.boot.enableSecureBoot;
         pkiBundle = "/var/lib/sbctl";
       };
 
