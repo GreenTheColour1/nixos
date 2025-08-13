@@ -6,7 +6,7 @@
 delib.module {
   name = "programs.sway";
 
-  options = delib.singleEnabledOption false;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled = {
     environment.loginShellInit = ''
