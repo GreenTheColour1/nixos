@@ -29,7 +29,7 @@ delib.module {
           canTouchEfiVariables = true;
         };
         systemd-boot = {
-          enable = lib.mkForce false;
+          enable = lib.mkForce (!myconfig.boot.enableSecureBoot);
         };
       };
 
