@@ -37,7 +37,6 @@
                   desktop = [
                     "cli"
                     "gui"
-                    "gaming"
                   ];
                   server = [
                     "cli"

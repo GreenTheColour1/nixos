@@ -7,6 +7,7 @@ delib.host {
 
   features = [
     "wireless"
+    "gaming"
   ];
 
   displays = [
