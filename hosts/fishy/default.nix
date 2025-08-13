@@ -39,4 +39,5 @@ delib.host {
   ];
 
   myconfig.programs.hardware.logitech.enable = true;
+  myconfig.options.enableSecureBoot = true;
 }
