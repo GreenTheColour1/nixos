@@ -8,9 +8,8 @@ delib.module {
       inherit (myconfig.constants) username;
     in
     {
+      sops.secrets.password.neededForUsers = true;
       users = {
-        sops.secrets.password.neededForUsers = true;
-
         groups.${username} = { };
 
         users.${username} = {
