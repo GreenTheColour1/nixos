@@ -1,4 +1,4 @@
-{ delib, ... }:
+{ delib, config, ... }:
 delib.module {
   name = "user";
 
@@ -9,10 +9,13 @@ delib.module {
     in
     {
       users = {
+        sops.secrets.password.neededForUsers = true;
+
         groups.${username} = { };
 
         users.${username} = {
           isNormalUser = true;
+          hashedPasswordFile = config.sops.secrets.password.path;
           description = username;
           extraGroups = [
             "wheel"

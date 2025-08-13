@@ -1,10 +1,12 @@
 keys:
   - &fishy age13dwmhr27a3uwa0amxq0p67zv676k4dnjl3rtjs3uz690c3xrjfms0peucj
+  - &laptop-noksaek age1memhvhvgmdmjzrt40hrgwf9zlwsk096u0592skc9j3uptdsj2g4sr5lnnf
 creation_rules:
   - path_regex: ^secrets.yaml$
     key_groups:
     - age:
       - *fishy
+      - *laptop-noksaek
   - path_regex: ^hosts/fishy/secrets.yaml$
     key_groups:
     - age:
