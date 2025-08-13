@@ -57,7 +57,7 @@ delib.module {
 
           keybindings = {
             "${modifier}+Return" = "exec kitty";
-            "${modifier}+w" = "exec ${myconfig.programs.browser.defautlBrowserBin}";
+            "${modifier}+w" = "exec ${myconfig.programs.browser.defaultBrowserBin}";
             "${modifier}+d" = "exec ${menu}";
 
             # Workspaces
