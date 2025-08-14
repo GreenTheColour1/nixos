@@ -18,6 +18,7 @@ delib.host {
     services = {
       sddm.enable = false;
       getty.enable = true;
+      uwsm.enable = false;
     };
   };
 }
