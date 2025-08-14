@@ -115,5 +115,8 @@
 
     silentSDDM.url = "github:uiriansan/SilentSDDM";
     silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri-flake.url = "github:sodiboo/niri-flake";
+    niri-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 }

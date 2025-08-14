@@ -13,7 +13,7 @@ delib.host {
     nvidia-prime.enable = true;
     programs = {
       hyprland.enable = false;
-      sway.enable = true;
+      niri.enable = true;
     };
     services = {
       sddm.enable = false;

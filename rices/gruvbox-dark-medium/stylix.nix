@@ -41,7 +41,10 @@ delib.rice {
   };
 
   home = {
-    imports = [ inputs.stylix.homeModules.stylix ];
+    imports = [
+      inputs.stylix.homeModules.stylix
+      inputs.niri-flake.homeModules.stylix
+    ];
 
     stylix = {
       enable = true;
@@ -75,8 +78,9 @@ delib.rice {
         kitty.enable = true;
         nixcord.enable = true;
         lazygit.enable = true;
-        rofi.enable = true;
+        niri.enable = true;
         qt.enable = true;
+        rofi.enable = true;
         vscode.enable = true;
         yazi.enable = true;
       };
