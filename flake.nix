@@ -114,9 +114,6 @@
     greenpkgs.url = "git+ssh://git@github.com/GreenTheColour1/greenpkgs";
     greenpkgs.inputs.nixpkgs.follows = "nixpkgs";
 
-    silentSDDM.url = "github:uiriansan/SilentSDDM";
-    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
-
     niri-flake.url = "github:sodiboo/niri-flake";
     niri-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
