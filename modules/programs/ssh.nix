@@ -4,6 +4,8 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
+  nixos.ifEnabled.services.openssh.enable = true;
+
   home.ifEnabled.programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";

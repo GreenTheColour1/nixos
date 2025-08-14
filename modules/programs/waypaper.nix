@@ -2,6 +2,7 @@
   delib,
   pkgs,
   host,
+  lib,
   ...
 }:
 delib.module {
@@ -9,8 +10,13 @@ delib.module {
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  home.ifEnabled.home.packages = [
-    pkgs.waypaper
-    pkgs.hyprpaper
-  ];
+  home.ifEnabled =
+    { myconfig, ... }:
+    {
+      home.packages = [
+        pkgs.waypaper
+        (lib.mkIf myconfig.programs.hyprland.enable pkgs.hyprpaper)
+        (lib.mkIf (!myconfig.programs.hyprland.enable) pkgs.swww)
+      ];
+    };
 }
