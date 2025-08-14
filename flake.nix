@@ -79,7 +79,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # wallpapers.url = "git+ssh://git@github.com/GreenTheColour1/wallpapers";
+    mywallpapers.url = "git+ssh://git@github.com/GreenTheColour1/wallpapers";
+    mywallpapers.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -112,8 +113,5 @@
 
     greenpkgs.url = "git+ssh://git@github.com/GreenTheColour1/greenpkgs";
     greenpkgs.inputs.nixpkgs.follows = "nixpkgs";
-
-    silentSDDM.url = "github:uiriansan/SilentSDDM";
-    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
