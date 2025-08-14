@@ -4,6 +4,7 @@
   host,
   pkgs,
   config,
+  lib,
   ...
 }:
 delib.module {
@@ -17,41 +18,67 @@ delib.module {
     programs.niri = {
       enable = true;
       package = pkgs.niri;
-
-      cache.enable = false;
     };
+    niri-flake.cache.enable = false;
+    nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+
+    environment.sessionVariables = {
+      GDK_BACKEND = "wayland,x11,*";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+
+      WLR_NO_HARDWARE_CURSORS = "1";
+
+      NIXOS_OZONE_WL = "1";
+    };
+
+    # programs.zsh.loginShellInit = ''
+    #   if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+    #     exec niri-session
+    #   fi    '';
   };
 
-  home.always.imports = [
-    inputs.niri-flake.homeModule.niri
-  ];
+  # home.always.imports = [
+  #   inputs.niri-flake.homeModules.niri
+  # ];
 
   home.ifEnabled =
     { myconfig, ... }:
     {
       programs.niri = {
-        enable = true;
-        package = pkgs.niri;
+        # enable = true;
+        # package = pkgs.niri;
 
-        settings = with config.lib.niri.actions; {
-          "Mod+Enter".action = spawn "kitty";
-          "Mod+w".action = spawn "${myconfig.programs.browser.defaultBrowserbin}";
-          "Mod+d".action = spawn "fuzzel";
+        settings = {
+          spawn-at-startup = [
+            { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
+          ];
 
-          "Mod+q".action = close-window;
-          "Mod+f".action = maximize-column;
-          "Mod+Shift+f".action = fullscreen-window;
-          "Mod+Tab".action = toggle-overview;
+          environment = {
+            DISPLAY = ":0";
+          };
 
-          "Mod+1".action = focus-workspace 1;
-          "Mod+2".action = focus-workspace 2;
-          "Mod+3".action = focus-workspace 3;
-          "Mod+4".action = focus-workspace 4;
-          "Mod+5".action = focus-workspace 5;
-          "Mod+6".action = focus-workspace 6;
-          "Mod+7".action = focus-workspace 7;
-          "Mod+8".action = focus-workspace 8;
-          "Mod+9".action = focus-workspace 9;
+          binds = {
+            "Mod+Return".action.spawn = "kitty";
+            "Mod+w".action.spawn = "${myconfig.programs.browser.defaultBrowserBin}";
+            "Mod+d".action.spawn = "fuzzel";
+
+            "Mod+q".action.close-window = { };
+            "Mod+f".action.maximize-column = { };
+            "Mod+Shift+f".action.fullscreen-window = { };
+            "Mod+Tab".action.toggle-overview = { };
+
+            "Mod+1".action.focus-workspace = 1;
+            "Mod+2".action.focus-workspace = 2;
+            "Mod+3".action.focus-workspace = 3;
+            "Mod+4".action.focus-workspace = 4;
+            "Mod+5".action.focus-workspace = 5;
+            "Mod+6".action.focus-workspace = 6;
+            "Mod+7".action.focus-workspace = 7;
+            "Mod+8".action.focus-workspace = 8;
+            "Mod+9".action.focus-workspace = 9;
+          };
 
           input = {
             focus-follows-mouse.enable = true;
@@ -59,6 +86,7 @@ delib.module {
           };
 
           hotkey-overlay.skip-at-startup = true;
+          prefer-no-csd = true;
         };
       };
     };

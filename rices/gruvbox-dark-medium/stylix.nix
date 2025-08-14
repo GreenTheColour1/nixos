@@ -43,7 +43,7 @@ delib.rice {
   home = {
     imports = [
       inputs.stylix.homeModules.stylix
-      inputs.niri-flake.homeModules.stylix
+      # inputs.niri-flake.homeModules.stylix
     ];
 
     stylix = {

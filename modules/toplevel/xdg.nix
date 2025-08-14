@@ -3,6 +3,7 @@
   host,
   homeconfig,
   pkgs,
+  lib,
   ...
 }:
 delib.module {
@@ -62,8 +63,10 @@ delib.module {
         };
 
         portal = {
-          extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
+          enable = true;
+          extraPortals = [
+            pkgs.xdg-desktop-portal-gtk
+            (lib.mkIf myconfig.programs.niri.enable pkgs.xdg-desktop-portal-gnome)
           ];
         };
       };
