@@ -17,9 +17,9 @@ delib.module {
   nixos.ifEnabled = {
     programs.niri = {
       enable = true;
-      package = pkgs.niri;
+      package = pkgs.niri-unstable;
     };
-    niri-flake.cache.enable = false;
+    niri-flake.cache.enable = true;
     nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 
     environment.sessionVariables = {
@@ -29,6 +29,8 @@ delib.module {
       CLUTTER_BACKEND = "wayland";
 
       WLR_NO_HARDWARE_CURSORS = "1";
+
+      DISPLAY = ":0";
 
       NIXOS_OZONE_WL = "1";
     };
@@ -47,12 +49,13 @@ delib.module {
     { myconfig, ... }:
     {
       programs.niri = {
-        # enable = true;
-        # package = pkgs.niri;
-
         settings = {
           spawn-at-startup = [
-            { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
+            {
+              command = [
+                "swww-daemon"
+              ];
+            }
           ];
 
           environment = {
@@ -83,6 +86,15 @@ delib.module {
           input = {
             focus-follows-mouse.enable = true;
             focus-follows-mouse.max-scroll-amount = "95%";
+          };
+
+          gestures = {
+            hot-corners.enable = false;
+          };
+
+          xwayland-satellite = {
+            enable = true;
+            path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
           };
 
           hotkey-overlay.skip-at-startup = true;
