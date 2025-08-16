@@ -7,10 +7,12 @@ delib.host {
 
   features = [
     "wireless"
+    "powersave"
   ];
 
   myconfig = {
-    nvidia-prime.enable = true;
+    nvidia.enablePrime = true;
+    nvidia.useOpen = false;
     programs = {
       hyprland.enable = false;
       niri.enable = true;
