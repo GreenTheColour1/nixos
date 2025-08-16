@@ -40,56 +40,57 @@ delib.rice {
     };
   };
 
-  home = {
-    imports = [
-      inputs.stylix.homeModules.stylix
-      # inputs.niri-flake.homeModules.stylix
-    ];
+  home =
+    { myconfig, ... }:
+    {
+      imports = [
+        inputs.stylix.homeModules.stylix
+        # inputs.niri-flake.homeModules.stylix
+      ];
 
-    stylix = {
-      enable = true;
-      autoEnable = false;
-      polarity = themePolarity;
-      image = ../../wallpapers/latenight-urban.jpg;
-      base16Scheme = themePath;
+      stylix = {
+        enable = true;
+        autoEnable = false;
+        polarity = themePolarity;
+        image = ../../wallpapers/latenight-urban.jpg;
+        base16Scheme = themePath;
 
-      fonts = {
-        monospace = {
-          name = "FiraCode Nerd Font";
-          package = pkgs.nerd-fonts.fira-code;
+        fonts = {
+          monospace = {
+            name = "FiraCode Nerd Font";
+            package = pkgs.nerd-fonts.fira-code;
+          };
+          sizes = {
+            terminal = 12;
+            applications = 10;
+            popups = 10;
+            desktop = 10;
+          };
         };
-        sizes = {
-          terminal = 12;
-          applications = 10;
-          popups = 10;
-          desktop = 10;
+
+        targets = {
+          gtk.enable = true;
+          gtk.flatpakSupport.enable = true;
+          bat.enable = true;
+          btop.enable = true;
+          fuzzel.enable = true;
+          fzf.enable = true;
+          hyprland.enable = true;
+          kitty.enable = true;
+          nixcord.enable = true;
+          lazygit.enable = true;
+          niri.enable = true;
+          qt.enable = true;
+          rofi.enable = true;
+          vscode.enable = true;
+          yazi.enable = true;
         };
-      };
 
-      targets = {
-        gtk.enable = true;
-        gtk.flatpakSupport.enable = true;
-        bat.enable = true;
-        btop.enable = true;
-        fuzzel.enable = true;
-        fzf.enable = true;
-        hyprland.enable = true;
-        hyprland.hyprpaper.enable = true;
-        kitty.enable = true;
-        nixcord.enable = true;
-        lazygit.enable = true;
-        niri.enable = true;
-        qt.enable = true;
-        rofi.enable = true;
-        vscode.enable = true;
-        yazi.enable = true;
-      };
-
-      cursor = {
-        package = pkgs.quintom-cursor-theme;
-        name = "Quintom_Ink";
-        size = 24;
+        cursor = {
+          package = pkgs.quintom-cursor-theme;
+          name = "Quintom_Ink";
+          size = 24;
+        };
       };
     };
-  };
 }
