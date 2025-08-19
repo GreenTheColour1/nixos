@@ -20,11 +20,24 @@ delib.module {
         # Python
         ms-python.python
         ms-python.vscode-pylance
+        ms-python.debugpy
 
         # Nix
-        # jnoortheen.nix-ide
+        jnoortheen.nix-ide
         # mkhl.direnv
-        # arrterian.nix-env-selector
+        arrterian.nix-env-selector
+
+        # Go
+        golang.go
+
+        # Rust
+        rust-lang.rust-analyzer
+
+        # Utilities
+        vscodevim.vim
+        esbenp.prettier-vscode
+        shd101wyy.markdown-preview-enhanced
+        streetsidesoftware.code-spell-checker
       ];
     };
   };
