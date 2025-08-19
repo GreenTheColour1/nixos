@@ -7,6 +7,7 @@ delib.module {
       exec-once = [
         "sleep 5; vesktop" # Doesn't launch correctly if launched too fast
         "clipse -listen"
+        "swww-daemon"
       ];
     };
   };

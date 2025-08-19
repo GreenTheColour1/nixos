@@ -15,8 +15,7 @@ delib.module {
     {
       home.packages = [
         pkgs.waypaper
-        (lib.mkIf myconfig.programs.hyprland.enable pkgs.hyprpaper)
-        (lib.mkIf (!myconfig.programs.hyprland.enable) pkgs.swww)
+        pkgs.swww
       ];
     };
 }
