@@ -34,16 +34,7 @@ delib.module {
 
       NIXOS_OZONE_WL = "1";
     };
-
-    # programs.zsh.loginShellInit = ''
-    #   if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-    #     exec niri-session
-    #   fi    '';
   };
-
-  # home.always.imports = [
-  #   inputs.niri-flake.homeModules.niri
-  # ];
 
   home.ifEnabled =
     { myconfig, ... }:
@@ -71,6 +62,7 @@ delib.module {
             "Mod+f".action.maximize-column = { };
             "Mod+Shift+f".action.fullscreen-window = { };
             "Mod+Tab".action.toggle-overview = { };
+            "Mod+r".action.switch-preset-column-width = { };
 
             "Mod+1".action.focus-workspace = 1;
             "Mod+2".action.focus-workspace = 2;
@@ -86,10 +78,19 @@ delib.module {
           input = {
             focus-follows-mouse.enable = true;
             focus-follows-mouse.max-scroll-amount = "95%";
+            warp-mouse-to-focus = true;
           };
 
           gestures = {
             hot-corners.enable = false;
+          };
+
+          layout = {
+            preset-column-widths = [
+              { proportion = 1. / 3.; }
+              { proportion = 1. / 2.; }
+              { proportion = 2. / 3.; }
+            ];
           };
 
           xwayland-satellite = {
