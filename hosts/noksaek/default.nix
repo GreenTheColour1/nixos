@@ -13,6 +13,9 @@ delib.host {
   myconfig = {
     nvidia.enablePrime = true;
     nvidia.useOpen = false;
+
+    wireguard.enable = true;
+
     programs = {
       hyprland.enable = false;
       niri.enable = true;

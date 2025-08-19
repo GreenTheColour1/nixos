@@ -23,6 +23,7 @@ delib.module {
           path = "/${homeconfig.home.homeDirectory}/.ssh/id_git";
           owner = myconfig.constants.username;
         };
+        "wg_laptop" = { };
       };
     };
 }
