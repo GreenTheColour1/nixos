@@ -57,6 +57,12 @@ delib.module {
             "Mod+Return".action.spawn = "kitty";
             "Mod+w".action.spawn = "${myconfig.programs.browser.defaultBrowserBin}";
             "Mod+d".action.spawn = "fuzzel";
+            "Mod+Esc".action.spawn = "wlogout -b 2";
+
+            "Mod+h".action.focus-column-left = { };
+            "Mod+j".action.focus-window-down = { };
+            "Mod+k".action.focus-window-up = { };
+            "Mod+l".action.focus-column-right = { };
 
             "Mod+q".action.close-window = { };
             "Mod+f".action.maximize-column = { };
