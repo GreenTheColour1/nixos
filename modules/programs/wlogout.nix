@@ -68,7 +68,7 @@ delib.module {
         }
 
         #logout {
-            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"))
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"));
             background-color: #${config.lib.stylix.colors.base08};
             border-radius: 5px 0px 0px 0px;
             margin: 100px 0px 0px 550px;
@@ -79,7 +79,7 @@ delib.module {
         }
 
         #windows {
-            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"))
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
             background-color: #${config.lib.stylix.colors.base09};
             border-radius: 0px 0px 0px 5px;
             margin: 0px 0px 100px 550px;
@@ -90,7 +90,7 @@ delib.module {
         }
 
         #shutdown {
-            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"))
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
             background-color: #${config.lib.stylix.colors.base0A};
             border-radius: 0px 5px 0px 0px;
             margin: 100px 550px 0px 0px;
@@ -101,7 +101,7 @@ delib.module {
         }
 
         #reboot {
-            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"))
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
             background-color: #${config.lib.stylix.colors.base0B};
             border-radius: 0px 0px 5px 0px;
             margin: 0px 550px 100px 0px;
