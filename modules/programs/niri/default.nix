@@ -57,7 +57,7 @@ delib.module {
             "Mod+Return".action.spawn = "kitty";
             "Mod+w".action.spawn = "${myconfig.programs.browser.defaultBrowserBin}";
             "Mod+d".action.spawn = "fuzzel";
-            "Mod+Esc".action.spawn = "wlogout -b 2";
+            "Mod+Escape".action.spawn = "wlogout -b 2";
 
             "Mod+h".action.focus-column-left = { };
             "Mod+j".action.focus-window-down = { };
@@ -82,6 +82,12 @@ delib.module {
           };
 
           input = {
+            touchpad = {
+              natural-scroll = false;
+              dwt = true;
+              tap = true;
+            };
+
             focus-follows-mouse.enable = true;
             focus-follows-mouse.max-scroll-amount = "95%";
             warp-mouse-to-focus = true;
