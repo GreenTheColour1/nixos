@@ -10,10 +10,7 @@ delib.module {
 
   options = delib.singleEnableOption host.gamingFeatured;
 
-  home.ifEnabled = {
-    programs.lutris = {
-      enable = true;
-      steamPackage = pkgs.steam;
-    };
-  };
+  myconfig.ifEnabled.services.flatpak.packages = [
+    { appId = "net.lutris.Lutris"; }
+  ];
 }
