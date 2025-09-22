@@ -50,7 +50,7 @@ delib.module {
         NVD_BACKEND = "direct";
         VDPAU_DRIVER = "nvidia";
         EGL_PLATFORM = "wayland";
-        # __GL_GSYNC_ALLOWED = 1;
+        __GL_GSYNC_ALLOWED = 1;
       };
 
       # Needed or else system failes to wake up after suspend
