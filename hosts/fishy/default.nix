@@ -40,4 +40,19 @@ delib.host {
 
   myconfig.programs.hardware.logitech.enable = true;
   myconfig.boot.enableSecureBoot = true;
+
+  myconfig.sops.secrets = {
+    "ssh_host_ed25519_key" = {
+      owner = "root";
+      group = "root";
+      mode = "0400";
+      sopsFile = ./secrets.yaml;
+    };
+    "ssh_host_rsa_key" = {
+      owner = "root";
+      group = "root";
+      mode = "0400";
+      sopsFile = ./secrets.yaml;
+    };
+  };
 }
