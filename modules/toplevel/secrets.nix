@@ -1,12 +1,15 @@
 {
   delib,
   homeconfig,
-  pkgs,
   inputs,
   ...
 }:
 delib.module {
   name = "secrets";
+
+  options.sops = with delib; {
+    secrets = attrsOption { };
+  };
 
   nixos.always =
     { myconfig, ... }:
@@ -24,6 +27,7 @@ delib.module {
           owner = myconfig.constants.username;
         };
         "wg_laptop" = { };
-      };
+      }
+      // myconfig.sops.secrets;
     };
 }
