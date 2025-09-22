@@ -27,5 +27,6 @@ delib.module {
 
   nixos.ifEnabled.environment.sessionVariables = {
     MOZ_DISABLE_RDD_SANDBOX = 1;
+    MOZ_ENABLE_WAYLAND = 1;
   };
 }
