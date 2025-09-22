@@ -4,6 +4,7 @@
   homeManagerUser,
   config,
   pkgs,
+  constants,
   ...
 }:
 delib.module {
@@ -15,14 +16,14 @@ delib.module {
   nixos.always = {
     environment.systemPackages = [ pkgs.home-manager ];
     home-manager = {
+      useUserPackages = true;
       backupFileExtension = "home_manager_backup";
     };
   };
 
   home.always =
-    { myconfig, ... }:
     let
-      inherit (myconfig.constants) username;
+      inherit (constants) username;
     in
     {
       home = {
