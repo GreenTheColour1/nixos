@@ -14,7 +14,7 @@ delib.module {
         "$mainMod" = cfg.mod;
 
         monitor = [
-          "DP-1, 1920x1080@144, 0x0, 1, vrr, 1"
+          "DP-1, 1920x1080@144, 0x0, 1, vrr, 2"
           "DP-3, 1920x1080@75, -1920x0, 1"
           "HDMI-A-1, 1920x1080, 1920x0, 1"
         ];
@@ -78,10 +78,6 @@ delib.module {
 
         master = {
           new_status = true;
-        };
-
-        gestures = {
-          workspace_swipe = "off";
         };
 
         workspace = [

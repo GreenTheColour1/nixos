@@ -13,8 +13,12 @@ delib.module {
         enable = true;
         lfs.enable = true;
 
-        userName = myconfig.constants.gituser;
-        userEmail = "dev@camerongreen.ca";
+        settings = {
+          user = {
+            email = "dev@camerongreen.ca";
+            name = myconfig.constants.gituser;
+          };
+        };
       };
     };
 

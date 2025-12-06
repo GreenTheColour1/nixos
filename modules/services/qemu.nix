@@ -19,7 +19,7 @@ delib.module {
             package = pkgs.qemu;
             # TPM emulation
             swtpm.enable = true;
-            ovmf.packages = [ pkgs.OVMFFull.fd ];
+            # ovmf.packages = [ pkgs.OVMFFull.fd ];
           };
         };
 

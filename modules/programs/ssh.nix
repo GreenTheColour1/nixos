@@ -9,9 +9,9 @@ delib.module {
 
   options =
     with delib;
-    moduleOption {
-      enable = true;
-      enableOpenssh = true;
+    moduleOptions {
+      enable = boolOption true;
+      enableOpenssh = boolOption true;
     };
 
   nixos.ifEnabled =
@@ -37,7 +37,6 @@ delib.module {
   home.ifEnabled = {
     programs.ssh = {
       enable = true;
-      addKeysToAgent = "yes";
 
       matchBlocks = {
         "git" = {
@@ -48,6 +47,7 @@ delib.module {
           identityFile = [
             "~/.ssh/id_git"
           ];
+          addKeysToAgent = "yes";
         };
       };
     };

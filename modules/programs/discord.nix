@@ -10,16 +10,7 @@ delib.module {
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  home.always.imports = [ inputs.nixcord.homeModules.nixcord ];
-
   home.ifEnabled = {
     home.packages = with pkgs; [ vesktop ];
-
-    # programs.nixcord = {
-    #   enable = true;
-    #   config = {
-    #     frameless = true;
-    #   };
-    # };
   };
 }

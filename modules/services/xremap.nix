@@ -12,6 +12,7 @@ delib.module {
   home.ifEnabled = {
     imports = [ inputs.xremap-flake.homeManagerModules.default ];
     services.xremap = {
+      enable = true;
       withWlroots = true;
       mouse = true;
       config = {

@@ -32,6 +32,7 @@
                   "gaming"
                   "powersave"
                   "wireless"
+                  "ai"
                 ];
                 defaultByHostType = {
                   desktop = [
@@ -58,7 +59,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -75,7 +76,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -86,6 +87,7 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
@@ -93,28 +95,30 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     xremap-flake.url = "github:xremap/nix-flake";
-
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    xremap-flake.inputs.nixpkgs.follows = "nixpkgs";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixcord.url = "github:kaylorben/nixcord";
-
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-    hypr-exiled.url = "github:GreenTheColour1/hypr-exiled";
 
     greenpkgs.url = "git+ssh://git@github.com/GreenTheColour1/greenpkgs";
     greenpkgs.inputs.nixpkgs.follows = "nixpkgs";
 
     niri-flake.url = "github:sodiboo/niri-flake";
     niri-flake.inputs.nixpkgs.follows = "nixpkgs";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-ld.url = "github:Mic92/nix-ld";
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
