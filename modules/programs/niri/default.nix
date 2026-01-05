@@ -57,8 +57,11 @@ delib.module {
             "Mod+Return".action.spawn = "kitty";
             "Mod+w".action.spawn = "${myconfig.programs.browser.defaultBrowserBin}";
             "Mod+d".action.spawn = "fuzzel";
-            "Mod+Escape".action.spawn = "wlogout -b 2";
-
+            "Mod+Escape".action.spawn = [
+              "wlogout"
+              "-b"
+              "2"
+            ];
             "Mod+h".action.focus-column-left = { };
             "Mod+j".action.focus-window-down = { };
             "Mod+k".action.focus-window-up = { };
@@ -90,7 +93,7 @@ delib.module {
 
             focus-follows-mouse.enable = true;
             focus-follows-mouse.max-scroll-amount = "95%";
-            warp-mouse-to-focus = true;
+            warp-mouse-to-focus.enable = true;
           };
 
           gestures = {
@@ -99,9 +102,10 @@ delib.module {
 
           layout = {
             preset-column-widths = [
-              { proportion = 1. / 3.; }
-              { proportion = 1. / 2.; }
               { proportion = 2. / 3.; }
+              { proportion = 1. / 2.; }
+              { proportion = 1. / 3.; }
+              { proportion = 1. / 1.; }
             ];
           };
 
