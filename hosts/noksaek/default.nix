@@ -13,8 +13,11 @@ delib.host {
   myconfig = {
     nvidia.enablePrime = true;
     nvidia.useOpen = false;
+    nvidia.legacy = true;
 
     wireguard.enable = true;
+
+    bluetooth.enable = true;
 
     programs = {
       hyprland.enable = false;

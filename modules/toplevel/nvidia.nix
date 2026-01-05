@@ -11,11 +11,12 @@ delib.module {
   options.nvidia = with delib; {
     enable = boolOption host.guiFeatured;
     enablePrime = boolOption false;
+    legacy = boolOption false;
     useOpen = boolOption true;
   };
 
   nixos.ifEnabled =
-    { myconfig, ... }:
+    { myconfig, cfg, ... }:
     {
       hardware.graphics = {
         enable = true;
@@ -32,7 +33,13 @@ delib.module {
         modesetting.enable = true;
         powerManagement.enable = true;
         open = myconfig.nvidia.useOpen;
-        package = config.boot.kernelPackages.nvidiaPackages.latest;
+        # package = config.boot.kernelPackages.nvidiaPackages.latest;
+        package =
+          if cfg.legacy then
+            config.boot.kernelPackages.nvidiaPackages.production
+
+          else
+            config.boot.kernelPackages.nvidiaPackages.latest;
 
         prime = {
           offload.enable = myconfig.nvidia.enablePrime;
