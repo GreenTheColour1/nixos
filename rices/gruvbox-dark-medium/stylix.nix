@@ -80,6 +80,12 @@ delib.rice {
           nixcord.enable = true;
           lazygit.enable = true;
           niri.enable = true;
+          obsidian = {
+            enable = true;
+            fonts.override.sizes = {
+              applications = 14;
+            };
+          };
           qt.enable = true;
           rofi.enable = true;
           vscode.enable = true;

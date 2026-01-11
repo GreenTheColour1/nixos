@@ -9,5 +9,22 @@ delib.module {
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  home.ifEnabled.home.packages = [ pkgs.obsidian ];
+  home.ifEnabled = {
+    programs.obsidian = {
+      enable = true;
+
+      defaultSettings = {
+        app = {
+          vimMode = true;
+        };
+      };
+
+      vaults = {
+        "School" = {
+          enable = true;
+          target = "Documents/Obsidian/";
+        };
+      };
+    };
+  };
 }
