@@ -18,7 +18,7 @@ delib.module {
       programs.nixvim.plugins.lsp.servers.nixd = {
         enable = true;
         settings = {
-          formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+          formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
 
           options = {
             nixos = {
