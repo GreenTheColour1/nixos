@@ -62,6 +62,18 @@ delib.module {
               "-b"
               "2"
             ];
+
+            "XF86MonBrightnessDown".action.spawn = [
+              "${lib.getExe pkgs.brightnessctl}"
+              "s"
+              "10%-"
+            ];
+            "XF86MonBrightnessUp".action.spawn = [
+              "${lib.getExe pkgs.brightnessctl}"
+              "s"
+              "+10%"
+            ];
+
             "Mod+h".action.focus-column-left = { };
             "Mod+j".action.focus-window-down = { };
             "Mod+k".action.focus-window-up = { };
@@ -73,6 +85,9 @@ delib.module {
             "Mod+Tab".action.toggle-overview = { };
             "Mod+r".action.switch-preset-column-width = { };
 
+            "Mod+Print".action.screenshot = { };
+            "Mod+Shift+Print".action.screenshot-window = { };
+
             "Mod+1".action.focus-workspace = 1;
             "Mod+2".action.focus-workspace = 2;
             "Mod+3".action.focus-workspace = 3;
@@ -82,6 +97,10 @@ delib.module {
             "Mod+7".action.focus-workspace = 7;
             "Mod+8".action.focus-workspace = 8;
             "Mod+9".action.focus-workspace = 9;
+          };
+
+          layout = {
+            gaps = 10;
           };
 
           input = {
@@ -113,6 +132,8 @@ delib.module {
             enable = true;
             path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
           };
+
+          screenshot-path = "~/Media/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
           hotkey-overlay.skip-at-startup = true;
           prefer-no-csd = true;
