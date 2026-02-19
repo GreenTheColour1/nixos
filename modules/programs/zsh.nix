@@ -35,12 +35,12 @@ delib.module {
         enableCompletion = true;
         shellAliases = lib.mkMerge cfg.aliases;
 
-        initExtra = ''
+        initContent = ''
           # Case-insensitive tab completion
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{A-Z}={a-z}'
-        '';
 
-        initContent = "microfetch";
+          microfetch
+        '';
       };
     };
 }
