@@ -36,7 +36,7 @@ delib.rice {
       };
 
       homeManagerIntegration.autoImport = false;
-      homeManagerIntegration.followSystem = false;
+      homeManagerIntegration.followSystem = true;
     };
   };
 
