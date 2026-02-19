@@ -2,6 +2,7 @@
   delib,
   host,
   inputs,
+  lib,
   ...
 }:
 delib.module {
@@ -25,7 +26,7 @@ delib.module {
         enable = true;
         update.auto.enable = true;
         packages = cfg.packages;
-        remotes = [
+        remotes = lib.mkOptionDefault [
           {
             name = "flathub-beta";
             location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
