@@ -3,6 +3,7 @@
   inputs,
   host,
   lib,
+  pkgs,
   ...
 }:
 delib.module {
@@ -15,9 +16,9 @@ delib.module {
     {
       home.packages = [ inputs.greenpkgs.packages.x86_64-linux.awakened-poe-trade ];
 
-      wayland.windowManager.hyprland.settings.binds = lib.mkIf myconfig.programs.hyprland.enable [
-        "CTRL, D, pass, pid:14260"
-        ", F5, pass, pid:14260"
-      ];
+      # wayland.windowManager.hyprland.settings.binds = lib.mkIf myconfig.programs.hyprland.enable [
+      #   "CTRL, D, pass, ^(awakened-poe-trade)$"
+      #   ", F5, pass, ^(awakened-poe-trade)$"
+      # ];
     };
 }
