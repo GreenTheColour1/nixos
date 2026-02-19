@@ -21,7 +21,7 @@ delib.module {
       enabledExtensions = with spicePkgs.extensions; [
         shuffle
       ];
-      theme = spicePkgs.themes.dribbblish;
-      colorScheme = "gruvbox-material-dark";
+      theme = spicePkgs.themes.text;
+      colorScheme = "Gruvbox";
     };
 }
