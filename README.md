@@ -1,6 +1,6 @@
 # My NixOS Config
 
-My [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager) config for all (only 1 right now) my computer, laptop and servers.
+My [NixOS](https://nixos.org/) and [Home Manager](https://github.com/nix-community/home-manager) config for all (only my desktop and laptop right now) my computers and servers.
 
 ## Notes
 
