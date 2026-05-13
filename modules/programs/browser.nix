@@ -18,7 +18,6 @@ delib.module {
   home.ifEnabled = {
     programs.zen-browser = {
       enable = true;
-      suppressXdgMigrationWarning = true;
     };
 
     home.packages = [

@@ -58,6 +58,7 @@ delib.module {
         VDPAU_DRIVER = "nvidia";
         EGL_PLATFORM = "wayland";
         __GL_GSYNC_ALLOWED = 1;
+        __GL_SHADER_DISK_CACHE_SIZE = "12000000000"; # 12 GB
       };
 
       # Needed or else system failes to wake up after suspend

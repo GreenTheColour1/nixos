@@ -32,6 +32,7 @@ delib.module {
           {
             enable = true;
             createDirectories = true;
+            setSessionVariables = true;
 
             download = download;
             pictures = media "Pictures";
