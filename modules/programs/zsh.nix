@@ -3,6 +3,7 @@
   host,
   pkgs,
   lib,
+  homeconfig,
   ...
 }:
 delib.module {
@@ -30,6 +31,7 @@ delib.module {
     {
       programs.zsh = {
         enable = true;
+        dotDir = "${homeconfig.home.homeDirectory}/zsh";
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         enableCompletion = true;

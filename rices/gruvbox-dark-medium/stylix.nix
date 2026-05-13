@@ -88,7 +88,6 @@ delib.rice {
           };
           qt.enable = true;
           rofi.enable = true;
-          vscode.enable = true;
           yazi.enable = true;
         };
 

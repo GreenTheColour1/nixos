@@ -33,11 +33,17 @@ delib.module {
         # Rust
         rust-lang.rust-analyzer
 
+        # Debuggers
+        # pkgs.vscode-marketplace-universal.vadimcn.vscode-lldb
+
         # Utilities
         vscodevim.vim
         esbenp.prettier-vscode
         shd101wyy.markdown-preview-enhanced
         streetsidesoftware.code-spell-checker
+
+        # Look and feel
+        jdinhlife.gruvbox
       ];
     };
   };

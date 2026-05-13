@@ -15,7 +15,7 @@ delib.module {
     {
       home.packages = [
         pkgs.waypaper
-        pkgs.swww
+        pkgs.awww
       ];
     };
 }

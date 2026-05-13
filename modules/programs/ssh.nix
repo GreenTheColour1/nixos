@@ -20,16 +20,16 @@ delib.module {
       services.openssh = {
         enable = myconfig.programs.ssh.enableOpenssh;
 
-        hostKeys = [
-          {
-            path = config.sops.secrets.ssh_host_ed25519_key.path;
-            type = "ed25519";
-          }
-          {
-            path = config.sops.secrets.ssh_host_rsa_key.path;
-            type = "rsa";
-          }
-        ];
+        # hostKeys = [
+        #   {
+        #     path = config.sops.secrets.ssh_host_ed25519_key.path;
+        #     type = "ed25519";
+        #   }
+        #   {
+        #     path = config.sops.secrets.ssh_host_rsa_key.path;
+        #     type = "rsa";
+        #   }
+        # ];
 
       };
     };

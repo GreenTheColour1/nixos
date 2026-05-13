@@ -17,9 +17,11 @@ delib.module {
     services.blueman.enable = true;
   };
 
-  home.ifEnabled = { cfg, ... }: {
-    services.mpris-proxy.enable = cfg.enableMprisProxy;
+  home.ifEnabled =
+    { cfg, ... }:
+    {
+      services.mpris-proxy.enable = cfg.enableMprisProxy;
 
-    services.blueman-applet.enable = true;
-  };
+      # services.blueman-applet.enable = true;
+    };
 }

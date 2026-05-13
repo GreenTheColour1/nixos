@@ -7,7 +7,7 @@
 delib.module {
   name = "programs.opencode";
 
-  options = delib.singleEnableOption host.aiFeatured;
+  options = delib.singleEnableOption host.cliFeatured;
 
   home.ifEnabled.home.packages = [ pkgs.opencode ];
 }

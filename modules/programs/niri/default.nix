@@ -44,7 +44,7 @@ delib.module {
           spawn-at-startup = [
             {
               command = [
-                "swww-daemon"
+                "awww-daemon"
               ];
             }
           ];
