@@ -11,7 +11,7 @@ delib.module {
     with delib;
     moduleOptions {
       enable = boolOption true;
-      enableOpenssh = boolOption true;
+      enableOpenssh = boolOption false;
     };
 
   nixos.ifEnabled =

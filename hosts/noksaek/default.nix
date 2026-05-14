@@ -22,6 +22,7 @@ delib.host {
     programs = {
       hyprland.enable = false;
       niri.enable = true;
+      ssh.enableOpenssh = true;
     };
     services = {
       sddm.enable = false;
