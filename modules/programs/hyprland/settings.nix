@@ -72,7 +72,7 @@ delib.module {
         };
 
         dwindle = {
-          pseudotile = "yes";
+          # pseudotile = "yes";
           preserve_split = "yes";
         };
 

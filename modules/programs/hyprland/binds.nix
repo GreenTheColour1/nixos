@@ -23,7 +23,7 @@ delib.module {
           "$mainMod, Q, killactive,"
           "$mainMod SHIFT, E, exec, uwsm stop,"
           "$mainMod, V, togglefloating,"
-          "$mainMod, Space, togglesplit, # dwindle"
+          # "$mainMod, Space, togglesplit, # dwindle"
 
           # Screenshot a window
           "$mainMod, PRINT, exec, hyprshot -m window"
