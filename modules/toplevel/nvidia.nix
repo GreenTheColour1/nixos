@@ -33,10 +33,9 @@ delib.module {
         modesetting.enable = true;
         powerManagement.enable = true;
         open = myconfig.nvidia.useOpen;
-        # package = config.boot.kernelPackages.nvidiaPackages.latest;
         package =
           if cfg.legacy then
-            config.boot.kernelPackages.nvidiaPackages.production
+            config.boot.kernelPackages.nvidiaPackages.legacy_580
 
           else
             config.boot.kernelPackages.nvidiaPackages.latest;
