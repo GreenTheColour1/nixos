@@ -66,9 +66,11 @@ delib.module {
         portal = {
           enable = true;
           extraPortals = [
-            pkgs.xdg-desktop-portal-gtk
             (lib.mkIf myconfig.programs.niri.enable pkgs.xdg-desktop-portal-gnome)
+            pkgs.xdg-desktop-portal-gtk
           ];
+
+          config.common.default = "*";
         };
       };
     };
