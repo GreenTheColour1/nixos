@@ -18,7 +18,7 @@ delib.module {
       layout = [
         {
           "label" = "logout";
-          "action" = "uwsm stop";
+          "action" = "loginctl terminate-user $USER";
           "keybind" = "l";
         }
         {

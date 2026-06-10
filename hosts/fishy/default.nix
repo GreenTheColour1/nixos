@@ -42,6 +42,10 @@ delib.host {
   myconfig.programs.hardware.logitech.enable = true;
   myconfig.boot.enableSecureBoot = true;
   myconfig.pipewire.low-latency = true;
+  myconfig.services = {
+    sddm.enable = false;
+    ly.enable = true;
+  };
 
   myconfig.sops.secrets = {
     "ssh_host_ed25519_key" = {
