@@ -8,20 +8,20 @@
 delib.module {
   name = "services.uwsm";
 
-  options = delib.singleEnableOption host.guiFeatured;
+  options = delib.singleEnableOption false;
 
   nixos.ifEnabled =
     { myconfig, ... }:
     {
       programs.uwsm = {
         enable = true;
-        waylandCompositors = lib.mkIf myconfig.programs.hyprland.enable {
-          hyprland = {
-            prettyName = "Hyprland";
-            comment = "Hyprland compositor managed by UWSM";
-            binPath = "/run/current-system/sw/bin/Hyprland";
-          };
-        };
+        # waylandCompositors = lib.mkIf myconfig.programs.hyprland.enable {
+        #   hyprland = {
+        #     prettyName = "Hyprland";
+        #     comment = "Hyprland compositor managed by UWSM";
+        #     binPath = "/run/current-system/sw/bin/Hyprland";
+        #   };
+        # };
       };
     };
 }
