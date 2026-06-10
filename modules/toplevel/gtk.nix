@@ -7,7 +7,7 @@ delib.module {
   home.ifEnabled = {
     gtk = {
       enable = true;
-      gtk4.theme = null;
+      # gtk4.theme = null;
       colorScheme = "dark";
     };
   };
