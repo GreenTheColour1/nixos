@@ -1,6 +1,6 @@
 { delib, pkgs, ... }:
 delib.module {
-  name = "services.gdm";
+  name = "services.ly";
 
   options = delib.singleEnableOption false;
 
@@ -8,8 +8,13 @@ delib.module {
     { myconfig, ... }:
     {
       services.displayManager = {
-        gdm = {
+        ly = {
           enable = true;
+          x11Support = false;
+
+          # settings = {
+          #   animation = "cascade";
+          # };
         };
 
         autoLogin.enable = true;

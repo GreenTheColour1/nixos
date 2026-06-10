@@ -26,7 +26,7 @@ delib.host {
     };
     services = {
       sddm.enable = false;
-      gdm.enable = true;
+      ly.enable = true;
       uwsm.enable = false;
     };
   };
