@@ -9,8 +9,14 @@ delib.module {
 
   options.programs.file-browser = with delib; {
     enable = boolOption host.guiFeatured;
-    defaultFileBrowserPackage = packageOption pkgs.kdePackages.dolphin;
+    defaultFileBrowserPackage = packageOption pkgs.thunar;
   };
 
-  home.ifEnabled.home.packages = [ pkgs.kdePackages.dolphin ];
+  nixos.ifEnabled = {
+    programs.thunar = {
+      enable = true;
+    };
+    programs.xfconf.enable = true;
+    services.gvfs.enable = true;
+  };
 }
