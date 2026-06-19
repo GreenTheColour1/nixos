@@ -9,5 +9,8 @@ delib.module {
 
   options = delib.singleEnableOption host.gamingFeatured;
 
-  nixos.ifEnabled.environment.systemPackages = [ pkgs.mangohud ];
+  nixos.ifEnabled.environment.systemPackages = [
+    pkgs.mangohud
+    pkgs.goverlay
+  ];
 }
