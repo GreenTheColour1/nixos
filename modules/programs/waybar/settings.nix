@@ -125,7 +125,7 @@ delib.module {
               "format-bluetooth-muted" = "<span color='#222222' bgcolor='#ea6962'> MUTE </span> {volume}%";
               "format-source" = "{volume}% ";
               "on-click" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-              "on-click-right" = "pavucontrol";
+              "on-click-right" = "pwvucontrol";
               "tooltip" = false;
               "max-volume" = 130;
             };

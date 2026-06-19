@@ -10,8 +10,13 @@ delib.module {
   nixos.ifEnabled = {
     hardware.bluetooth = {
       enable = true;
-
       powerOnBoot = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true;
+        };
+      };
     };
 
     services.blueman.enable = true;
@@ -22,6 +27,6 @@ delib.module {
     {
       services.mpris-proxy.enable = cfg.enableMprisProxy;
 
-      # services.blueman-applet.enable = true;
+      home.packages = with pkgs; [ bluetuith ];
     };
 }
