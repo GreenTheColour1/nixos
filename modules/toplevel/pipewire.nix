@@ -1,15 +1,22 @@
-{ delib, lib, ... }:
+{
+  delib,
+  lib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "pipewire";
 
   options.pipewire = {
-    enable = delib.boolOption true;
+    enable = delib.boolOption host.guiFeatured;
     low-latency = delib.boolOption false;
   };
 
   nixos.ifEnabled =
     { cfg, ... }:
     {
+      environment.systemPackages = with pkgs; [ qpwgraph ];
       # Pipewire
       security.rtkit.enable = true;
       services.pipewire = {

@@ -5,12 +5,20 @@
   ...
 }:
 delib.module {
-  name = "programs.pulese-audio-tools";
+  name = "programs.pulse-audio-tools";
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  home.ifEnabled.home.packages = [
-    pkgs.pavucontrol
-    pkgs.pamixer
-  ];
+  nixos.ifEnabled = {
+    programs.noisetorch = {
+      enable = true;
+    };
+  };
+
+  home.ifEnabled = {
+    home.packages = [
+      pkgs.pwvucontrol
+      pkgs.pamixer
+    ];
+  };
 }
