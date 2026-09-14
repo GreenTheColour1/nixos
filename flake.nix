@@ -112,10 +112,13 @@
     greenpkgs.url = "git+ssh://git@github.com/GreenTheColour1/greenpkgs";
     greenpkgs.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri-flake.url = "github:sodiboo/niri-flake";
+    niri-flake.url = "github:epireyn/niri-flake";
     niri-flake.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    jagex-launcher.url = "github:kurtmorris/jagex-launcher-flake";
+    jagex-launcher.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
