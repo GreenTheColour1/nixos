@@ -12,15 +12,20 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  nixos.always.imports = [ inputs.niri-flake.nixosModules.niri ];
-
+  nixos.always = {
+    imports = [ inputs.niri-flake.nixosModules.niri ];
+    # niri-flake.cache.enable = false;
+    # programs.niri = {
+    #   enable = false;
+    # };
+  };
   nixos.ifEnabled = {
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = pkgs.niri;
     };
-    niri-flake.cache.enable = true;
-    nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+    # niri-flake.cache.enable = true;
+    # nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
 
     environment.sessionVariables = {
       GDK_BACKEND = "wayland,x11,*";
