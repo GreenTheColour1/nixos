@@ -32,7 +32,7 @@ delib.module {
             (bind "SUPER + Return" (exec "kitty"))
             (bind "SUPER + W" (exec "${myconfig.programs.browser.defaultBrowserBin}"))
             (bind "SUPER + SHIFT + W" (exec "${myconfig.programs.browser.defaultBrowserBin} --private-window"))
-            (bind "SUPER + D" (exec "rofi --show drun"))
+            (bind "SUPER + D" (exec "rofi -show drun"))
             (bind "SUPER + C" (exec "kitty --class clipse -e clipse"))
             (bind "SUPER + ESCAPE" (exec "wlogout -b 2"))
             (bind "SUPER + P" (exec "startdevshell"))
