@@ -49,6 +49,31 @@ delib.module {
           # "opacity 0.2, title:(HearthstoneOverlay)"
           # "stayfocused, title:^(Hearthstone)$"
         ];
+        workspace_rule = [
+          {
+            workspace = "1";
+            default = true;
+            monitor = "DP-1";
+            persistent = true;
+          }
+          {
+            workspace = "2";
+            default = true;
+            monitor = "HDMI-A-1";
+            persistent = true;
+          }
+          {
+            workspace = "3";
+            default = true;
+            monitor = "DP-3";
+            persistent = true;
+          }
+          {
+            workspace = "4";
+            monitor = "HDMI-A-1";
+          }
+        ];
+
       };
     };
 }
