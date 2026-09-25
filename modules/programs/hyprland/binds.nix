@@ -1,83 +1,88 @@
-{ delib, ... }:
+{ delib, lib, ... }:
 delib.module {
   name = "programs.hyprland";
 
   home.ifEnabled =
     { myconfig, ... }:
     {
-      wayland.windowManager.hyprland.settings = {
-        bindm = [
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
-        ];
-        bind = [
-          "$mainMod, Return, exec, kitty"
-          "$mainMod, W, exec, ${myconfig.programs.browser.defaultBrowserBin}"
-          "$mainMod SHIFT, W, exec, ${myconfig.programs.browser.defaultBrowserBin} --private-window"
-          "$mainMod, D, exec, rofi -show drun"
-          "$mainMod, C, exec, kitty --class clipse -e clipse"
-          "$mainMod, ESCAPE, exec, wlogout -b 2"
-          "$mainMod, P, exec, startdevshell"
+      wayland.windowManager.hyprland.settings =
+        let
+          lua = lib.generators.mkLuaInline;
+          bind = key: action: {
+            _args = [
+              key
+              (lua action)
+            ];
+          };
+          exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+          mvws = ws: ''hl.dsp.focus({ workspace = "${ws}"})'';
+          mvwd = ws: ''hl.dsp.window.move({ workspace = "${ws}"})'';
+          mvwddr = dr: ''hl.dsp.window.move({ direction = "${dr}"})'';
+          fs = mode: ''hl.dsp.window.fullscreen({ mode = "${mode}"})'';
+          focusdr = dr: ''hl.dsp.focus({ direction = "${dr}"})'';
 
-          "$mainMod, F, fullscreen"
-          "$mainMod, Q, killactive,"
-          "$mainMod SHIFT, E, exec, uwsm stop,"
-          "$mainMod, V, togglefloating,"
-          # "$mainMod, Space, togglesplit, # dwindle"
+        in
+        {
+          bind = [
+            #mouse binds
+            (bind "SUPER + mouse:272" "hl.dsp.window.drag()")
+            (bind "SUPER + mouse:273" "hl.dsp.window.resize()")
 
-          # Screenshot a window
-          "$mainMod, PRINT, exec, hyprshot -m window"
-          # Screenshot a monitor
-          ", PRINT, exec, hyprshot -m output"
-          # Screenshot a region
-          "$mainMod SHIFT, PRINT, exec, hyprshot -m region"
+            #execs
+            (bind "SUPER + Return" (exec "kitty"))
+            (bind "SUPER + W" (exec "${myconfig.programs.browser.defaultBrowserBin}"))
+            (bind "SUPER + SHIFT + W" (exec "${myconfig.programs.browser.defaultBrowserBin} --private-window"))
+            (bind "SUPER + D" (exec "rofi --show drun"))
+            (bind "SUPER + C" (exec "kitty --class clipse -e clipse"))
+            (bind "SUPER + ESCAPE" (exec "wlogout -b 2"))
+            (bind "SUPER + P" (exec "startdevshell"))
 
-          # Move focus with mainMod + [H, L, K, J]
-          "$mainMod, L, movefocus, r"
-          "$mainMod, H, movefocus, l"
-          "$mainMod, K, movefocus, u"
-          "$mainMod, J, movefocus, d"
+            #windows
+            (bind "SUPER + F" (fs "fullscreen"))
+            (bind "SUPER + Q" "hl.dsp.window.close()")
+            (bind "SUPER + V" "hl.dsp.window.float()")
 
-          # Move active window with mainMod + SHIFT + [H, L, K, J]
-          "$mainMod SHIFT, H, movewindow, l"
-          "$mainMod SHIFT, L, movewindow, r"
-          "$mainMod SHIFT, K, movewindow, d"
-          "$mainMod SHIFT, J, movewindow, u"
+            #Screenshot
+            (bind "SUPER + PRINT" (exec "hyprshot -m window"))
+            (bind "PRINT" (exec "hyprshot -m output"))
+            (bind "SUPER + SHIFT + PRINT" (exec "hyprshot -m region"))
 
-          # Resize active window with mainMod + ALT + [H, L, K, J]
-          "$mainMod ALT, H, resizeactive, -30 0"
-          "$mainMod ALT, L, resizeactive, 30 0"
-          "$mainMod ALT, K, resizeactive, 0 -30"
-          "$mainMod ALT, J, resizeactive, 0 30"
+            #Move window focus
+            (bind "SUPER + L" (focusdr "right"))
+            (bind "SUPER + H" (focusdr "left"))
+            (bind "SUPER + K" (focusdr "up"))
+            (bind "SUPER + J" (focusdr "down"))
 
-          # Switch workspaces with mainMod + [0-9]
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
+            #Move window
+            (bind "SUPER + SHIFT + H" (mvwddr "left"))
+            (bind "SUPER + SHIFT + L" (mvwddr "right"))
+            (bind "SUPER + SHIFT + K" (mvwddr "down"))
+            (bind "SUPER + SHIFT + J" (mvwddr "up"))
 
-          # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+            #Workspaces
+            (bind "SUPER + 1" (mvws "1"))
+            (bind "SUPER + 2" (mvws "2"))
+            (bind "SUPER + 3" (mvws "3"))
+            (bind "SUPER + 4" (mvws "4"))
+            (bind "SUPER + 5" (mvws "5"))
+            (bind "SUPER + 6" (mvws "6"))
+            (bind "SUPER + 7" (mvws "7"))
+            (bind "SUPER + 8" (mvws "8"))
+            (bind "SUPER + 9" (mvws "9"))
+            (bind "SUPER + 0" (mvws "10"))
 
-          # Scroll through existing workspaces with mainMod + scroll
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
-        ];
-      };
+            #Move window to workspace
+            (bind "SUPER + SHIFT + 1" (mvwd "1"))
+            (bind "SUPER + SHIFT + 2" (mvwd "2"))
+            (bind "SUPER + SHIFT + 3" (mvwd "3"))
+            (bind "SUPER + SHIFT + 4" (mvwd "4"))
+            (bind "SUPER + SHIFT + 5" (mvwd "5"))
+            (bind "SUPER + SHIFT + 6" (mvwd "6"))
+            (bind "SUPER + SHIFT + 7" (mvwd "7"))
+            (bind "SUPER + SHIFT + 8" (mvwd "8"))
+            (bind "SUPER + SHIFT + 9" (mvwd "9"))
+            (bind "SUPER + SHIFT + 0" (mvwd "10"))
+          ];
+        };
     };
 }

@@ -1,4 +1,9 @@
-{ delib, host, ... }:
+{
+  delib,
+  host,
+  lib,
+  ...
+}:
 delib.module {
   name = "programs.hyprland";
 
@@ -9,91 +14,180 @@ delib.module {
       ...
     }:
     {
-      wayland.windowManager.hyprland.settings = {
+      wayland.windowManager.hyprland.settings =
+        let
+          lua = lib.generators.mkLuaInline;
+          bezier = name: p1: p2: {
+            _args = [
+              name
+              {
+                type = "bezier";
+                points = [
+                  p1
+                  p2
+                ];
+              }
+            ];
+          };
+          env = name: value: {
+            _args = [
+              name
+              value
+            ];
+          };
+        in
+        {
 
-        "$mainMod" = cfg.mod;
-
-        monitor = [
-          "DP-1, 1920x1080@144, 0x0, 1"
-          "DP-3, 1920x1080@60, -1920x0, 1"
-          "HDMI-A-1, 1920x1080, 1920x0, 1"
-        ];
-
-        env = [
-          "QT_QPA_PLATFORMTHEME,qt5ct"
-        ];
-
-        general = {
-          gaps_in = cfg.gaps.inner;
-          gaps_out = cfg.gaps.outer;
-          border_size = cfg.border.size;
-
-          layout = "dwindle";
-
-          allow_tearing = true;
-        };
-
-        input = {
-          kb_layout = "us";
-          follow_mouse = 1;
-
-          touchpad = {
-            natural_scroll = "no";
+          mod = {
+            _var = cfg.mod;
           };
 
-          sensitivity = 0;
-          accel_profile = "flat";
-        };
+          monitor = [
+            {
+              output = "DP-1";
+              mode = "1920x1080@144";
+              position = "0x0";
+              vrr = 1;
+            }
+            {
+              output = "DP-3";
+              mode = "1920x1080@60";
+              position = "-1920x0";
+              vrr = 1;
+            }
+            {
+              output = "HDMI-A-1";
+              mode = "1920x1080";
+              position = "1920x0";
+              vrr = 1;
+            }
+          ];
 
-        decoration = {
-          rounding = 5;
+          env = [
+            (env "QT_QPA_PLATFORMTHEME" "qt5ct")
+          ];
 
-          blur = {
-            enabled = true;
-            size = 10;
-            passes = 3;
-            ignore_opacity = true;
-            new_optimizations = true;
-          };
-        };
-
-        animations = {
-          enabled = "yes";
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          curve = [
+            (bezier "myBezier" [ 0.05 0.9 ] [ 0.1 1.05 ])
+          ];
 
           animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
+            {
+              leaf = "windows";
+              enabled = true;
+              speed = 7;
+              bezier = "myBezier";
+            }
+            {
+              leaf = "windowsOut";
+              enabled = true;
+              speed = 7;
+              bezier = "default";
+              style = "popin 80%";
+            }
+            {
+              leaf = "border";
+              enabled = true;
+              speed = 10;
+              bezier = "default";
+            }
+            {
+              leaf = "borderangle";
+              enabled = true;
+              speed = 8;
+              bezier = "default";
+            }
+            {
+              leaf = "fade";
+              enabled = true;
+              speed = 7;
+              bezier = "default";
+            }
+            {
+              leaf = "workspaces";
+              enabled = true;
+              speed = 6;
+              bezier = "default";
+            }
           ];
-        };
 
-        dwindle = {
-          # pseudotile = "yes";
-          preserve_split = "yes";
-        };
+          config = {
+            general = {
+              gaps_in = cfg.gaps.inner;
+              gaps_out = cfg.gaps.outer;
+              border_size = cfg.border.size;
 
-        master = {
-          new_status = true;
-        };
+              layout = "dwindle";
 
-        workspace = [
-          "1, default:true, monitor:DP-1, persistent:true"
-          "2, default:true, monitor:HDMI-A-1, persistent:true"
-          "3, default:true, monitor:DP-3, persistent:true"
-          "4, monitor:HDMI-A-1"
-        ];
+              allow_tearing = true;
+            };
 
-        misc = {
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-          mouse_move_enables_dpms = true;
-          key_press_enables_dpms = true;
+            input = {
+              kb_layout = "us";
+              follow_mouse = 1;
+
+              touchpad = {
+                natural_scroll = false;
+              };
+
+              sensitivity = 0;
+              accel_profile = "flat";
+            };
+
+            decoration = {
+              rounding = 5;
+
+              blur = {
+                enabled = true;
+                size = 10;
+                passes = 3;
+                ignore_opacity = true;
+                new_optimizations = true;
+              };
+            };
+            misc = {
+              disable_hyprland_logo = true;
+              disable_splash_rendering = true;
+              mouse_move_enables_dpms = true;
+              key_press_enables_dpms = true;
+            };
+          };
+
+          # dwindle = {
+          #   # pseudotile = "yes";
+          #   preserve_split = "yes";
+          # };
+          #
+          # master = {
+          #   new_status = true;
+          # };
+
+          workspace_rule = [
+            {
+              workspace = "1";
+              default = true;
+              monitor = "DP-1";
+              persistent = true;
+            }
+            {
+              workspace = "2";
+              default = true;
+              monitor = "HDMI-A-1";
+              persistent = true;
+            }
+            {
+              workspace = "3";
+              default = true;
+              monitor = "DP-3";
+              persistent = true;
+            }
+            {
+              workspace = "4";
+              monitor = "DP-1";
+            }
+          ];
+
         };
-      };
     };
 
 }

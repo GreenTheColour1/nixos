@@ -21,7 +21,6 @@ delib.module {
   nixos.ifEnabled = {
     programs.hyprland = {
       enable = true;
-      # withUWSM = true;
     };
 
     environment.sessionVariables = {
@@ -38,6 +37,6 @@ delib.module {
   };
   home.ifEnabled.wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
+    configType = "lua";
   };
 }

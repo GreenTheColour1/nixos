@@ -6,12 +6,39 @@ delib.module {
     { myconfig, ... }:
     {
       wayland.windowManager.hyprland.settings = {
-        windowrule = [
-          "match:class ^(kitty)$, opacity 0.7 override"
-          "match:class ^(waypaper)$, float true"
-          "match:class ^(vesktop)$, workspace 4"
-          "match:class ^(clipse)$, float true"
-          "match:class ^(clipse)$, size 622 652"
+        window_rule = [
+          {
+            name = "terminal_opacity";
+            match = {
+              class = "^(kitty)$";
+            };
+            opacity = 0.7;
+          }
+          {
+            name = "waypaper_float";
+            match = {
+              class = "^(waypaper)$";
+            };
+            float = true;
+          }
+          {
+            name = "vesktop";
+            match = {
+              class = "^(vesktop)$";
+            };
+            workspace = "4 silent";
+          }
+          {
+            name = "clipse";
+            match = {
+              class = "^(clipse)$";
+            };
+            float = true;
+            size = [
+              "622"
+              "652"
+            ];
+          }
 
           # Hearthstone
           # "float, title:(HearthstoneOverlay)"
