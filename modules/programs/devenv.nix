@@ -30,11 +30,9 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Bulk Projects/ lives in xdg.nix.
       users.${myconfig.constants.username} = {
         directories = [
           ".local/share/direnv"
-          # Live perms are 0700.
           {
             directory = ".local/state/lazygit";
             mode = "0700";

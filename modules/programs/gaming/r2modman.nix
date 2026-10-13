@@ -15,7 +15,6 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0700.
         {
           directory = ".config/r2modman";
           mode = "0700";

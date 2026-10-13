@@ -17,7 +17,6 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0700 (mail + credentials).
         {
           directory = ".thunderbird";
           mode = "0700";

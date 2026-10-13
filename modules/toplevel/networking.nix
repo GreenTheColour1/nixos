@@ -7,13 +7,9 @@ delib.module {
     hosts = attrsOfOption (listOf str) { };
   };
 
-  # No `enable` option on this module, so `always` (not `ifEnabled`).
-  # WiFi secrets live here; directory bindmount keeps the per-file
-  # 0600 modes intact.
   preservation.always =
     { myconfig, ... }:
     {
-      # Live perms are 0700; keyfiles inside must stay 0600.
       directories = [
         {
           directory = "/etc/NetworkManager/system-connections";

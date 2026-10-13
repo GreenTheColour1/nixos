@@ -37,7 +37,6 @@ delib.module {
   };
   home.always = shared;
 
-  # No `enable` option on this module, so `always` (not `ifEnabled`).
   preservation.always =
     { myconfig, ... }:
     {

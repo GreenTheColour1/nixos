@@ -24,7 +24,6 @@ delib.module {
     ];
   };
 
-  # Recordings default to ~/Media/Videos (see Media in programs.niri).
   preservation.ifEnabled =
     { myconfig, ... }:
     {

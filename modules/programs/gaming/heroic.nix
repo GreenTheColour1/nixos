@@ -14,9 +14,7 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Games/ is Heroic's default install location (13G live).
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0700 (account tokens).
         {
           directory = ".config/heroic";
           mode = "0700";

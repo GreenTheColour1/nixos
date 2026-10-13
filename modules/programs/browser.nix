@@ -34,7 +34,6 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0700 (session tokens); .zen is created on first run.
         {
           directory = ".mozilla";
           mode = "0700";

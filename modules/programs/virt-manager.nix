@@ -35,9 +35,7 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Bulk Machines/ lives in xdg.nix.
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0750 (saved RDP/VNC credentials).
         {
           directory = ".local/share/remmina";
           mode = "0750";

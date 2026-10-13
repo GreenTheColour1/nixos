@@ -25,7 +25,6 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Live perms are 0700 (bluetoothd); do not loosen.
       directories = [
         {
           directory = "/var/lib/bluetooth";

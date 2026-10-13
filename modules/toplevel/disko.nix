@@ -8,11 +8,6 @@ delib.module {
 
   options.disko = with delib; {
     enable = boolOption false;
-    # Disk disko is allowed to partition and FORMAT. Defaults to a
-    # VM-style device on purpose: enabling this on bare metal without
-    # setting the real disk (e.g. "/dev/nvme0n1") fails instead of
-    # wiping the wrong drive. Applies ONLY to this disk; other disks
-    # (e.g. /home/fishy/Data, /mnt/winvm) are left untouched.
     device = strOption "/dev/vda";
   };
 

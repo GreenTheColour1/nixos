@@ -31,10 +31,8 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Bulk Documents/ lives in xdg.nix; this is the app-side remainder.
       users.${myconfig.constants.username}.directories = [
         "Obsidian"
-        # Live perms are 0700 (vault registry + sync credentials).
         {
           directory = ".config/obsidian";
           mode = "0700";

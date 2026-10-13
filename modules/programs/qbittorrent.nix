@@ -14,7 +14,6 @@ delib.module {
   preservation.ifEnabled =
     { myconfig, ... }:
     {
-      # Bulk Downloads/ (the default save location) lives in xdg.nix.
       users.${myconfig.constants.username}.directories = [ ".config/qBittorrent" ];
     };
 }

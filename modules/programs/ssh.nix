@@ -38,7 +38,6 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        # mode 0700 is mandatory: ssh ignores keys under looser dirs.
         {
           directory = ".ssh";
           mode = "0700";
@@ -50,10 +49,6 @@ delib.module {
       ];
     }
     // (
-      # sshd auto-generates these into /etc/ssh (tmpfs) — without this,
-      # host identity rotates every boot. Symlink form follows the
-      # upstream preservation example (never bindmount all of /etc/ssh:
-      # it would shadow nix-generated ssh_config).
       if myconfig.programs.ssh.enableOpenssh then
         {
           files = [

@@ -35,14 +35,10 @@ delib.module {
         autoLogin.user = myconfig.constants.username;
       };
 
-      # Standalone Hyprland session, visible only to ly (ly crawls
-      # /etc/ly/custom-sessions in addition to the system session dirs).
-      # Mirrors hyprland.desktop's Exec via the stable system path, but
-      # with a unique id so autologin can't resolve to hyprland-uwsm.
       environment.etc."ly/custom-sessions/hyprland-standalone.desktop".text = ''
         [Desktop Entry]
         Name=Hyprland (standalone)
-        Comment=Hyprland compositor launched directly, without uwsm
+        Comment=Hyprland compositor
         Exec=/run/current-system/sw/bin/start-hyprland
         Type=Application
         DesktopNames=Hyprland

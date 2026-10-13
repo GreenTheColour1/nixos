@@ -11,7 +11,7 @@ delib.module {
   options.programs.aagl = with delib; {
     enable = boolOption host.gamingFeatured;
     enableAnimeGameLauncher = boolOption true;
-    enableSleepyLauncher = boolOption true;
+    enableSleepyLauncher = boolOption false;
   };
 
   nixos.always = {
@@ -28,7 +28,6 @@ delib.module {
       programs.sleepy-launcher.enable = cfg.enableSleepyLauncher;
     };
 
-  # Game installs + prefixes (large). Dirs verified on the live system.
   preservation.ifEnabled =
     { myconfig, ... }:
     {
