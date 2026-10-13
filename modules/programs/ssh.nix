@@ -37,18 +37,19 @@ delib.module {
   home.ifEnabled = {
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
 
-      matchBlocks = {
-        "git" = {
-          host = "github.com";
-          user = "git";
-          hostname = "github.com";
-          identitiesOnly = true;
-          identityFile = [
-            "~/.ssh/id_git"
-          ];
-          addKeysToAgent = "yes";
-        };
+      settings."*" = { };
+
+      settings."git" = {
+        Host = "github.com";
+        User = "git";
+        Hostname = "github.com";
+        IdentitiesOnly = true;
+        IdentityFile = [
+          "~/.ssh/id_git"
+        ];
+        AddKeysToAgent = "yes";
       };
     };
   };
