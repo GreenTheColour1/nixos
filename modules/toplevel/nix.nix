@@ -36,4 +36,14 @@ delib.module {
     };
   };
   home.always = shared;
+
+  # No `enable` option on this module, so `always` (not `ifEnabled`).
+  preservation.always =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/nix"
+        ".local/state/nix"
+      ];
+    };
 }

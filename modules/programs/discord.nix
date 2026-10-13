@@ -13,4 +13,18 @@ delib.module {
   home.ifEnabled = {
     home.packages = with pkgs; [ vesktop ];
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        # Live perms are 0700 (tokens).
+        {
+          directory = ".config/vesktop";
+          mode = "0700";
+        }
+        ".config/discord"
+        ".config/Vencord"
+      ];
+    };
 }

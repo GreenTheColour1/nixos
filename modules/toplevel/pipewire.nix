@@ -59,4 +59,24 @@ delib.module {
         );
       };
     };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          # Live perms are 0700 (audio sockets/credentials).
+          {
+            directory = ".local/state/wireplumber";
+            mode = "0700";
+          }
+          ".config/easyeffects"
+          {
+            directory = ".config/pulse";
+            mode = "0700";
+          }
+        ];
+        files = [ ".config/pavucontrol.ini" ];
+      };
+    };
 }

@@ -19,6 +19,16 @@ delib.module {
   home.always.imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
 
   nixos.ifEnabled.services.flatpak.enable = true;
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      directories = [ "/var/lib/flatpak" ];
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/flatpak"
+        ".var/app"
+      ];
+    };
   home.ifEnabled =
     { cfg, ... }:
     {

@@ -14,6 +14,19 @@ delib.module {
 
   home.always.imports = [ inputs.nixvim.homeModules.nixvim ];
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        # Live perms are 0700 (swap files may contain file contents).
+        {
+          directory = ".local/share/nvim";
+          mode = "0700";
+        }
+        ".local/state/nvim"
+      ];
+    };
+
   home.ifEnabled =
     { cfg, ... }:
     {

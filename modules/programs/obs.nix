@@ -23,4 +23,11 @@ delib.module {
       obs-vkcapture
     ];
   };
+
+  # Recordings default to ~/Media/Videos (see Media in programs.niri).
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/obs-studio" ];
+    };
 }

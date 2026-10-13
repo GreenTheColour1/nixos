@@ -18,4 +18,13 @@ delib.module {
         pkgs.awww
       ];
     };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".config/waypaper"
+        ".local/state/waypaper"
+      ];
+    };
 }

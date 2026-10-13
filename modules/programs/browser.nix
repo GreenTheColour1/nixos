@@ -29,4 +29,22 @@ delib.module {
     MOZ_DISABLE_RDD_SANDBOX = 1;
     MOZ_ENABLE_WAYLAND = 1;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        # Live perms are 0700 (session tokens); .zen is created on first run.
+        {
+          directory = ".mozilla";
+          mode = "0700";
+        }
+        ".zen"
+        {
+          directory = ".config/BraveSoftware";
+          mode = "0700";
+        }
+        ".config/zen"
+      ];
+    };
 }

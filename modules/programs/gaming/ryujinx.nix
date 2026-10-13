@@ -12,4 +12,10 @@ delib.module {
   nixos.ifEnabled.environment.systemPackages = with pkgs; [
     ryubing
   ];
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/Ryujinx" ];
+    };
 }

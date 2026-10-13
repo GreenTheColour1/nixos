@@ -26,6 +26,25 @@ delib.module {
     users.defaultUserShell = pkgs.zsh;
   };
 
+  # dotDir (~/zsh) holds .zsh_history.
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          "zsh"
+          ".local/share/zoxide"
+        ];
+        files = [
+          # Live perms are 0600.
+          {
+            file = ".zsh_history";
+            mode = "0600";
+          }
+        ];
+      };
+    };
+
   home.ifEnabled =
     { cfg, ... }:
     {

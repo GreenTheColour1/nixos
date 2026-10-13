@@ -8,4 +8,15 @@ delib.module {
     enable = true;
     enableCompletion = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.files = [
+        {
+          file = ".bash_history";
+          mode = "0600";
+        }
+      ];
+    };
 }

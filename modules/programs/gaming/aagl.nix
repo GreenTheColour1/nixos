@@ -27,4 +27,15 @@ delib.module {
       programs.anime-game-launcher.enable = cfg.enableAnimeGameLauncher;
       programs.sleepy-launcher.enable = cfg.enableSleepyLauncher;
     };
+
+  # Game installs + prefixes (large). Dirs verified on the live system.
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/anime-game-launcher"
+        ".local/share/sleepy-launcher"
+        ".config/hoyolab-cookie-helper"
+      ];
+    };
 }

@@ -34,6 +34,45 @@ delib.module {
       };
     };
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        # mode 0700 is mandatory: ssh ignores keys under looser dirs.
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
+      ];
+    }
+    // (
+      # sshd auto-generates these into /etc/ssh (tmpfs) — without this,
+      # host identity rotates every boot. Symlink form follows the
+      # upstream preservation example (never bindmount all of /etc/ssh:
+      # it would shadow nix-generated ssh_config).
+      if myconfig.programs.ssh.enableOpenssh then
+        {
+          files = [
+            {
+              file = "/etc/ssh/ssh_host_ed25519_key";
+              how = "symlink";
+              configureParent = true;
+            }
+            {
+              file = "/etc/ssh/ssh_host_rsa_key";
+              how = "symlink";
+              configureParent = true;
+            }
+          ];
+        }
+      else
+        { }
+    );
+
   home.ifEnabled = {
     programs.ssh = {
       enable = true;

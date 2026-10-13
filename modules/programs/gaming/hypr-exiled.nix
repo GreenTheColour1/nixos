@@ -9,4 +9,13 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".config/hypr-exiled"
+        ".local/share/hypr-exiled"
+      ];
+    };
+
 }

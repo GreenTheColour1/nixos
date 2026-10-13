@@ -5,6 +5,7 @@
     {
       denix,
       nixpkgs,
+      self,
       ...
     }@inputs:
     let
@@ -45,6 +46,9 @@
                 };
               };
             })
+            (self.denixExtensions.preservation.withConfig {
+              preserveAt = "/persist";
+            })
           ];
 
           specialArgs = {
@@ -56,6 +60,10 @@
     {
       nixosConfigurations = mkConfigurations "nixos";
       homeConfigurations = mkConfigurations "home";
+
+      denixExtensions = denix.lib.callExtensions {
+        paths = [ ./extensions ];
+      };
     };
 
   inputs = {
@@ -117,6 +125,8 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    preservation.url = "github:nix-community/preservation";
 
     jagex-launcher.url = "github:kurtmorris/jagex-launcher-flake";
     jagex-launcher.inputs.nixpkgs.follows = "nixpkgs";

@@ -11,6 +11,24 @@ delib.module {
     secrets = attrsOption { };
   };
 
+  # No `enable` option on this module, so `always` (not `ifEnabled`).
+  # Without this, the age key lives on tmpfs on an impermanent system
+  # and sops breaks permanently after the first reboot (nothing left
+  # to decrypt the password / host keys with).
+  preservation.always =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.files = [
+        {
+          file = ".config/sops/age/keys.txt";
+          mode = "0600";
+          # Immediate parents (.config/sops/age) would otherwise be
+          # created root-owned; with this they belong to the user.
+          configureParent = true;
+        }
+      ];
+    };
+
   nixos.always =
     { myconfig, ... }:
     {

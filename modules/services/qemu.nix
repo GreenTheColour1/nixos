@@ -27,4 +27,8 @@ delib.module {
 
       users.users.${myconfig.constants.username}.extraGroups = [ "libvirtd" ];
     };
+
+  preservation.ifEnabled = {
+    directories = [ "/var/lib/libvirt" ];
+  };
 }

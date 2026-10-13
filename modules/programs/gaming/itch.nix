@@ -12,4 +12,10 @@ delib.module {
   home.ifEnabled.home.packages = with pkgs; [
     itch
   ];
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/itch" ];
+    };
 }
