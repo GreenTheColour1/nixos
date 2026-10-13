@@ -35,6 +35,7 @@ delib.module {
         ".steam"
         ".factorio"
         ".renpy"
+        ".config/unity3d"
         ".local/share/Larian Studios"
         ".local/share/SlayTheSpire2"
         ".local/share/Tabletop Simulator"
