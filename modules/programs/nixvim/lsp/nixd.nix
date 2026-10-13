@@ -2,10 +2,12 @@
   delib,
   pkgs,
   lib,
+  host,
+
   ...
 }:
 let
-  flake = ''(builtins.getFlake "github:GreenTheColour1/nixos")'';
+  flake = ''(builtins.getFlake "/home/fishy/nix-config")'';
 in
 delib.module {
   name = "programs.nixvim.lsp.nixd";
@@ -21,15 +23,9 @@ delib.module {
           formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
 
           options = {
-            nixos = {
-              expr = "${flake}.nixosConfigurations.nixos-fishy.options"; # FIXME
-            };
-            # home_manager = {
-            #   expr = "${flake}.homeConfigurations.${myconfig.constants.username}@nixos-fishy.options"; # FIXME
-            # };
-            denix = {
-              expr = "${flake}.inputs.denix.lib.options";
-            };
+            nixos.expr = "${flake}.nixosConfigurations.${host.name}.options";
+            # home-manager.expr = "${flake}.homeConfigurations.\"fishy@${host.name}\".options";
+            # myconfig.expr = "${flake}.nixosConfigurations.${host.name}.options.myconfig";
           };
         };
       };
