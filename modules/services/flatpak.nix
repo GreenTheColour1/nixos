@@ -15,7 +15,7 @@ delib.module {
     };
   };
 
-  nixos.always.imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
+  # nixos.always.imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
   home.always.imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
 
   nixos.ifEnabled.services.flatpak.enable = true;
@@ -25,6 +25,8 @@ delib.module {
       services.flatpak = {
         enable = true;
         update.auto.enable = true;
+        update.auto.onCalendar = "weekly";
+        uninstallUnmanaged = true;
         packages = cfg.packages;
         remotes = lib.mkOptionDefault [
           {
