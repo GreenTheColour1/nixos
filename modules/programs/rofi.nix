@@ -16,7 +16,7 @@ delib.module {
       programs.rofi = {
         enable = true;
         package = pkgs.rofi;
-        extraConfig = {
+        settings = {
           modi = "drun";
           columns = 1;
           lines = 5;
