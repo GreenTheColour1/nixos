@@ -25,6 +25,8 @@ delib.module {
       users.${myconfig.constants.username}.directories = [
         ".config/waypaper"
         ".local/state/waypaper"
+        ".cache/waypaper"
+        ".cache/awww"
       ];
     };
 }

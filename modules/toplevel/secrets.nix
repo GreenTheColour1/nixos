@@ -37,7 +37,7 @@ delib.module {
       sops.defaultSopsFile = ../../secrets.yaml;
       sops.defaultSopsFormat = "yaml";
 
-      sops.age.keyFile = "/${homeconfig.home.homeDirectory}/.config/sops/age/keys.txt";
+      sops.age.keyFile = "/persist//${homeconfig.home.homeDirectory}/.config/sops/age/keys.txt";
 
       sops.secrets = {
         "gh_private_key" = {

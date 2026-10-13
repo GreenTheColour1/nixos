@@ -23,7 +23,6 @@ delib.module {
         }
         ".local/share/heroic"
         ".local/state/Heroic"
-        "Games"
       ];
     };
 }

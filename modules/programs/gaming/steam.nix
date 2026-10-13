@@ -27,15 +27,12 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        # Live perms are 0700 (session tokens).
-        {
-          directory = ".local/share/Steam";
-          mode = "0700";
-        }
+        ".local/share/Steam"
         ".steam"
         ".factorio"
         ".renpy"
         ".config/unity3d"
+        "Games"
         ".local/share/Larian Studios"
         ".local/share/SlayTheSpire2"
         ".local/share/Tabletop Simulator"
