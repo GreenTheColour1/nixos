@@ -1,10 +1,13 @@
 {
   delib,
   inputs,
+  pkgs,
+  lib,
   ...
 }:
 let
   shared.nix = {
+    package = lib.mkDefault pkgs.nix;
     settings = {
       experimental-features = [
         "nix-command"
@@ -13,6 +16,10 @@ let
       trusted-users = [
         "root"
         "@wheel"
+      ];
+      nix-path = [
+        "nixpkgs=${inputs.nixpkgs}"
+        "nixos-config=$HOME/nix-config/"
       ];
       # substituters = [ "https://nix-community.cachix.org" ];
       # trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
@@ -26,10 +33,6 @@ delib.module {
     nix = {
       settings = shared.nix.settings;
 
-      nixPath = [
-        "nixpkgs=${inputs.nixpkgs}"
-        "nixos-config=$HOME/.dotfiles/"
-      ];
     };
   };
   home.always = shared;

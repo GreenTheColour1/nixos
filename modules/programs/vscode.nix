@@ -5,21 +5,25 @@
   inputs,
   ...
 }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  marketplace = inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace;
+in
 delib.module {
   name = "programs.vscode";
 
   options = delib.singleEnableOption host.guiFeatured;
 
-  nixos.always.nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+  # nixos.always.nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 
   home.ifEnabled = {
     programs.vscode = {
       enable = true;
       mutableExtensionsDir = true;
-      profiles.default.extensions = with pkgs.vscode-marketplace; [
+      profiles.default.extensions = with marketplace; [
         # Python
         ms-python.python
-        ms-python.vscode-pylance
+        # ms-python.vscode-pylance
         ms-python.debugpy
 
         # Nix

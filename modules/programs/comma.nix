@@ -10,8 +10,9 @@ delib.module {
 
   options = delib.singleEnableOption host.cliFeatured;
 
+  home.always.imports = [ inputs.nix-index-database.homeModules.nix-index ];
+
   home.ifEnabled = {
-    imports = [ inputs.nix-index-database.homeModules.nix-index ];
     programs.nix-index-database.comma.enable = true;
   };
 }

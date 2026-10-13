@@ -20,6 +20,7 @@ delib.module {
       programs.nixvim = {
         enable = true;
         inherit (cfg) defaultEditor;
+        nixpkgs.source = inputs.nixpkgs;
 
         clipboard.register = "unnamedplus";
 

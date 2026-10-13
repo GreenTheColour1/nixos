@@ -1,10 +1,9 @@
 {
   delib,
   inputs,
-  host,
   pkgs,
-  config,
   lib,
+  moduleSystem,
   ...
 }:
 delib.module {
@@ -19,6 +18,9 @@ delib.module {
     #   enable = false;
     # };
   };
+  home.always.imports = lib.optionals (moduleSystem == "home") [
+    inputs.niri-flake.homeModules.config
+  ];
   nixos.ifEnabled = {
     programs.niri = {
       enable = true;
@@ -135,7 +137,7 @@ delib.module {
 
           xwayland-satellite = {
             enable = true;
-            path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
+            # path = "${lib.getExe pkgs.xwayland-satellite-unstable}";
           };
 
           screenshot-path = "~/Media/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";

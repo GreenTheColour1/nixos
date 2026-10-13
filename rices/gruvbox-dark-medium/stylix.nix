@@ -2,6 +2,8 @@
   delib,
   pkgs,
   inputs,
+  lib,
+  moduleSystem,
   ...
 }:
 let
@@ -13,6 +15,8 @@ delib.rice {
 
   nixos = {
     imports = [ inputs.stylix.nixosModules.stylix ];
+
+    environment.pathsToLink = [ "/share/color-schemes" ];
 
     stylix = {
       enable = true;
@@ -45,8 +49,8 @@ delib.rice {
     {
       imports = [
         inputs.stylix.homeModules.stylix
-        # inputs.niri-flake.homeModules.stylix
-      ];
+      ]
+      ++ lib.optionals (moduleSystem == "home") [ inputs.niri-flake.homeModules.stylix ];
 
       stylix = {
         enable = true;
@@ -76,6 +80,7 @@ delib.rice {
           fuzzel.enable = true;
           fzf.enable = true;
           hyprland.enable = true;
+          kde.enable = true;
           kitty.enable = true;
           nixcord.enable = true;
           lazygit.enable = true;
