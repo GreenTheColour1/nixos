@@ -9,21 +9,19 @@ delib.module {
 
   options = delib.singleEnableOption host.gamingFeatured;
 
+  home.always.imports = [ inputs.xremap-flake.homeManagerModules.default ];
+
   home.ifEnabled = {
-    imports = [ inputs.xremap-flake.homeManagerModules.default ];
     services.xremap = {
       enable = true;
-      withWlroots = true;
+      withHypr = true;
       mouse = true;
       config = {
         modmap = [
           {
             name = "RuneLite";
             remap = {
-              BTN_EXTRA = {
-                held = "BTN_MIDDLE";
-                alone = "BTN_EXTRA";
-              };
+              BTN_EXTRA = "BTN_MIDDLE";
             };
             application = {
               only = "/RuneLite/";
