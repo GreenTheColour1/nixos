@@ -11,6 +11,13 @@ delib.host {
     "ai"
   ];
 
+  myconfig.disko = {
+    enable = true;
+    device = "/dev/nvme0n1";
+  };
+
+  myconfig.preservation.enable = true;
+
   displays = [
     {
       name = "DP-1";
