@@ -34,6 +34,40 @@ delib.module {
       };
     };
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
+      ];
+    }
+    // (
+      if myconfig.programs.ssh.enableOpenssh then
+        {
+          files = [
+            {
+              file = "/etc/ssh/ssh_host_ed25519_key";
+              how = "symlink";
+              configureParent = true;
+            }
+            {
+              file = "/etc/ssh/ssh_host_rsa_key";
+              how = "symlink";
+              configureParent = true;
+            }
+          ];
+        }
+      else
+        { }
+    );
+
   home.ifEnabled = {
     programs.ssh = {
       enable = true;

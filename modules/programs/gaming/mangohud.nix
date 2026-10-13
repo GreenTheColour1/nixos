@@ -11,6 +11,6 @@ delib.module {
 
   nixos.ifEnabled.environment.systemPackages = [
     pkgs.mangohud
-    pkgs.goverlay
+    # pkgs.goverlay
   ];
 }

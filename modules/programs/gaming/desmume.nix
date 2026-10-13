@@ -12,4 +12,10 @@ delib.module {
   home.ifEnabled.home.packages = with pkgs; [
     desmume
   ];
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/desmume" ];
+    };
 }

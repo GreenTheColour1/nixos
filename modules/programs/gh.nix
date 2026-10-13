@@ -12,4 +12,15 @@ delib.module {
   home.ifEnabled = {
     programs.gh.enable = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        {
+          directory = ".config/gh";
+          mode = "0751";
+        }
+      ];
+    };
 }

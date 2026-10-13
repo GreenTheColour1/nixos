@@ -31,4 +31,21 @@ delib.module {
       };
     };
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        {
+          directory = ".local/share/remmina";
+          mode = "0750";
+        }
+        {
+          directory = ".config/remmina";
+          mode = "0750";
+        }
+        ".config/freerdp"
+        ".config/libvirt"
+      ];
+    };
 }

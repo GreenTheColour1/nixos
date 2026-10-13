@@ -10,4 +10,10 @@ delib.module {
   options = delib.singleEnableOption host.guiFeatured;
 
   nixos.ifEnabled.environment.systemPackages = with pkgs; [ qbittorrent ];
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/qBittorrent" ];
+    };
 }

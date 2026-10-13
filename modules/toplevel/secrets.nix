@@ -11,6 +11,18 @@ delib.module {
     secrets = attrsOption { };
   };
 
+  preservation.always =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.files = [
+        {
+          file = ".config/sops/age/keys.txt";
+          mode = "0600";
+          configureParent = true;
+        }
+      ];
+    };
+
   nixos.always =
     { myconfig, ... }:
     {
@@ -19,7 +31,7 @@ delib.module {
       sops.defaultSopsFile = ../../secrets.yaml;
       sops.defaultSopsFormat = "yaml";
 
-      sops.age.keyFile = "/${homeconfig.home.homeDirectory}/.config/sops/age/keys.txt";
+      sops.age.keyFile = "/persist//${homeconfig.home.homeDirectory}/.config/sops/age/keys.txt";
 
       sops.secrets = {
         "gh_private_key" = {

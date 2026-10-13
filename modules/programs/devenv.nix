@@ -26,4 +26,18 @@ delib.module {
       };
     };
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          ".local/share/direnv"
+          {
+            directory = ".local/state/lazygit";
+            mode = "0700";
+          }
+        ];
+      };
+    };
 }

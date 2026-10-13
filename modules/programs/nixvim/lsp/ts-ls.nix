@@ -5,6 +5,6 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.ifEnabled.programs.nixvim.plugins.lsp.servers.ts_ls = {
-    enable = true;
+    enable = false;
   };
 }

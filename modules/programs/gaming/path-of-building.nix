@@ -16,6 +16,8 @@ delib.module {
     }
   ];
 
+  # Flatpak install: all state lives in ~/.var/app (see services.flatpak).
+
   # home.ifEnabled.home.packages = with pkgs; [
   #   rusty-path-of-building
   # ];

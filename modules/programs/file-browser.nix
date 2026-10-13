@@ -20,4 +20,16 @@ delib.module {
     # programs.xfconf.enable = true;
     # services.gvfs.enable = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          ".local/share/dolphin"
+          ".local/share/nautilus"
+        ];
+        files = [ ".local/share/user-places.xbel" ];
+      };
+    };
 }

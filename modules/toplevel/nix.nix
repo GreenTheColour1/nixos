@@ -36,4 +36,13 @@ delib.module {
     };
   };
   home.always = shared;
+
+  preservation.always =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/nix"
+        ".local/state/nix"
+      ];
+    };
 }

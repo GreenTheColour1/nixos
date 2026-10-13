@@ -27,4 +27,16 @@ delib.module {
       };
     };
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        "Obsidian"
+        {
+          directory = ".config/obsidian";
+          mode = "0700";
+        }
+      ];
+    };
 }

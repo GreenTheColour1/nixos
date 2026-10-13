@@ -27,4 +27,10 @@ delib.module {
         };
       };
     };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/udiskie" ];
+    };
 }

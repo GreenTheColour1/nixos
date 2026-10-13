@@ -26,6 +26,23 @@ delib.module {
     users.defaultUserShell = pkgs.zsh;
   };
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          "zsh"
+          ".local/share/zoxide"
+        ];
+        files = [
+          {
+            file = ".zsh_history";
+            mode = "0600";
+          }
+        ];
+      };
+    };
+
   home.ifEnabled =
     { cfg, ... }:
     {

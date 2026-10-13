@@ -11,7 +11,7 @@ delib.module {
   options.programs.aagl = with delib; {
     enable = boolOption host.gamingFeatured;
     enableAnimeGameLauncher = boolOption true;
-    enableSleepyLauncher = boolOption true;
+    enableSleepyLauncher = boolOption false;
   };
 
   nixos.always = {
@@ -26,5 +26,15 @@ delib.module {
     {
       programs.anime-game-launcher.enable = cfg.enableAnimeGameLauncher;
       programs.sleepy-launcher.enable = cfg.enableSleepyLauncher;
+    };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/anime-game-launcher"
+        ".local/share/sleepy-launcher"
+        ".config/hoyolab-cookie-helper"
+      ];
     };
 }

@@ -18,6 +18,24 @@ delib.module {
     };
   };
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [
+          "Documents"
+          "Media"
+          "Projects"
+          "Downloads"
+          "Machines"
+          "nix-config"
+          "Templates"
+          "Org"
+          ".config/autostart"
+        ];
+      };
+    };
+
   home.ifEnabled =
     { myconfig, ... }:
     {

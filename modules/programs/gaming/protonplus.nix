@@ -14,4 +14,13 @@ delib.module {
       protonplus
     ];
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".config/protonplus"
+        ".local/state/ProtonPlus"
+      ];
+    };
 }

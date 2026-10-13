@@ -51,4 +51,18 @@ delib.module {
       ];
     };
   };
+
+  # mutableExtensionsDir drift + profiles/sync state.
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        # Live perms are 0700 (auth tokens in storage).
+        {
+          directory = ".config/Code";
+          mode = "0700";
+        }
+        ".vscode"
+      ];
+    };
 }

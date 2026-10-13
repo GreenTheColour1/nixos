@@ -12,4 +12,15 @@ delib.module {
   nixos.ifEnabled.programs.thunderbird = {
     enable = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        {
+          directory = ".thunderbird";
+          mode = "0700";
+        }
+      ];
+    };
 }

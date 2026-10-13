@@ -11,4 +11,10 @@ delib.module {
   home.ifEnabled.programs.mpv = {
     enable = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".local/state/mpv" ];
+    };
 }

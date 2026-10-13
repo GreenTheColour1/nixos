@@ -24,4 +24,10 @@ delib.module {
       theme = spicePkgs.themes.text;
       colorScheme = "Gruvbox";
     };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/spotify" ];
+    };
 }

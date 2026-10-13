@@ -1,0 +1,4 @@
+# Nix build outputs — never commit these (e.g. build-vm results).
+result
+result-*
+*.qcow2

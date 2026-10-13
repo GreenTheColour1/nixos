@@ -10,6 +10,25 @@ delib.module {
     };
   };
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username} = {
+        directories = [ ".config/kdeconnect" ];
+        files = [
+          # Live perms are 0600 (pairing secrets).
+          {
+            file = ".local/state/kdeconnect.appstaterc";
+            mode = "0600";
+          }
+          {
+            file = ".local/state/kdeconnect.smsstaterc";
+            mode = "0600";
+          }
+        ];
+      };
+    };
+
   # nixos.ifEnabled = {
   #   networking.firewall = rec {
   #     allowedTCPPortRanges = [

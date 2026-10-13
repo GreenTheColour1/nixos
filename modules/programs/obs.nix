@@ -23,4 +23,10 @@ delib.module {
       obs-vkcapture
     ];
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".config/obs-studio" ];
+    };
 }

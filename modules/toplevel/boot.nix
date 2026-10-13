@@ -16,6 +16,15 @@ delib.module {
 
   nixos.always.imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    if myconfig.boot.enableSecureBoot then
+      {
+        directories = [ "/var/lib/sbctl" ];
+      }
+    else
+      { };
+
   nixos.ifEnabled =
     { myconfig, ... }:
     {

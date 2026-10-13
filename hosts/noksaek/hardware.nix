@@ -32,12 +32,14 @@ delib.host {
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [ ];
 
-    fileSystems."/" = {
+    # NOTE: mkDefault so the opt-in disko module (myconfig.disko.enable)
+    # can take over / and /boot when enabled. Untouched otherwise.
+    fileSystems."/" = lib.mkDefault {
       device = "/dev/disk/by-uuid/32b16c7b-ed00-4199-8fc0-b7a55778ab17";
       fsType = "ext4";
     };
 
-    fileSystems."/boot" = {
+    fileSystems."/boot" = lib.mkDefault {
       device = "/dev/disk/by-uuid/65F4-6C7B";
       fsType = "vfat";
       options = [
@@ -46,12 +48,12 @@ delib.host {
       ];
     };
 
-    fileSystems."/mnt/winvm" = {
+    fileSystems."/mnt/winvm" = lib.mkDefault {
       device = "/dev/disk/by-uuid/177bc512-0c3d-449d-a498-1c3efdbdcd0e";
       fsType = "ext4";
     };
 
-    swapDevices = [
+    swapDevices = lib.mkDefault [
       { device = "/dev/disk/by-uuid/39ad255a-aec2-476a-bdaf-36791f3c57ca"; }
     ];
 

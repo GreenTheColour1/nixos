@@ -9,7 +9,8 @@
 delib.module {
   name = "programs.apt";
 
-  options = delib.singleEnableOption host.gamingFeatured;
+  # options = delib.singleEnableOption host.gamingFeatured;
+  options = delib.singleEnableOption false;
 
   home.ifEnabled =
     { myconfig, ... }:

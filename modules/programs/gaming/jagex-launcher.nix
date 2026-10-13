@@ -11,4 +11,17 @@ delib.module {
 
   home.ifEnabled.home.packages = [ inputs.jagex-launcher.packages.x86_64-linux.default ];
 
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        {
+          directory = ".config/Jagex Launcher";
+          mode = "0700";
+        }
+        ".local/share/Jagex Launcher"
+        ".runelite"
+      ];
+    };
+
 }

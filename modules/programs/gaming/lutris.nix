@@ -13,4 +13,10 @@ delib.module {
   myconfig.ifEnabled.services.flatpak.packages = [
     { appId = "net.lutris.Lutris"; }
   ];
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".local/share/lutris" ];
+    };
 }

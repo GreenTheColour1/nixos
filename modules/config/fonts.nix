@@ -25,4 +25,11 @@ delib.module {
       material-design-icons
     ];
   };
+
+  # User-added fonts (fontconfig itself is HM-managed).
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [ ".fonts" ];
+    };
 }

@@ -22,4 +22,23 @@ delib.module {
 
     protontricks.enable = true;
   };
+
+  preservation.ifEnabled =
+    { myconfig, ... }:
+    {
+      users.${myconfig.constants.username}.directories = [
+        ".local/share/Steam"
+        ".steam"
+        ".factorio"
+        ".renpy"
+        ".config/unity3d"
+        "Games"
+        ".local/share/Larian Studios"
+        ".local/share/SlayTheSpire2"
+        ".local/share/Tabletop Simulator"
+        ".local/share/SpeedRunners"
+        ".local/share/Valve Corporation"
+        ".local/share/Proton"
+      ];
+    };
 }
