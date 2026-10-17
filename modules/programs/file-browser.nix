@@ -10,6 +10,7 @@ delib.module {
   options.programs.file-browser = with delib; {
     enable = boolOption host.guiFeatured;
     defaultFileBrowserPackage = packageOption pkgs.kdePackages.dolphin;
+    defaultFileBrowserDesktop = strOption "dolphin";
   };
 
   nixos.ifEnabled = {
@@ -27,7 +28,6 @@ delib.module {
       users.${myconfig.constants.username} = {
         directories = [
           ".local/share/dolphin"
-          ".local/share/nautilus"
         ];
         files = [ ".local/share/user-places.xbel" ];
       };
