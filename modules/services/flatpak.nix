@@ -47,6 +47,10 @@ delib.module {
             name = "dolphin-emu";
             location = "https://flatpak.dolphin-emu.org/releases.flatpakrepo";
           }
+          {
+            name = "modmanager-origin";
+            location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakrepo";
+          }
 
         ];
       };
