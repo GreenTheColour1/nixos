@@ -12,7 +12,7 @@ delib.module {
   myconfig.ifEnabled.services.flatpak.packages = [
     {
       appId = "community.pathofbuilding.PathOfBuilding";
-      origin = "flathub-beta";
+      origin = "flathub";
     }
   ];
 
