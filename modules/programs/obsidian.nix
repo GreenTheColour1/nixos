@@ -32,7 +32,7 @@ delib.module {
     { myconfig, ... }:
     {
       users.${myconfig.constants.username}.directories = [
-        "Obsidian"
+        "Documents/Obsidian"
         {
           directory = ".config/obsidian";
           mode = "0700";
