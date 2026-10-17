@@ -5,6 +5,8 @@ delib.host {
   rice = "gruvbox-dark-medium";
   type = "desktop";
 
+  secretsFile = ./secrets.yaml;
+
   features = [
     "wireless"
     "gaming"
@@ -54,18 +56,16 @@ delib.host {
     ly.enable = true;
   };
 
-  myconfig.sops.secrets = {
+  myconfig.sops.hostSecrets = {
     "ssh_host_ed25519_key" = {
       owner = "root";
       group = "root";
       mode = "0400";
-      sopsFile = ./secrets.yaml;
     };
     "ssh_host_rsa_key" = {
       owner = "root";
       group = "root";
       mode = "0400";
-      sopsFile = ./secrets.yaml;
     };
   };
 }

@@ -49,6 +49,7 @@
             (self.denixExtensions.preservation.withConfig {
               preserveAt = "/persist";
             })
+            self.denixExtensions."sops-host"
           ];
 
           specialArgs = {

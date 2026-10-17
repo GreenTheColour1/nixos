@@ -11,3 +11,7 @@ creation_rules:
     key_groups:
     - age:
       - *fishy
+  - path_regex: ^hosts/noksaek/secrets.yaml$
+    key_groups:
+    - age:
+      - *laptop-noksaek
