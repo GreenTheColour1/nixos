@@ -68,8 +68,10 @@ delib.module {
           defaultApplications =
             let
               browserBin = myconfig.programs.browser.defaultBrowserBin;
+              fileBrowserBin = myconfig.programs.file-browser.defaultFileBrowserDesktop;
             in
             {
+              "inode/directory" = "org.kde.${fileBrowserBin}.desktop";
               "application/json" = "${browserBin}.desktop";
               "application/pdf" = "${browserBin}.desktop";
               "application/x-xpinstall" = "${browserBin}.desktop";
@@ -78,6 +80,7 @@ delib.module {
               "text/xml" = "${browserBin}.desktop";
               "x-scheme-handler/http" = "${browserBin}.desktop";
               "x-scheme-handler/https" = "${browserBin}.desktop";
+              "x-scheme-handler/nxm" = "amethystmodmanager-nxm.desktop";
             };
         };
 
