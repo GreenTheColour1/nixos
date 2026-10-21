@@ -27,7 +27,6 @@ delib.host {
     services = {
       sddm.enable = false;
       ly.enable = true;
-      uwsm.enable = false;
     };
   };
 }
