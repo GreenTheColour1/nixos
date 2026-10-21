@@ -93,6 +93,7 @@ delib.rice {
           };
           qt.enable = true;
           rofi.enable = true;
+          zed.enable = true;
           yazi.enable = true;
         };
 
