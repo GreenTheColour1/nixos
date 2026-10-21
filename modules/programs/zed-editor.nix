@@ -43,8 +43,6 @@ delib.module {
     };
   };
 
-  # mutableUserSettings = false, so the settings file is a store symlink.
-  # Persist the db/extensions/language servers and Zed's other state.
   preservation.ifEnabled =
     { myconfig, ... }:
     {
